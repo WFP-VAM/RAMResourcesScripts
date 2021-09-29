@@ -1,7 +1,19 @@
 #### Title: R syntax for Food security indicators ####
 
-###### Intall/load packages ####
+###### Install/load packages ####
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg))
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
 
+packages<-c('psych','diveRsity','expss')
+ipak(packages)
+
+library('psych')
+
+library("diveRsity")
 ###### Set working directory #####
 ## Select the working directory where the data base is stored. 
 setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
@@ -13,7 +25,7 @@ getwd()# Display current working directory
 dir()# Display working directory content
 
 ### Load data base ####
-data <- read_excel(".\\DBCohortExample.xlsx", sheet="CohortExample")
+data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
 names(data)# Display var names for the entire data base
 attach(data)# Attach the data base for easy access to var names. 
 
@@ -22,93 +34,127 @@ attach(data)# Attach the data base for easy access to var names.
 ## Food Consumption Score (FCS) ####
 
 # 1. Re-coding missing values to zero
-data$CN1A[is.na(data$CN1A)] <-0 
-data$CN1B[is.na(data$CN1B)] <-0 
-data$CN2[is.na(data$CN2)] <-0  
-data$CN3[is.na(data$CN3)] <-0  
-data$CN4[is.na(data$CN4)] <-0   
-data$CN5[is.na(data$CN5)] <-0  
-data$CN6[is.na(data$CN6)] <-0  
-data$CN7[is.na(data$CN7)] <-0  
-data$CN8[is.na(data$CN8)] <-0
-data$CN9[is.na(data$CN9)] <-0
+data$FCSStap[is.na(data$FCSStap)] <-0 
+data$FCSVeg[is.na(data$FCSVeg)] <-0 
+data$FCSFruit[is.na(data$FCSFruit)] <-0  
+data$FCSPr[is.na(data$FCSPr)] <-0  
+data$FCSPulse[is.na(data$FCSPulse)] <-0   
+data$FCSDairy[is.na(data$FCSDairy)] <-0  
+data$FCSSugar[is.na(data$FCSSugar)] <-0  
+data$FCSFat[is.na(data$FCSFat)] <-0  
+data$FCSCond[is.na(data$FCSCond)] <-0
+
 
 # Test results
-print(data$CN1A) # How data looks like?
-print(data$CN6) # How data looks like?
+print(data$FCSStap) # How data looks like?
+print(data$FCSDairy) # How data looks like?
 
 ## 2. Variables creation and statistics testing
-# Var Ncertub (FCSStap)
-data$Ncertub <- mapply(max, data$CN1A, data$CN1B, na.rm=T)
-count(data$Ncertub)
-basicStats(data$Ncertub, ci=0.95)
-plot(density(data$Ncertub))
+# Var FCSStapCer FCSStapTub
+# although deprecated, in case two staples are collected separately, then:
+if ("FCSStap" %in% colnames(data)) {"x"} else 
+ { 
+  data$FCSStap <- mapply(max, data$FCSStapCer, data$FCSStapTub, na.rm=T)
+ }
+  count(data$FCSStap)
+  basicStats(data$FCSStap, ci=0.95)
+  plot(density(data$FCSStap))
 
 # Legumes/nuts (FCSPulse)
-data$CN2
-count(data$CN2)
-basicStats(data$CN2, ci=0.95)
-plot(density(data$CN2))
+data$FCSPulse
+count(data$FCSPulse)
+basicStats(data$FCSPulse, ci=0.95)
+plot(density(data$FCSPulse))
 
 # Milk and other dairy products (FCSDairy)
-data$CN3
-count(data$CN3)
-basicStats(data$CN3, ci=0.95)
-plot(density(data$CN3))
+data$FCSDairy
+count(data$FCSDairy)
+basicStats(data$FCSDairy, ci=0.95)
+plot(density(data$FCSDairy))
 
 # Meat, fish and eggs (FCSPr)
-data$CN4
-count(data$CN4)
-basicStats(data$CN4, ci=0.95)
-plot(density(data$CN4))
+data$FCSPr
+count(data$FCSPr)
+basicStats(data$FCSPr, ci=0.95)
+plot(density(data$FCSPr))
 
 # Vegetables and leaves (FCSVeg)
-data$CN5 
-count(data$CN5)
-basicStats(data$CN5, ci=0.95)
-plot(density(data$CN5))
+data$FCSVeg 
+count(data$FCSVeg)
+basicStats(data$FCSVeg, ci=0.95)
+plot(density(data$FCSVeg))
 
 # Fruits (FCSFruit)
-data$CN6 
-count(data$CN6)
-basicStats(data$CN6, ci=0.95)
-plot(density(data$CN6))
+data$FCSFruit 
+count(data$FCSFruit)
+basicStats(data$FCSFruit, ci=0.95)
+plot(density(data$FCSFruit))
 
 # Oil, fat and butter (FCSFat)  
-data$CN7 
-count(data$CN7)
-basicStats(data$CN7, ci=0.95)
-plot(density(data$CN7))
+data$FCSFat 
+count(data$FCSFat)
+basicStats(data$FCSFat, ci=0.95)
+plot(density(data$FCSFat))
 
 # Sugar and sweet (FCSSugar)
-data$CN8
-count(data$CN8)
-basicStats(data$CN8, ci=0.95)
-plot(density(data$CN8))
+data$FCSSugar
+count(data$FCSSugar)
+basicStats(data$FCSSugar, ci=0.95)
+plot(density(data$FCSSugar))
 
 # Condiments / Spices
-data$CN9
-count(data$CN9)
-basicStats(data$CN9, ci=0.95)
-plot(density(data$CN9))
+data$FCSCond
+count(data$FCSCond)
+basicStats(data$FCSCond, ci=0.95)
+plot(density(data$FCSCond))
 
 # 2.1 Recode above 7 to 7 (only if necesary)
-data$Ncertub[data$Ncertub>7] <- 7
-data$CN2[data$CN2>7] <- 7
-data$CN3[data$CN3>7] <- 7
-data$CN4[data$CN4>7] <- 7
-data$CN5[data$CN5>7] <- 7
-data$CN6[data$CN6>7] <- 7
-data$CN7[data$CN7>7] <- 7
-data$CN8[data$CN8>7] <- 7
-data$CN9[data$CN9>7] <- 7
+data$Ncertub[data$FCSStap>7] <- 7
+data$FCSPulse[data$FCSPulse>7] <- 7
+data$FCSDairy[data$FCSDairy>7] <- 7
+data$FCSPr[data$FCSPr>7] <- 7
+data$FCSVeg[data$FCSVeg>7] <- 7
+data$FCSFruit[data$FCSFruit>7] <- 7
+data$FCSFat[data$FCSFat>7] <- 7
+data$FCSSugar[data$FCSSugar>7] <- 7
+data$FCSCond[data$FCSCond>7] <- 7
 
 # 3. Multiplying food groups by weight and creates FCS1
-data$fcs1 <- mapply(sum,(data$Ncertub*2),(data$CN2*3),(data$CN3*4),(data$CN4*4),(data$CN5),(data$CN6),(data$CN7*0.5),(data$CN8*0.5))
+data$FCS <- mapply(sum,(data$FCSStap*2),(data$FCSPulse*3),(data$FCSDairy*4),
+                   (data$FCSPr*4),(data$FCSVeg),(data$FCSFruit),(data$FCSFat*0.5),
+                   (data$FCSSugar*0.5))
+###### Test  #####
+head(data$FCS, n=10)
+psych::describe(data$FCS)
+summary(data$FCS)
+stat.desc(data$FCS, basic = F)
+plot(density(data$FCS))
+##### FCS Categories #####
+###Use this when analyzing a country with low consumption of sugar and oil - thresholds 21-35
+data$FCSCat21 <-cut(data$FCS,
+                    breaks=c(0,21,35,Inf),
+                    include.lowest=TRUE,
+                    #labels=c("Poor","Borderline","Acceptable"))
+                    labels=FALSE)
 
-# Test 
-head(data$fcs1, n=10)
-psych::describe(data$fcs1)
-summary(data$fcs1)
-stat.desc(data$fcs1, basic = F)
-plot(density(data$fcs1))
+### define value labels and properties for "FCS Categories".
+val_lab(data$FCSCat21) = num_lab("
+             1 Poor
+             2 Borderline
+             3 Acceptable
+")
+
+
+### Important note: pay attention to the threshold used by your CO when selecting the syntax (21 cat. vs 28 cat.)
+### Use this when analyzing a country with high consumption of sugar and oil - thresholds 28-42
+data$FCSCat28 <-cut(data$FCS,
+                    breaks=c(0,28,42,Inf),
+                    include.lowest=TRUE,
+                    #labels=c("Poor","Borderline","Acceptable"))
+                    labels=FALSE)
+### define value labels and properties for "FCS Categories".
+val_lab(data$FCSCat28) = num_lab("
+             1 Poor
+             2 Borderline
+             3 Acceptable
+")
