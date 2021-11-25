@@ -240,7 +240,7 @@ Variable labels MDDI_poor ‘MDDI Incidence’.
 Variable labels MDDI_poor_severe ‘MDDI Incidence – severe deprivation’.
 Value labels MDDI_poor MDDI_poor_severe 
 	 1 ‘ HH is deprived’
-                   2 ‘HH is not deprived’.
+                   0 ‘HH is not deprived’.
 Execute.
 /**Calculate the Average MDDI Intensity (A)
 
