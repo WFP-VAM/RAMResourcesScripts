@@ -1,3 +1,3 @@
-# RAM Resources - Scripts
-This folder contains all standardized scripts for indicators, analysis and visualization.
-## Main folder
+# RAM Resources Scripts - Analysis
+
+This folder contains all standardized scripts for computing plots, cross-tabulations & summary output tables for indicators
