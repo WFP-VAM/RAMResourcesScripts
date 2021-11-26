@@ -99,9 +99,6 @@ lab val Max_coping_behaviorEN Max_coping_behaviorEN_label
 */
 
 
-***Important note: If `to buy food' is not among the reasons selected for applying livelihood coping strategies then these case/households should be considered under `not coping' when computing CARI
-
-
 
 *tabulate results 
 tabstat LhCSIEnAccess1 LhCSIEnAccess2 LhCSIEnAccess3 LhCSIEnAccess4 LhCSIEnAccess5 LhCSIEnAccess6 LhCSIEnAccess7 LhCSIEnAccess8 LhCSIEnAccess999,statistics(mean) columns(statistics)
