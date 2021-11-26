@@ -1,3 +1,4 @@
+* Encoding: UTF-8.
 ***Perceived Needs Analysis for Essential Needs**
 **************************************************************************************************************
 ** Objective: Perceived Needs Analysis
@@ -96,7 +97,39 @@ CTABLES
     HHPercNeedCaregive HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice 
     CMPercNeedGBViolence CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving ORDER=A 
     KEY=VALUE EMPTY=EXCLUDE
+**Recode all not answered options into system missing
+    
+recode HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
+    HHPercNeedHygienem HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll 
+    HHPercNeedHealthm HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive 
+    HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence 
+    CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving (8888=0).
+    
+
+
+***Create multiple response dataset to show average of all response %
+    
+MRSETS
+  /MDGROUP NAME=$AllPercNeeds LABEL='All perceived needs indicators ' CATEGORYLABELS=VARLABELS 
+    VARIABLES=HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet HHPercNeedHygienem 
+    HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll HHPercNeedHealthm 
+    HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive HHPercNeedInfoDis 
+    HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence CMPercNeedSubstAbuse 
+    CMPercNeedMentalCare CMPercNeedCaregiving VALUE=1
+  /DISPLAY NAME=[$AllPercNeeds].
+
+**Analyze all problems with average of all response %
+    
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=$AllPercNeeds DISPLAY=LABEL
+  /TABLE $AllPercNeeds [TABLEPCT.RESPONSES PCT40.1]
+  /CATEGORIES VARIABLES=$AllPercNeeds  EMPTY=INCLUDE
   /CRITERIA CILEVEL=95.
+  /CRITERIA CILEVEL=95.
+
+
 
 ***Analyze the most serious problems**
     
@@ -158,3 +191,6 @@ execute.
 variable labels Perceived_total 'Total number of problems identified'.
 execute.
 frequencies Perceived_total /statistics=mean /statistics=median.
+
+
+
