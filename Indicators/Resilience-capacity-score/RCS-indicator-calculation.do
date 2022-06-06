@@ -8,7 +8,23 @@ import delim using "../../Static/RCS_Sample_Survey.csv", clear case(preserve) bi
 qui foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess {
 	cap destring `var', replace i("n/a")
 }
+/// GENERATE RANDOM DATA
+expand 100 in 4
+generate w = runiform()
+
+foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess {
+	replace w = runiform()
+	qui su w 
+	replace `var'=round((w-r(min))*(5-1)/(r(max)-r(min)) + 1,1)
+	
+}
+
+//// END OF RANDOM DATA GENERATION
 ***Resilience Capacity Score***
+capture confirm variable RCS 
+if !_rc {
+cap rename RCS old_RCS
+}
 *
 label var HHRCSBounce          "Your household can bounce back from any challenge that life throws at it."
 label var HHRCSRevenue         "During times of hardship your household can change its primary income or source of livelihood if needed."
@@ -22,22 +38,7 @@ label var HHRCSWarningAccess    "Your household receives useful information warn
 
 label define Likert5 1 "Strongly Agree" 2 "Partially agree" 3 "Neutral" 4 "Somewhat disagree" 5 "Totally disagree"
 label values HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess Likert5
-expand 100 in 4
-generate w = runiform()
 
-ta HHRCSBounce
-
-foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess {
-	replace w = runiform()
-	qui su w 
-	replace `var'=round((w-r(min))*(5-1)/(r(max)-r(min)) + 1,1)
-	
-}
-
-capture confirm variable RCS 
-if !_rc {
-cap rename RCS old_RCS
-}
 
 ** 	Standardizing the score. ***************************************************
 /*
