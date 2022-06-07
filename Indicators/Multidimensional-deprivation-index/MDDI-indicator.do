@@ -1,7 +1,7 @@
-STATA Syntax for the Multidimensional Deprivation Index (MDDI)
+*STATA Syntax for the Multidimensional Deprivation Index (MDDI)
 					 
 *Construction of the Multidimensional Deprivation Index (MDDI) is based on the codebook questions prepared for the MDDI module available at:
-https://docs.wfp.org/api/documents/WFP-0000121341/download/
+*https://docs.wfp.org/api/documents/WFP-0000121341/download/
 
 *1. Creation of variables of deprivations for each dimension
 

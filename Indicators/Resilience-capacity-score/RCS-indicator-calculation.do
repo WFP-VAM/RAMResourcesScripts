@@ -42,7 +42,7 @@ label values HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportC
 
 ** 	Standardizing the score. ***************************************************
 /*
-Once answers to each of the statements have been gathered, they are numerically converted (Strongly disagree = 1, Disagree=2, Neutral =3, Agree=4, Strongly agree = 5). Individual answers are then used to compute an overall resilience score for each household as an equally weighted average of the nine answers.
+Once answers to each of the statements have been gathered, they are numerically converted (Strongly agree = 1, Agree=2, Neutral =3, Disagree=4, Strongly disagree = 5). Individual answers are then used to compute an overall resilience score for each household as an equally weighted average of the nine answers.
 
 The resilience score is standardized by minmax normalization , transforming the results in a score that ranges from 0 (not at all resilient) to 100 (fully resilient).
 y = (ymax-ymin)*(x-xmin)/(xmax-xmin) + ymin;
