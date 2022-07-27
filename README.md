@@ -6,3 +6,5 @@ This folder contains all standardized scripts for indicators, analysis and visua
 - **Logical Cleaning**: Removing and replacing values that are outside logical boundaries for the specific data points (e.g.: negative expenditures, Food Consumption > 7,…)
 - **Statistical Cleaning:** cleaning and replacing missing values based on analysis of the statistical distributions (e.g.: expenditures above the 99th percentile of the distribution,… )
 - **Static:** Sample files that can be used for testing all of the above
+
+_Last update_: 2022/07/27
