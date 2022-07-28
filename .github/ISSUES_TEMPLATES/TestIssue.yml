@@ -1,9 +1,9 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
+name: Indicator
+description: Request the modification or addition of an indicator
+title: "[Indicator]: "
+labels: ["new", "enhancements"]
 assignees:
-  - octocat
+  - ValerioGiuffrida
 body:
   - type: markdown
     attributes:
@@ -16,7 +16,25 @@ body:
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
     validations:
-      required: false
+      required: true
+  - type: checkboxes
+    id: isCrf
+    attributes:
+      label: Corporate Result Framework
+      description: Is the indicator included in the CRF or piloted in the indicator compendium?
+      options:
+        - label: Yes
+          required: true
+
+  - type: input
+    id: owner-unit
+    attributes:
+      label: Unit owning the indicator
+      description: Which unit has designed the indicator (in particular if CRF indicator)?
+      placeholder: ex. RAMAE
+    validations:
+      required: true
+
   - type: textarea
     id: what-happened
     attributes:
@@ -27,13 +45,16 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: version
+    id: Software-version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Software version
+      multiple: true
+      description: What software would you like to use for the calculation of this index?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - R
+        - SPSS
+        - Stata
+        - Python
     validations:
       required: true
   - type: dropdown
