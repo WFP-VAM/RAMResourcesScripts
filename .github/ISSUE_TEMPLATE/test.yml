@@ -1,44 +1,13 @@
 ---
-name: Single Email request
-description: For sending a single, or one-off, email
-title: "Task: [Single-Email] - "
-labels: ["Single-Email"]
+name: Indicator
+description: Request the modification or addition of an indicator
+title: "Indicator: "
+labels: ["new"]
 body:
 - type: markdown
   attributes:
     value: |
-        ![](http://images.github.media/EloquaImages/clients/GitHubInc/%7B64693387-8abe-494c-8af0-7bde046a64d1%7D_hubot_512.png)
-
-        Hey there, **please leave `Task: [Single-Email] -` as part of the title. You can add your custom title after the `-`** this will guarantee that your issue shows up on our project board :rocket:
-
-        Well, now that we covered the important part about the title let me introduce myself...I am the MOPs bot! In this repo we use ChatOps to streamline our communication and run development and operations functions. Because of that you will see me around a lot! Don't be a stranger :wink:
-
-        Please go ahead and fill out the basic information needed for a Single Email below then hit `Submit new issue` and I'll be back with next steps.
-- type: dropdown
-  id: Region
-  attributes:
-    label: What region are you in?
-    description: We have primary contacts assigned per region. Please let us know your region for assigment purposes.
-    options:
-        - I am based in AMER
-        - I am based in APAC
-        - I am based in EMEA
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Proposed Audience
-    placeholder: "Audience selection criteria, list etc"
-  validations:
-    required: true
-- type: input
-  id: dates
-  attributes:
-    label: Test and Send Dates
-    description: Provide Test and Send date
-    placeholder: ex. Test 01/06/2022 Send 01/08/2022
-  validations:
-    required: true
+        Thanks for taking the time to fill out this issue! 
 - type: input
   id: test-approval
   attributes:
@@ -48,37 +17,29 @@ body:
   validations:
     required: true
 - type: input
-  id: Approval
+  id: contact
   attributes:
-    label: Approved / Pending
-    description: Is the content Approved?
-    placeholder: Approved
-  validations:
-    required: false
-- type: input
-  id: approver
-  attributes:
-    label: Approved by
-    description: The content is approved by
-    placeholder: ex. Approvers name
-  validations:
-    required: false
-- type: input
-  id: From
-  attributes:
-    label: Email From
-    description: Email from address?
-    placeholder: ex. marketing@marketing.com
+    label: Contact Details
+    description: How can we get in touch with you if we need more info?
+    placeholder: ex. email@example.com
   validations:
     required: true
 - type: input
-  id: Reply
+  id: isCrf
   attributes:
-    label: Reply to
-    description: Reply to address?
-    placeholder: ex. marketing@marketing.com
+    label: Corporate Result Framework
+    description: Is the indicator included in the CRF or piloted in the indicator compendium?
+    placeholder: Please give us a `Yes` or `No` answer
   validations:
-    required: false
+    required: true
+- type: input
+  id: owner-unit
+  attributes:
+    label: Unit owning the indicator
+    description: Which unit has designed the indicator? In particular if CRF indicator.
+    placeholder: ex. RAMAE
+  validations:
+    required: true
 - type: input
   id: test
   attributes:
@@ -109,22 +70,40 @@ body:
     placeholder: You are invited to GitHub webinar
   validations:
     required: false
-- type: input
-  attributes:
-    label: Email subject
-    description: Add the email subject
-    placeholder: GitHub webinar coming up
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Email header image
-    description: Add the header image if you plan on using one, otherwise leave this field blank.
-    placeholder: Drag and drop the image from your computer here
-- type: textarea
-  attributes:
-    label: Email body
-    description: Need help with Markdown email templates? Feel free to use one of [these.](https://github.com/github/marketing-operations/blob/master/Email-templates.md)
-    placeholder: Starting typing and dragging images here
-  validations:
-    required: true
+- type: dropdown
+    id: Software-version
+    attributes:
+      label: Software version
+      multiple: true
+      description: What software would you like to use for the calculation of this index?
+      options:
+        - R
+        - SPSS
+        - Stata
+        - Python
+    validations:
+      required: true
+- type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
