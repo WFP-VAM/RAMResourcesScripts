@@ -1,0 +1,130 @@
+---
+name: Single Email request
+description: For sending a single, or one-off, email
+title: "Task: [Single-Email] - "
+labels: ["Single-Email"]
+body:
+- type: markdown
+  attributes:
+    value: |
+        ![](http://images.github.media/EloquaImages/clients/GitHubInc/%7B64693387-8abe-494c-8af0-7bde046a64d1%7D_hubot_512.png)
+
+        Hey there, **please leave `Task: [Single-Email] -` as part of the title. You can add your custom title after the `-`** this will guarantee that your issue shows up on our project board :rocket:
+
+        Well, now that we covered the important part about the title let me introduce myself...I am the MOPs bot! In this repo we use ChatOps to streamline our communication and run development and operations functions. Because of that you will see me around a lot! Don't be a stranger :wink:
+
+        Please go ahead and fill out the basic information needed for a Single Email below then hit `Submit new issue` and I'll be back with next steps.
+- type: dropdown
+  id: Region
+  attributes:
+    label: What region are you in?
+    description: We have primary contacts assigned per region. Please let us know your region for assigment purposes.
+    options:
+        - I am based in AMER
+        - I am based in APAC
+        - I am based in EMEA
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Proposed Audience
+    placeholder: "Audience selection criteria, list etc"
+  validations:
+    required: true
+- type: input
+  id: dates
+  attributes:
+    label: Test and Send Dates
+    description: Provide Test and Send date
+    placeholder: ex. Test 01/06/2022 Send 01/08/2022
+  validations:
+    required: true
+- type: input
+  id: test-approval
+  attributes:
+    label: Who should receive the test email for final approval
+    description: Provide final assets approver's contact
+    placeholder: brunochester@github.com
+  validations:
+    required: true
+- type: input
+  id: Approval
+  attributes:
+    label: Approved / Pending
+    description: Is the content Approved?
+    placeholder: Approved
+  validations:
+    required: false
+- type: input
+  id: approver
+  attributes:
+    label: Approved by
+    description: The content is approved by
+    placeholder: ex. Approvers name
+  validations:
+    required: false
+- type: input
+  id: From
+  attributes:
+    label: Email From
+    description: Email from address?
+    placeholder: ex. marketing@marketing.com
+  validations:
+    required: true
+- type: input
+  id: Reply
+  attributes:
+    label: Reply to
+    description: Reply to address?
+    placeholder: ex. marketing@marketing.com
+  validations:
+    required: false
+- type: input
+  id: test
+  attributes:
+    label: Test Email Recepients
+    description: Who should receive the test email?
+    placeholder: ex. brunochester@github.com
+  validations:
+    required: true
+- type: input
+  id: sfid
+  attributes:
+    label: Salesforce Campaign ID
+    description: Please provide Salesforce Campaign ID if this email is part of a SFDC campaign
+    placeholder: ex. 7013o000002SggXXXX
+  validations:
+    required: false
+- type: input
+  attributes:
+    label: Email name
+    description: Please add the email name followed by its send order.
+    placeholder: Campaign_name-Invite-Email-1
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Email preheader
+    description: Please add the pre-header for your email
+    placeholder: You are invited to GitHub webinar
+  validations:
+    required: false
+- type: input
+  attributes:
+    label: Email subject
+    description: Add the email subject
+    placeholder: GitHub webinar coming up
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Email header image
+    description: Add the header image if you plan on using one, otherwise leave this field blank.
+    placeholder: Drag and drop the image from your computer here
+- type: textarea
+  attributes:
+    label: Email body
+    description: Need help with Markdown email templates? Feel free to use one of [these.](https://github.com/github/marketing-operations/blob/master/Email-templates.md)
+    placeholder: Starting typing and dragging images here
+  validations:
+    required: true
