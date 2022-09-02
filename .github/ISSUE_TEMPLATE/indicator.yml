@@ -65,6 +65,7 @@ body:
       value: "- [ ] [Task]: R script - {{ data.indicator-name }}
         - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
         - [ ]  [Task]: Stata script - {{ data.indicator-name }}"
+      render: markdown
 
   - type: dropdown
     id: Software-version
