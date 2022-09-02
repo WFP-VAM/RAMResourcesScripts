@@ -9,9 +9,9 @@ assignees:
 
 body:
   - type: markdown
+    id: intro
     attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
+      value: "Thanks for taking the time to fill out this request"
 
   - type: input
     id: contact
