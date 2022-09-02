@@ -4,6 +4,7 @@ title: "[Indicator]: "
 labels: ["new", "enhancements"]
 assignees:
 - ValerioGiuffrida
+
 body:
   - type: markdown
     id: intro
