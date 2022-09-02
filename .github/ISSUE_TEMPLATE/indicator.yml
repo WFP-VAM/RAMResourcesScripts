@@ -11,14 +11,14 @@ body:
       value: | 
         Thanks for taking the time to fill out this request
 
-  - type: checkboxes
+  - type: dropdown
     id: create-or-modify
     attributes:
       label: Create or modify indicator?
       description: Is the request about creating or adding an indicator?
       options: 
-        - Create
-        - Modify
+      - Create
+      - Modify
 
   - type: input
     id: contact
