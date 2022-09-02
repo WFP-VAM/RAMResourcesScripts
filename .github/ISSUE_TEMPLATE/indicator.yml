@@ -27,16 +27,15 @@ body:
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
 
-  - type: checkboxes
+  - type: dropdown
     id: isCrf
     attributes:
       label: Corporate Result Framework
       description: Is the indicator included in the CRF or piloted in the indicator compendium?
-      multiple: false
       options: 
-        - CRF
-        - Pilot
-        - No
+      - CRF
+      - Pilot
+      - No
 
   - type: input
     id: owner-unit
