@@ -1,5 +1,6 @@
 ---
 name: "Indicator"
+about: Create or modify an indicator
 description: Request the modification or addition of an indicator
 title: "[Indicator]: "
 labels: ["new", "enhancements"]
@@ -14,6 +15,15 @@ body:
   attributes:
     value: "Thanks for taking the time to fill out this request"
 
+- type: checkboxes
+  id: create-or-modify
+  attributes:
+    label: Create or modify indicator?
+    description: Is the request about creating or adding an indicator?
+    options: ["Create", "Modify"]
+  validations:
+    required: true
+    
 - type: input
   id: contact
   attributes:
