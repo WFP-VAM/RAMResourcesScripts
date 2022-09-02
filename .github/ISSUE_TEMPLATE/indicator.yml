@@ -4,7 +4,6 @@ title: "[Indicator]: "
 labels: ["new", "enhancements"]
 assignees:
 - ValerioGiuffrida
-
 body:
   - type: markdown
     id: intro
@@ -67,7 +66,7 @@ body:
         - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
         
         - [ ]  [Task]: Stata script - {{ data.indicator-name }}"
-   render: markdown
+      render: markdown
 
   - type: dropdown
     id: Software-version
