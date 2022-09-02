@@ -63,7 +63,9 @@ body:
       description: Do not modify this area.
       placeholder: Tell us what you see!
       value: "- [ ] [Task]: R script - {{ data.indicator-name }}
+      
         - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
+        
         - [ ]  [Task]: Stata script - {{ data.indicator-name }}"
       render: markdown
 
