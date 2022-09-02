@@ -23,8 +23,6 @@ assignees:
       options: 
         - Create
         - Modify
-    validations:
-      required: true
 
   - type: input
     id: contact
@@ -32,8 +30,6 @@ assignees:
       label: Contact Details
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
-    validations:
-      required: true
 
   - type: checkboxes
     id: isCrf
@@ -44,8 +40,6 @@ assignees:
         - CRF
         - Pilot
         - No
-    validations:
-      required: true
 
   - type: input
     id: owner-unit
@@ -53,8 +47,6 @@ assignees:
       label: Unit owning the indicator
       description: Which unit has designed the indicator (in particular if CRF indicator)?
       placeholder: ex. RAM-E
-    validations:
-      required: true
 
   - type: textarea
     id: batch-creation
@@ -65,8 +57,6 @@ assignees:
       value: "- [ ] Create R script
         - [ ]  Create SPSS script
         - [ ]  Create Stata script"
-    validations:
-      required: true
 
   - type: dropdown
     id: Software-version
@@ -79,8 +69,6 @@ assignees:
         - SPSS
         - Stata
         - Python
-    validations:
-      required: true
 
   - type: textarea
     id: logs
