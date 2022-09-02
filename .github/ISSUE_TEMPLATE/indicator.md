@@ -39,8 +39,8 @@ assignees:
       label: Corporate Result Framework
       description: Is the indicator included in the CRF or piloted in the indicator compendium?
       options: ["CRF", "Pilot", "No"]
-        - label: Yes
-          required: true
+    validations:
+      required: true
 
   - type: input
     id: owner-unit
