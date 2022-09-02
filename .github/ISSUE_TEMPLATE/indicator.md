@@ -1,4 +1,3 @@
----
 name: "Indicator"
 about: Create or modify an indicator
 description: Request the modification or addition of an indicator
@@ -6,7 +5,6 @@ title: "[Indicator]: "
 labels: ["new", "enhancements"]
 assignees:
   - ValerioGiuffrida
----
 - type: form
   style: embedded
   body:
