@@ -1,11 +1,12 @@
-----
+---
 name: "Indicator"
 description: Request the modification or addition of an indicator
 title: "[Indicator]: "
 labels: ["new", "enhancements"]
-----
 assignees:
   - ValerioGiuffrida
+---
+
 
 body:
 - type: markdown
