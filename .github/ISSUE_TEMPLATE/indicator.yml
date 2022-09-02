@@ -9,8 +9,16 @@ body:
     id: intro
     attributes:
       value: | 
-        Thanks for taking the time to fill out this request
+        Thanks for taking the time to fill out this request, please keep the Indicator tag at the beginning of the title
 
+  - type: input
+    id: indicator-name
+    attributes:
+      label: Indicator name
+      description: please provide full name of the indicator
+    validations:
+      required: true
+      
   - type: dropdown
     id: create-or-modify
     attributes:
@@ -54,9 +62,9 @@ body:
       label: No modifications
       description: Do not modify this area.
       placeholder: Tell us what you see!
-      value: "- [ ] Create R script
-        - [ ]  Create SPSS script
-        - [ ]  Create Stata script"
+      value: "- [ ] [Task]: R script - {{ data.indicator-name }}
+        - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
+        - [ ]  [Task]: Stata script - {{ data.indicator-name }}"
 
   - type: dropdown
     id: Software-version
