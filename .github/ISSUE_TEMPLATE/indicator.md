@@ -20,7 +20,9 @@ assignees:
     attributes:
       label: Create or modify indicator?
       description: Is the request about creating or adding an indicator?
-      options: ["Create", "Modify"]
+      options: 
+        - Create
+        - Modify
     validations:
       required: true
 
@@ -38,7 +40,10 @@ assignees:
     attributes:
       label: Corporate Result Framework
       description: Is the indicator included in the CRF or piloted in the indicator compendium?
-      options: ["CRF", "Pilot", "No"]
+      options: 
+        - CRF
+        - Pilot
+        - No
     validations:
       required: true
 
