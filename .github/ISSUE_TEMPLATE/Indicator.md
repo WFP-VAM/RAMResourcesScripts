@@ -1,14 +1,18 @@
+----
 name: Indicator
 description: Request the modification or addition of an indicator
 title: "[Indicator]: "
 labels: ["new", "enhancements"]
+----
 assignees:
   - ValerioGiuffrida
+
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+
   - type: input
     id: contact
     attributes:
@@ -17,12 +21,13 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: true
+
   - type: checkboxes
     id: isCrf
     attributes:
       label: Corporate Result Framework
       description: Is the indicator included in the CRF or piloted in the indicator compendium?
-      options:
+      options: ["CRF", "Pilot", "No"]
         - label: Yes
           required: true
 
@@ -31,19 +36,22 @@ body:
     attributes:
       label: Unit owning the indicator
       description: Which unit has designed the indicator (in particular if CRF indicator)?
-      placeholder: ex. RAMAE
+      placeholder: ex. RAM-E
     validations:
       required: true
 
   - type: textarea
-    id: what-happened
+    id: batch-creation
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
+      label: No modifications
+      description: Do not modify this area.
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: "- [ ] Create R script
+        - [ ]  Create SPSS script
+        - [ ]  Create Stata script"
     validations:
       required: true
+
   - type: dropdown
     id: Software-version
     attributes:
@@ -57,22 +65,14 @@ body:
         - Python
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+
   - type: textarea
     id: logs
     attributes:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+
   - type: checkboxes
     id: terms
     attributes:
