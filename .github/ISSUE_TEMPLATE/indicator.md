@@ -7,8 +7,9 @@ labels: ["new", "enhancements"]
 assignees:
   - ValerioGiuffrida
 ---
-
-body:
+- type: form
+  style: embedded
+  body:
   - type: markdown
     id: intro
     attributes:
