@@ -56,14 +56,17 @@ body:
       description: Which unit has designed the indicator (in particular if CRF indicator)?
       placeholder: ex. RAM-E
 
-  - type: markdown
+  - type: textarea
     id: batch-creation
     attributes:
+      label: Batch of tasks created
+      description: Do not modify this area.
       value: "- [ ] [Task]: R script - {{ data.indicator-name }}
       
         - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
         
         - [ ]  [Task]: Stata script - {{ data.indicator-name }}"
+     render: markdown
 
   - type: dropdown
     id: Software-version
