@@ -59,7 +59,7 @@ body:
   - type: textarea
     id: batch-creation
     attributes:
-      label: No modifications
+      label: Batch of tasks created
       description: Do not modify this area.
       placeholder: Tell us what you see!
       value: "- [ ] [Task]: R script - {{ data.indicator-name }}
