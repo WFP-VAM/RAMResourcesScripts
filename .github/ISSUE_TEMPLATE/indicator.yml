@@ -35,7 +35,7 @@ body:
       label: Corporate Result Framework
       description: Is the indicator included in the CRF or piloted in the indicator compendium?
       options: 
-      - None
+      - No
       - CRF
       - Pilot
     validations:
