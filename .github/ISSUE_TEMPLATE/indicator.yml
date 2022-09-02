@@ -59,8 +59,6 @@ body:
   - type: markdown
     id: batch-creation
     attributes:
-      label: Batch of tasks created
-      description: Do not modify this area.
       value: "- [ ] [Task]: R script - {{ data.indicator-name }}
       
         - [ ]  [Task]: SPSS script - {{ data.indicator-name }}
