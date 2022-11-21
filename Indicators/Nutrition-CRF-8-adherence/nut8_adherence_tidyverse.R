@@ -3,7 +3,7 @@ library(labelled)
 library(expss)
 
 #add sample data
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_CRF_8_Sample_Survey/Nutrition_module_NutProg_submodule_RepeatNutProg.csv")
+data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_CRF_8_adherence_Sample_Survey/Nutrition_module_NutProg_submodule_RepeatNutProg.csv")
 
 #can only download repeat csv data as zip file from moda with group names - will update this code to remove group names
 #rename to remove group names
