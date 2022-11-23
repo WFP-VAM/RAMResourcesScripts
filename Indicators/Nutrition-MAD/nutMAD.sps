@@ -3,156 +3,177 @@
 *can only download repeat csv data as zip file from moda with group names - will update this code to remove group names
 *rename to remove group names - because of the variable length SPSS changes name slightly
 
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWStapCer = PWMDDWStapCer).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWStapRoo = PWMDDWStapRoo).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPulse = PWMDDWPulse).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWNuts = PWMDDWNuts).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWMilk = PWMDDWMilk).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWDairy = PWMDDWDairy).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrMeatO = PWMDDWPrMeatO).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrMeatF = PWMDDWPrMeatF).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrMeatPro = PWMDDWPrMeatPro).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrMeatWhite = PWMDDWPrMeatWhite).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrFish = PWMDDWPrFish).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWPrEgg = PWMDDWPrEgg).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWVegGre = PWMDDWVegGre).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWVegOrg = PWMDDWVegOrg).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFruitOrg = PWMDDWFruitOrg).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWVegOth = PWMDDWVegOth).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFruitOth = PWMDDWFruitOth).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWSnf = PWMDDWSnf).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodoil = PWMDDWFortFoodoil).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodwflour = PWMDDWFortFoodwflour).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodmflour = PWMDDWFortFoodmflour).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodrice = PWMDDWFortFoodrice).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFooddrink = PWMDDWFortFooddrink).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodother_A = PWMDDWFortFoodother).
-RENAME VARIABLES (Nutrition_moduleMDD_W_submoduleRepeatMDDWPWMDDWFortFoodother = PWMDDWFortFoodother_oth).
 
-Variable labels PWMDDWStapCer  "Foods made from grains".
-Variable labels PWMDDWStapRoo "White roots and tubers or plantains".
-Variable labels PWMDDWPulse  "Pulses (beans, peas and lentils)".
-Variable labels PWMDDWNuts "Nuts and seeds".
-Variable labels PWMDDWMilk "Milk".
-Variable labels PWMDDWDairy "Milk products".
-Variable labels PWMDDWPrMeatO  "Organ meats".
-Variable labels PWMDDWPrMeatF  "Red flesh meat from mammals".
-Variable labels PWMDDWPrMeatPro  "Processed meat".
-Variable labels PWMDDWPrMeatWhite  "Poultry and other white meats".
-Variable labels PWMDDWPrFish "Fish and Seafood".
-Variable labels PWMDDWPrEgg  "Eggs from poultry or any other bird".
-Variable labels PWMDDWVegGre "Dark green leafy vegetable".
-Variable labels PWMDDWVegOrg "Vitamin A-rich vegetables, roots and tubers".
-Variable labels PWMDDWFruitOrg "Vitamin A-rich fruits".
-Variable labels PWMDDWVegOth "Other vegetables".
-Variable labels PWMDDWFruitOth  "Other fruits".
-Variable labels PWMDDWSnf "Specialized Nutritious Foods (SNF) for women".
-Variable labels PWMDDWFortFoodoil  "Fortified oil".
-Variable labels PWMDDWFortFoodwflour "Fortified wheat flour".
-Variable labels PWMDDWFortFoodmflour  "Fortified maize flour".
-Variable labels PWMDDWFortFoodrice  "Fortified Rice".
-Variable labels PWMDDWFortFooddrink "Fortified drink".
-Variable labels PWMDDWFortFoodother "Other:".
-Variable labels PWMDDWFortFoodother_oth "Other: please specify: ____________".
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADChildAge_months = PCMADChildAge_months ).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADBreastfeed =  PCMADBreastfeed ).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADInfFormula = PCMADInfFormula).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADInfFormulaNum = PCMADInfFormulaNum).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADMilk = PCMADMilk).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADMilkNum =  PCMADMilkNum).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADYogurtDrink = PCMADYogurtDrink).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADYogurtDrinkNum = PCMADYogurtDrinkNum).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADYogurt = PCMADYogurt).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADStapCer = PCMADStapCer).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADVegOrg = PCMADVegOrg).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADStapRoo = PCMADStapRoo).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADVegGre = PCMADVegGre).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADVegOth = PCMADVegOth).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADFruitOrg = PCMADFruitOrg).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADFruitOth = PCMADFruitOth).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPrMeatO = PCMADPrMeatO).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPrMeatPro = PCMADPrMeatPro).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPrMeatF = PCMADPrMeatF).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPrEgg = PCMADPrEgg).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPrFish = PCMADPrFish).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADPulse = PCMADPulse).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADCheese = PCMADCheese).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADSnf = PCMADSnf).
+RENAME VARIABLES (MAD_submoduleRepeatMADPCMADMeals = PCMADMeals).
 
-Value labels PWMDDWStapCer,PWMDDWStapRoo,PWMDDWPulse,PWMDDWNuts,PWMDDWMilk,PWMDDWDairy,PWMDDWPrMeatO,PWMDDWPrMeatF,PWMDDWPrMeatPro,PWMDDWPrMeatWhite,PWMDDWPrFish,
-    PWMDDWPrEgg,PWMDDWVegGre,PWMDDWVegOrg,PWMDDWFruitOrg,PWMDDWVegOth,PWMDDWFruitOth,PWMDDWSnf,PWMDDWFortFoodoil,PWMDDWFortFoodwflour,PWMDDWFortFoodmflour,PWMDDWFortFoodrice,PWMDDWFortFooddrink,PWMDDWFortFoodother 1 'Yes' 0  'No '.
+Variable labels PCMADChildAge_months "What is the age in months of ${PCMADChildName} ?" .
+Variable labels PCMADBreastfeed "Was ${PCMADChildName} breastfed yesterday during the day or at night?".
+Variable labels PCMADInfFormula "Infant formula, such as [insert local names of common formula]?".
+Variable labels PCMADInfFormulaNum  "How many times did ${PCMADChildName} drink formula".
+Variable labels  PCMADMilk  "Milk from animals, such as fresh, tinned or powdered milk?".
+Variable labels  PCMADMilkNum  "How many times did ${PCMADChildName} drink milk from animals, such as fresh, tinned or powdered milk?".
+Variable labels  PCMADYogurtDrink  "Yogurt drinks such as [insert local names of common types of yogurt drinks]?".
+Variable labels  PCMADYogurtDrinkNum  "How many times did  ${PCMADChildName} drink Yogurt drinks such as [insert local names of common types of yogurt drinks]?".
+Variable labels  PCMADYogurt  "Yogurt, other than yogurt drinks ?".
+Variable labels   PCMADStapCer  "Porridge, bread, rice, noodles, pasta or [insert other commonly consumed grains, including foods made from grains like rice dishes, noodle dishes, etc.]?".
+Variable labels  PCMADVegOrg  "Pumpkin, carrots, sweet red peppers, squash or sweet potatoes that are yellow or orange inside? [any additions to this list should meet “Criteria for defining foods and liquids as ‘sources’ of vitamin A”]".
+Variable labels  PCMADStapRoo  "Plantains, white potatoes, white yams, manioc, cassava or [insert other commonly consumed starchy tubers or starchy tuberous roots that are white or pale inside]".
+Variable labels  PCMADVegGre  "Dark green leafy vegetables, such as [insert  commonly consumed vitamin A-rich dark green leafy vegetables]?".
+Variable labels   PCMADVegOth  "Any other vegetables, such as [insert commonly consumed vegetables]?".
+Variable labels   PCMADFruitOrg  "Ripe mangoes or ripe papayas or [insert other commonly consumed vitamin A-rich fruits]?".
+Variable labels   PCMADFruitOth  "Any other fruits, such as [insert commonly consumed fruits]?".
+Variable labels   PCMADPrMeatO  "Liver, kidney, heart or [insert other commonly consumed organ meats]?".
+Variable labels   PCMADPrMeatPro  "Sausages, hot dogs/frankfurters, ham, bacon, salami, canned meat or [insert other commonly consumed processed meats]?".
+Variable labels   PCMADPrMeatF  "Any other meat, such as beef, pork, lamb, goat, chicken, duck or [insert other commonly consumed meat]?".
+Variable labels  PCMADPrEgg  "Eggs".
+Variable labels   PCMADPrFish  "Fresh or dried fish, shellfish or seafood".
+Variable labels   PCMADPulse  "Beans, peas, lentils, nuts , seeds or [insert commonly consumed foods made from beans, peas, lentils, nuts, or seeds]?".
+Variable labels   PCMADCheese  "Hard or soft cheese such as [insert commonly consumed types of cheese]?".
+Variable labels   PCMADSnf  "Specialized Nutritious Foods (SNF) such as [insert the SNFs distributed by WFP]?".
+Variable labels   PCMADMeals  "How many times did ${PCMADChildName}  eat any solid, semi -solid or soft foods yesterday during the day or night?" .
 
-*Calculate 2 MDDW indicators based on https://docs.wfp.org/api/documents/WFP-0000140197/download/ pg.8
-*Standard MDDW Indicator for population based surveys - counts SNF in home group (refer to https://docs.wfp.org/api/documents/WFP-0000139484/download/ for "home group")
-*WFP Modified MDDW  WFP programme monitoring - counts SNF in "Meat, poultry and fish" Category
+Value labels PCMADBreastfeed,PCMADInfFormula,PCMADMilk,PCMADYogurtDrink, PCMADYogurt,PCMADStapCer,PCMADVegOrg,PCMADStapRoo,PCMADVegGre,PCMADVegOth,PCMADFruitOrg,
+    PCMADFruitOth,PCMADPrMeatO,PCMADPrMeatPro,PCMADPrMeatF,PCMADPrEgg,PCMADPrFish,PCMADPulse,PCMADCheese,PCMADSnf 1 "Yes" 0  "No" 888 "Don't know".
+    
+ *Creat Minimum Dietary Diversity 6-23 months (MDD)
+* for population assesments - SNF is counted in cereals group (MDD)
+*for WFP programme monitoring - SNF is counted in meats group (MDD_wfp)
 
-*Standard MDDW method  - in this example SNF home group will be grains
-*in this example all - PWMDDWFortFoodwflour,PWMDDWFortFoodmflour,PWMDDWFortFoodrice,PWMDDWFortFooddrink will also count in grains
-*classifying PWMDDWFortFoodother_oth will likely involve classifying line by line 
+*this version of MDD is for population assessments - SNF is counted in cereals group
 
-Compute  MDDW_Staples = 0.
-if (PWMDDWStapCer) = 1 |  (PWMDDWStapRoo) = 1 | (PWMDDWSnf = 1) | (PWMDDWFortFoodwflour = 1) | (PWMDDWFortFoodmflour = 1) | (PWMDDWFortFoodrice = 1) | (PWMDDWFortFooddrink = 1)  MDDW_Staples= 1.
-compute  MDDW_Pulses = 0.
-if (PWMDDWPulse = 1) MDDW_Pulses = 1.
-Compute  MDDW_NutsSeeds = 0.
-if (PWMDDWNuts = 1) MDDW_NutsSeeds = 1.
-Compute MDDW_Dairy = 0.
-if (PWMDDWDairy = 1) | (PWMDDWMilk = 1) MDDW_Dairy = 1.
-Compute  MDDW_MeatFish = 0.
-if (PWMDDWPrMeatO = 1) | (PWMDDWPrMeatF = 1) | (PWMDDWPrMeatPro = 1) | (PWMDDWPrMeatWhite = 1) |  (PWMDDWPrFish = 1) MDDW_MeatFish = 1.
-Compute MDDW_Eggs = 0.
-if (PWMDDWPrEgg = 1) MDDW_Eggs = 1.
-Compute  MDDW_LeafGreenVeg = 0.
-if (PWMDDWVegGre = 1) MDDW_LeafGreenVeg = 1.. 
-Compute  MDDW_VitA = 0.           
-if (PWMDDWVegOrg = 1) | (PWMDDWFruitOrg = 1) MDDW_VitA = 1.
-Compute  MDDW_OtherVeg = 0.
-if (PWMDDWVegOth = 1) MDDW_OtherVeg = 1. 
-Compute  MDDW_OtherFruits = 0.
-if (PWMDDWFruitOth = 1) MDDW_OtherFruits = 1.
+Compute MAD_BreastMilk  = 0.
+if  PCMADBreastfeed = 1 MAD_BreastMilk  = 1.
+Compute MAD_PWMDDWStapCer  = 0.
+if  PCMADStapCer = 1 | PCMADStapRoo = 1  | PCMADSnf = 1 MAD_PWMDDWStapCer= 1.
+Compute MAD_PulsesNutsSeeds  = 0.
+if  PCMADPulse =  1 MAD_PulsesNutsSeeds = 1.
+Compute MAD_Dairy   = 0.
+if  PCMADInfFormula = 1 | PCMADMilk = 1 | PCMADYogurtDrink = 1 | PCMADYogurt = 1 | PCMADCheese = 1 MAD_Dairy= 1.
+Compute MAD_MeatFish   = 0.
+if  PCMADPrMeatO = 1 |  PCMADPrMeatPro = 1 | PCMADPrMeatF = 1 | PCMADPrFish = 1 MAD_MeatFish= 1.
+Compute MAD_Eggs   = 0.
+if PCMADPrEgg = 1 MAD_Eggs = 1.
+Compute MAD_VitA   = 0.
+if  PCMADVegOrg = 1 | PCMADVegGre = 1 | PCMADFruitOrg = 1 MAD_VitA = 1.
+Compute  MAD_OtherVegFruits  = 0.
+if   PCMADFruitOth = 1 | PCMADVegOth = 1 MAD_OtherVegFruits= 1.
 
+*add together food groups to see how many food groups consumed
 
-*WFP MDDW method for program monitoring - SNF will count in the meats group
-*in this example all - PWMDDWFortFoodwflour,PWMDDWFortFoodmflour,PWMDDWFortFoodrice,PWMDDWFortFooddrink will also count in grains
-*classifying PWMDDWFortFoodother_oth will likely involve classifying line by line 
+compute MDD_score = sum(MAD_BreastMilk,MAD_PWMDDWStapCer,MAD_PulsesNutsSeeds,MAD_Dairy,MAD_MeatFish,MAD_Eggs,MAD_VitA,MAD_OtherVegFruits).
 
-compute MDDW_Staples_wfp = 0.
-if  (PWMDDWStapCer) = 1 |  (PWMDDWStapRoo) = 1 | (PWMDDWFortFoodwflour = 1) | (PWMDDWFortFoodmflour = 1) | (PWMDDWFortFoodrice = 1) | (PWMDDWFortFooddrink = 1)  MDDW_Staples_wfp = 1.
-Compute  MDDW_Pulses_wfp = 0.
-if (PWMDDWPulse = 1) MDDW_Pulses_wfp = 1. 
-Compute  MDDW_NutsSeeds_wfp = 0.
- if (PWMDDWNuts = 1)  MDDW_NutsSeeds_wfp  = 1. 
-Compute MDDW_Dairy_wfp = 0.
-if (PWMDDWDairy = 1) | (PWMDDWMilk = 1) MDDW_Dairy_wfp = 1. 
-Compute  MDDW_MeatFish_wfp = 0.
- if (PWMDDWPrMeatO = 1) | (PWMDDWPrMeatF = 1) | (PWMDDWPrMeatPro = 1) | (PWMDDWPrMeatWhite = 1) |  (PWMDDWPrFish = 1)  | (PWMDDWSnf = 1) MDDW_MeatFish_wfp = 1.
-Compute MDDW_Eggs_wfp = 0.
-if (PWMDDWPrEgg = 1) MDDW_Eggs_wfp = 1.
-compute  MDDW_LeafGreenVeg_wfp = 0.
-if (PWMDDWVegGre = 1) MDDW_LeafGreenVeg_wfp = 1 . 
-Compute  MDDW_VitA_wfp = 0.
-if (PWMDDWVegOrg = 1) | (PWMDDWFruitOrg = 1) MDDW_VitA_wfp= 1.                      
-Compute  MDDW_OtherVeg_wfp = 0.
-if (PWMDDWVegOth = 1) MDDW_OtherVeg_wfp = 1. 
-Compute  MDDW_OtherFruits_wfp = 0.
-if (PWMDDWFruitOth = 1) MDDW_OtherFruits_wfp = 1. 
+*create MDD variable which records whether child consumed five or more food groups
 
+Compute  MDD = 0.
+if (MDD_score >= 5) MDD = 1.
+Variable labels MDD "Minimum Dietary Diversity (MDD)".
+Value labels  MDD 1 'Meets MDD' 0  'Does not meet MDD'.
 
+*this version of MDD for WFP programme monitoring - SNF is counted in meats group
 
+Compute MAD_BreastMilk_wfp  = 0.
+if  PCMADBreastfeed = 1 MAD_BreastMilk_wfp  = 1.
+Compute MAD_PWMDDWStapCer_wfp  = 0.
+if  PCMADStapCer = 1 | PCMADStapRoo = 1   MAD_PWMDDWStapCer_wfp= 1.
+Compute MAD_PulsesNutsSeeds_wfp  = 0.
+if  PCMADPulse =  1 MAD_PulsesNutsSeeds_wfp = 1.
+Compute MAD_Dairy_wfp   = 0.
+if  PCMADInfFormula = 1 | PCMADMilk = 1 | PCMADYogurtDrink = 1 | PCMADYogurt = 1 | PCMADCheese = 1 MAD_Dairy_wfp= 1.
+Compute MAD_MeatFish_wfp   = 0.
+if  PCMADPrMeatO = 1 |  PCMADPrMeatPro = 1 | PCMADPrMeatF = 1 | PCMADPrFish = 1 | PCMADSnf = 1 MAD_MeatFish_wfp= 1.
+Compute MAD_Eggs_wfp   = 0.
+if PCMADPrEgg = 1 MAD_Eggs_wfp = 1.
+Compute MAD_VitA_wfp   = 0.
+if  PCMADVegOrg = 1 | PCMADVegGre = 1 | PCMADFruitOrg = 1 MAD_VitA_wfp = 1.
+Compute  MAD_OtherVegFruits_wfp  = 0.
+if   PCMADFruitOth = 1 | PCMADVegOth = 1 MAD_OtherVegFruits_wfp= 1.
 
-*calculate MDDW variable for both methods by adding together food groups and classifying whether the woman consumed 5 or more food groups
+*add together food groups to see how many food groups consumed
 
-*Standard MDDW method where SNF is counted in grains
+compute MDD_score_wfp = sum(MAD_BreastMilk_wfp,MAD_PWMDDWStapCer_wfp,MAD_PulsesNutsSeeds_wfp,MAD_Dairy_wfp,MAD_MeatFish_wfp,MAD_Eggs_wfp,MAD_VitA_wfp,MAD_OtherVegFruits_wfp).
 
-compute MDDW = sum(MDDW_Staples ,MDDW_Pulses ,MDDW_NutsSeeds ,MDDW_Dairy ,MDDW_MeatFish ,MDDW_Eggs ,MDDW_LeafGreenVeg ,MDDW_VitA ,MDDW_OtherVeg ,MDDW_OtherFruits).
+*create MDD variable which records whether child consumed five or more food groups
 
-*count how many women consumed 5 or more groups
+Compute  MDD_wfp = 0.
+if (MDD_score_wfp >= 5) MDD_wfp = 1.
+Variable labels MDD_wfp "Minimum Dietary Diversity for WFP program monitoring (MDD)".
+Value labels  MDD_wfp 1 'Meets MDD' 0  'Does not meet MDD'.
 
-Compute  MDDW_5 = 0.
-if (MDDW >= 5) MDDW_5 = 1.
-Value labels  MDDW_5 1 '>=5' 0  '<5 '.
+*Calculate Minimum Meal Frequency 6-23 months (MMF) 
+*Recode into new variables turning dont know and missing valules into 0  - this makes syntax for calculation simpler
 
-Value labels  MDDW_5 1 '>=5' 0  '<5 '.
+RECODE PCMADBreastfeed (1=1) (ELSE=0) INTO PCMADBreastfeed_yn.
+RECODE PCMADMeals (1 thru 7=Copy) (ELSE=0) INTO PCMADMeals_r.
+RECODE PCMADInfFormulaNum (1 thru 7=Copy) (ELSE=0) INTO PCMADInfFormulaNum_r.
+RECODE PCMADMilkNum (1 thru 7=Copy) (ELSE=0) INTO PCMADMilkNum_r.
+RECODE PCMADYogurtDrinkNum (1 thru 7=Copy) (ELSE=0) INTO PCMADYogurtDrinkNum_r.
 
+Compute MMF = 0.
+if PCMADBreastfeed_yn = 1 & (PCMADChildAge_months >= 6 & PCMADChildAge_months <= 8) & PCMADMeals_r >= 2 MMF = 1.
+if PCMADBreastfeed_yn = 1 & (PCMADChildAge_months >= 9 & PCMADChildAge_months <= 23) & PCMADMeals_r >= 3 MMF = 1.
+if PCMADBreastfeed_yn = 0 & PCMADMeals_r >= 1 & (PCMADMeals_r + PCMADInfFormulaNum_r + PCMADMilkNum_r + PCMADYogurtDrinkNum_r >= 4) MMF = 1.
 
+Variable labels MDD_wfp "Minimum Meal Frequency (MMF)".
+Value labels  MDD_wfp 1 'Meets MMF' 0  'Does not meet MMF'.
 
-*WFP MDDW method for program monitoring - SNF will count in the meats group
- 
-compute MDDW_wfp = sum(MDDW_Staples_wfp,MDDW_Pulses_wfp ,MDDW_NutsSeeds_wfp ,MDDW_Dairy_wfp ,MDDW_MeatFish_wfp ,MDDW_Eggs_wfp ,MDDW_LeafGreenVeg_wfp ,MDDW_VitA_wfp ,MDDW_OtherVeg_wfp ,MDDW_OtherFruits_wfp).
+*Calculate Minimum Milk Feeding Frequency for non-breastfed children 6-23 months (MMFF) 
 
-*count how many women consumed 5 or more groups
+Compute MMFF = 0.
+ if PCMADBreastfeed_yn = 0 & (PCMADInfFormulaNum_r + PCMADMilkNum_r + PCMADYogurtDrinkNum_r >= 2) MMFF = 1.
 
-
-Compute  MDDW_5_wfp = 0.
-if (MDDW_wfp >= 5) MDDW_5_wfp = 1.
-Value labels  MDDW_5_wfp 1 '>=5' 0  '<5 '.
-
-Value labels  MDDW_5_wfp 1 '>=5' 0  '<5 '.
-
-
-*Frequency of Standard MDDW Method - MDDW_5 
-
-freq MDDW_5.
+Variable labels MMFF "Minimum Milk Feeding Frequency for non-breastfed children (MMFF)".
+Value labels  MMFF 1 'Meets MMFF' 0  'Does not meet MMFF'.
 
 
-*Frequency of WFP MDDW method for program monitoring - MDDW_5_wfp
+* Minimum Acceptable Diet (MAD)
 
-freq MDDW_5_wfp.
+* For breastfed infants: if MDD and MMF are both achieved, then MAD is achieved
+* For nonbreastfed infants: if MDD, MMF and MMFF are all achieved, then MAD is achieved
+
+
+* using MDD for population assesments
+
+Compute MAD = 0.
+if PCMADBreastfeed_yn = 1 & MDD = 1 & MMF = 1 MAD = 1.
+if PCMADBreastfeed_yn = 0 & MDD = 1 & MMF = 1 & MMFF = 1 MAD = 1.
+
+
+* using MDD for WFP program monitoring
+
+Compute MAD  = 0.
+Compute MAD = 0.
+if PCMADBreastfeed_yn = 1 & MDD_wfp = 1 & MMF = 1 MAD = 1.
+if PCMADBreastfeed_yn = 0 & MDD_wfp = 1 & MMF = 1 & MMFF = 1 MAD = 1.
+
+
+Variable labels MAD "Minimum Acceptable Diet (MAD)".
+Value labels  MAD 1 'Meets MAD' 0  'Does not meet MAD'.
+
+freq MAD.
+
 
 
