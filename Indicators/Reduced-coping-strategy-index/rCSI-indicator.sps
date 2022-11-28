@@ -1,17 +1,24 @@
-Reduced coping strategy index
-**************************************************************************************************************
-/**rCSI (Reduced Consumption Strategies Index***
-    
-/***Variable labels 
-/*1. Relied on less preferred, less expensive food *1-rCSILessQlty
-/*2. Borrowed food or relied on help from friends or relatives*2-rCSIBorrow
-/*3. Reduced the number of meals eaten per day*1 - rCSIMealNb
-/*4. Reduced portion size of meals at meals time *1-rCSIMealSize
-/*5. Restrict consumption by adults in order for young-children to eat*3-rCSIMealAdult
+* Encoding: UTF-8.
+
+***Reduced Coping Strategy Index***
+
+***define variables 
+
+Variable labels
+rCSILessQlty       "Rely on less preferred and less expensive food in the past 7 days"
+rCSIBorrow          "Borrow food or rely on help from a relative or friend in the past 7 days"
+rCSIMealNb         "Reduce number of meals eaten in a day in the past 7 days"
+rCSIMealSize       "Limit portion size of meals at meal times in the past 7 days"
+rCSIMealAdult     "Restrict consumption by adults in order for small children to eat in the past 7 days".
 
 
-compute rCSI=(rCSILessQlty * 1) + (rCSIBorrow* 2) + (rCSIMealNb * 1) + (rCSIMealSize * 3) + (rCSIMealAdult * 1).
-execute.
+***calculate rCSI
 
+Compute rCSI = sum(rCSILessQlty*1,rCSIBorrow*2,rCSIMealNb*1,rCSIMealSize*1,rCSIMealAdult*3).
+Variable labels rCSI 'Reduced coping strategies index (rCSI)'.
+EXECUTE.
 
+***mean rCSI 
 
+MEANS TABLES=rCSI
+  /CELLS=MEAN.
