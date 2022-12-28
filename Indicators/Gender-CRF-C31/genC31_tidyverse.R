@@ -7,7 +7,7 @@ library(FoodSecRammer)
 
 
 #1 - import sample SPSS data - put in a link to sample data
-data <- read.spss("01_RawData/data.sav", to.data.frame = T)
+data <- read.spss("./RamResourcesScripts/Static/Gender-CRF-C31.sav", to.data.frame = T)
 
 #2 - calculate percent households that responded decisions about the use of food/cash/vouchers is made by women, men or both 
 #to do this first you have to exclude households that are single/widowed/divorced 
@@ -69,9 +69,5 @@ combined_HHAsstDescWho_report <- combined_HHAsstDescWho_wide %>% gt() %>%
 
 combined_HHAsstDescWho_report <- combined_HHAsstDescWho_report %>% tab_header(
   title = "Percentage of Household Members Making Decisions by Modality") 
-
-
-"Percentage of Household Members Making Decisions by Modality"
-
 
   
