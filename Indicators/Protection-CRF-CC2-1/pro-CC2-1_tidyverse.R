@@ -2,7 +2,7 @@ library(tidyverse)
 library(labelled)
 
 #add sample data
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
+data <- read_csv("./RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
 
 #assign variable and value labels
 var_label(data$HHAsstKnowEnt) <- "Have you been told exactly what you are entitled to receive in terms of commodities/quantities or cash? Please describe your entitlements"
