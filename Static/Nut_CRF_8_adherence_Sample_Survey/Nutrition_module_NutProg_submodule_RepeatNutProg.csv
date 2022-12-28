@@ -1,0 +1,9 @@
+Nutrition_module/NutProg_submodule/RepeatNutProg/position_nut8,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticName,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgShouldNbrCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgDidNbrCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutwhendate,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgShouldNbrNoCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgDidNbrNoCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgEntitlements,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgReason,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgReason_other,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgCardReason,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgCardReason_other,_id,_uuid,_submission_time,_index,_parent_table_name,_parent_index,_tags,_notes,_version,_duration,_submitted_by,_xform_id
+1,tester1,0,,,2022-11-15,3,3,food,,,3,,,,,1,data,1,,,,,,
+1,tester1,1,3,2,,,,food,2,,,,,,,2,data,2,,,,,,
+2,tester2,1,3,3,,,,food,,,,,,,,3,data,2,,,,,,
+1,woofie,0,,,2022-11-15,3,3,stuff,,,2,,,,,4,data,3,,,,,,
+2,woofie2,1,3,3,,,,dunno,,,,,,,,5,data,3,,,,,,
+1,yo,1,3,1,,,,,1,,,,,,,6,data,4,,,,,,
+2,gorg,1,3,1,,,,some stuff,2,,,,,,,7,data,4,,,,,,
+3,b,1,3,1,,,,plumpy,3,,,,,,,8,data,4,,,,,,

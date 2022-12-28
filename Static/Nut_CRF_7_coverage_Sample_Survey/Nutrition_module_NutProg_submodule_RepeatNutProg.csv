@@ -1,0 +1,8 @@
+Nutrition_module/NutProg_submodule/RepeatNutProg/position_nut7,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticName,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticSex,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticBDproof,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticBDknow,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticBD,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticAge_calc_years,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgParticAge_calc_months,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgPartic_yn,Nutrition_module/NutProg_submodule/RepeatNutProg/PNutProgCard,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgReason,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgReason_other,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgCardReason,Nutrition_module/NutProg_submodule/RepeatNutProg/PNoNutProgCardReason_other,_id,_uuid,_submission_time,_index,_parent_table_name,_parent_index,_tags,_notes,_version,_duration,_submitted_by,_xform_id
+1,testey1,1,1,,11/14/2020,2,24,1,1,,,,,,,,1,data,1,,,,,,
+1,testey2,0,0,1,10/12/2021,1,13,0,,3,,,,,,,2,data,2,,,,,,
+1,testey3,0,1,,10/10/2020,2,25,0,,5,,,,,,,3,data,3,,,,,,
+2,testey4,0,0,0,9/1/2019,3,38,1,1,,,,,,,,4,data,3,,,,,,
+1,testey5,0,0,1,8/4/2021,1,15,0,,3,,,,,,,5,data,4,,,,,,
+2,testey6,0,1,,11/30/2009,13,155,0,,2,,,,,,,6,data,4,,,,,,
+1,testey9,0,1,,11/14/2022,0,0,1,1,,,,,,,,7,data,5,,,,,,
