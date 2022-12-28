@@ -3,7 +3,7 @@
 *import sample SPSS data - put in a link to sample data
 
 GET
-  FILE='C:\GenC31\01_RawData\data.sav'.
+  FILE='./RAMResourceScripts/Indicators/Static/Gender-CRF-C31.sav'.
 DATASET NAME DataSet2 WINDOW=FRONT.
 
 *create new variable to be used as filter for households that recieved cash/voucher where HHHStatus == "Married monogamous" | HHHStatus == "Polygamous married" | HHHStatus_single == "No"
