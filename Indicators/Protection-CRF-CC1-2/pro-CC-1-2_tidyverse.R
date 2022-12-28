@@ -2,7 +2,7 @@ library(tidyverse)
 library(expss)
 
 #add sample data
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
+data <- read_csv("./RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
 
 #assign variable and value labels
 var_label(data$HHAsstAccess) <- "Have you or any member of your household been unable to access WFP assistance one or more times?"
