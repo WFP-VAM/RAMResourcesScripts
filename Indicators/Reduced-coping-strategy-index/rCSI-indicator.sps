@@ -10,7 +10,7 @@ Reduced coping strategy index
 /*5. Restrict consumption by adults in order for young-children to eat*3-rCSIMealAdult
 
 
-compute rCSI=(rCSILessQlty * 1) + (rCSIBorrow* 2) + (rCSIMealNb * 1) + (rCSIMealSize * 3) + (rCSIMealAdult * 1).
+compute rCSI=(rCSILessQlty * 1) + (rCSIBorrow* 2) + (rCSIMealNb * 1) + (rCSIMealSize * 1) + (rCSIMealAdult * 3).
 execute.
 
 
