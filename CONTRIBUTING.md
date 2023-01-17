@@ -44,9 +44,8 @@ We use GitHub issues to track bugs and errors, request a new indicator or change
 - Open an [Issue](https://github.com/WFP-VAM/RAMResourcesScripts/issues/new/choose). 
 - Choose whether you need to file a Bug report, request a new Indicator or changes to an existing one or just ask a question.
   - If it's a Bug, please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
--  If it's an Indicator, provide the name of the indicator, language/software that the indicator should be calculated in, the WFP unit that owns the indicator and whether it's part of the WFP Corporate Result Framework
-
-Once it's filed the project team will prioritize the issue accordingly, also considering the reproducibility of the issue. 
+  -  If it's an Indicator, provide the name of the indicator, language/software that the indicator should be calculated in, the WFP unit that owns the indicator and whether it's part of the WFP Corporate Result Framework
+-  Once it's filed the project team will prioritize the issue accordingly, also considering the reproducibility of the issue. 
 
 ## Styleguide for commit messages 
 
