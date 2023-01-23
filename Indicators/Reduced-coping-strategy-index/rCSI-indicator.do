@@ -13,5 +13,5 @@ lab var rCSIMealSize "Reduced portion size of meals at meals time"
 lab var rCSIMealAdult "Restrict consumption by adults in order for young-children to eat"
 
 *Compute rCSI
-gen rCSI=(rCSILessQlty*1) + (rCSIBorrow*2) + (rCSIMealNb*1) + (rCSIMealSize*3) + (rCSIMealAdult*1)
+gen rCSI=(rCSILessQlty*1) + (rCSIBorrow*2) + (rCSIMealNb*1) + (rCSIMealSize*1) + (rCSIMealAdult*3)
 lab var rCSI "Reduced Consumption Strategies Index"
