@@ -1,8 +1,9 @@
 library(tidyverse)
 library(labelled)
+library(expss)
 
 #add sample data
-data <- read_csv("./RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
+data <- read_csv("Static/PROP_AAP_CRF_Sample_Survey.csv")
 
 #assign variable and value labels
 var_label(data$HHAsstRespect) <- "Do you think WFPandor partner staff have treated you and members of your household respectfully?"
