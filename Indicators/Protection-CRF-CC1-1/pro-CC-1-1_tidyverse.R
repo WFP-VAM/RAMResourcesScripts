@@ -1,8 +1,9 @@
 library(tidyverse)
 library(expss)
+library(labelled)
 
 #add sample data
-data <- read_csv("./RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
+data <- read_csv("~/GitHub/RAMResourcesScripts/Static/PROP_AAP_CRF_Sample_Survey.csv")
 
 #assign variable and value labels
 var_label(data$HHAsstSecurity) <- "Have you or any of your household members experienced any security challenge related to WFP assistance?"
