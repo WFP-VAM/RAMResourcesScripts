@@ -1,36 +1,23 @@
 ﻿* Encoding: UTF-8.
+* define variable and value labels
 
-*import sample SPSS data - put in a link to sample data
+Variable labels HHAsstWFPRecCashYN1Y 'Did your household receive cash-based WFP assistance in the last 12 months?'.
+Variable labels HHAsstWFPRecCashYN1Y 'Did your household receive in-kind WFP assistance in the last 12 months?'.
+Variable labels HHAsstCashDescWho 'Who in your household decides what to do with the cash/voucher given by WFP, such as when, where and what to buy, is it women, men or both?'.
+Variable labels HHAsstInKindDescWho 'Who in your household decides what to do with the food given by WFP, such as when, where and what to buy, is it women, men or both?'.
 
-GET
-  FILE='./RAMResourceScripts/Indicators/Static/Gender-CRF-C31.sav'.
-DATASET NAME DataSet2 WINDOW=FRONT.
+Value labels HHAsstWFPRecCashYN1Y HHAsstWFPRecCashYN1Y 1 'Yes' 0  'No'.
+Value labels HHAsstCashDescWho HHAsstInKindDescWho 10 'Men' 20  'Women' 30 'Both together'.
 
-*create new variable to be used as filter for households that recieved cash/voucher where HHHStatus == "Married monogamous" | HHHStatus == "Polygamous married" | HHHStatus_single == "No"
 
-do if ((HHHStatus = 200) | (HHHStatus = 300) | 
-(HHHStatus_single = 0)) & HHAsstWFPReceivedCashYN_1yr = 1. 
-compute HHAsstCashNotSingle = 1.
-end if. 
 
-COMPUTE filter_HHAsstCashNotSingle=(HHAsstCashNotSingle  = 1).
-FILTER BY filter_HHAsstCashNotSingle.
-EXECUTE.
+* set n/a value to missing 
 
-freq HHAsstCashDescWho.
+missing values HHAsstCashDescWho HHAsstInKindDescWho("n/a").
 
-*create new variable to be used as filter for households that recieved inkind where HHHStatus == "Married monogamous" | HHHStatus == "Polygamous married" | HHHStatus_single == "No"
 
-do if ((HHHStatus = 200) | (HHHStatus = 300) | 
-(HHHStatus_single = 0)) & HHAsstWFPReceivedInKindYN_1yr = 1. 
-compute HHAsstFoodNotSingle = 1.
-end if. 
+*Frequency of 2 questions to determine who makes decisions per type of assistance
 
-USE ALL.  
-
-COMPUTE filter_HHAsstFoodNotSingle=(HHAsstFoodNotSingle  = 1).
-FILTER BY filter_HHAsstFoodNotSingle.
-EXECUTE.
-
-freq HHAsstInKindDescWho.
-
+Freq HHAsstCashDescWho.
+    
+Freq HHAsstInKindDescWho.
