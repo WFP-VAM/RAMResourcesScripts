@@ -20,7 +20,7 @@ var_label(data$FCSCond) <- "Condiments/Spices, such as:"
 
 
 #calculate FCS
-data <- data %>% mutate(FCS = (2 * FCSStap) + (3 * FCSPulse)+ (4*FCSPr) +FCSVeg  +FCSFruit +(4*FCSDairy) + (0.5*FCSFat) + (0.5*FCSSugar))
+data <- data %>% mutate(FCS = (2 * FCSStap) +(3 * FCSPulse) +(4*FCSPr) +(4*FCSDairy) +FCSVeg  +FCSFruit +(0.5*FCSFat) +(0.5*FCSSugar))
 
 #create FCG groups based on 21/25 or 28/42 thresholds
 
