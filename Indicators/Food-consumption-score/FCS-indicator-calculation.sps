@@ -1,17 +1,19 @@
 * Encoding: UTF-8.
+
+
 ***Food Consumption Score***
 ***define labels
 
 Variable labels
-FCSStap          ‘Cereals, grains, roots and tubers, such as:’
-FCSPulse         ‘Pulses/ legumes / nuts, such as:’
-FCSDairy         ‘Milk and other dairy products, such as:’
-FCSPr              ‘Meat, fish and eggs, such as:’
-FCSVeg           ‘Vegetables and leaves, such as:’
-FCSFruit          ‘Fruits, such as:’
-FCSFat             ‘Oil/fat/butter, such as:’
-FCSSugar        ‘Sugar, or sweet, such as:’
-FCSCond	       ‘Condiments/Spices, such as:’.
+FCSStap 'Cereals, grains, roots and tubers, such as:'
+FCSPulse 'Pulses/ legumes / nuts, such as:'
+FCSDairy 'Milk and other dairy products, such as:'
+FCSPr 'Meat, fish and eggs, such as:'
+FCSVeg  'Vegetables and leaves, such as:'
+FCSFruit 'Fruits, such as:'
+FCSFat 'Oil/fat/butter, such as:'
+FCSSugar 'Sugar, or sweet, such as:'
+FCSCond 'Condiments/Spices, such as:'.
 
 Compute FCS = sum(FCSStap*2, FCSPulse*3, FCSDairy*4, FCSPr*4, FCSVeg*1, FCSFruit*1, FCSFat*0.5, FCSSugar*0.5).
 Variable labels FCS "Food Consumption Score".
@@ -34,8 +36,6 @@ EXECUTE.
 Recode FCS (lowest thru 28 =1) (28.5 thru 42 =2) (42.5 thru highest =3) into FCSCat28.
 Variable labels FCSCat28 "FCS Categories".
 EXECUTE.
-
-
 
 *** define value labels and properties for "FCS Categories"
 
