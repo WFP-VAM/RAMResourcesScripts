@@ -39,10 +39,15 @@ data <- data %>% mutate(FGVitACat = case_when(FGVitA == 0 ~ 1, between(FGVitA,1,
                         FGHIronCat = case_when(FGHIron == 0 ~ 1, between(FGHIron,1,6) ~ 2,  FGHIron >= 7 ~ 3)
                         )
 
+
 # define variables labels and properties for FGVitACat FGProteinCat FGHIronCat
 data <- data %>%
   mutate(across(c(FGVitACat, FGProteinCat, FGHIronCat), ~labelled(., labels = c(
-    "0 days" = 1,
-    "1 - 6 days" = 2,
-    "7 days" = 3
+    "Never consumed" = 1,
+    "Consumed sometimes" = 2,
+    "Consumed at least 7 times" = 3
   ))))
+
+var_label(data$FGVitACat) <- "Consumption of vitamin A-rich foods"
+var_label(data$FGProteinCat) <- "Consumption of protein-rich foods"
+var_label(data$FGHIronCat) <- "Consumption of hem iron-rich foods"

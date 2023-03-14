@@ -1,5 +1,5 @@
 * Encoding: UTF-8.
-***Create Food Consumption Score – Nutrition*** 
+***Create Food Consumption Score  Nutrition*** 
 
 Variable labels 
 FCSNPrMeatF "Flesh meat, such as:"
@@ -53,9 +53,11 @@ EXECUTE.
  *** define variables labels and properties for " FGVitACat FGProteinCat FGHIronCat ". 
 
  Value labels FGVitACat FGProteinCat FGHIronCat 
-1.00 '0 days' 2.00 '1-6 days' 3.00 '7 days'. 
+1.00 'Never consumed' 2.00 'Consumed sometimes' 3.00 'Consumed at least 7 times'. 
 
 EXECUTE. 
+
+
 
 
 
