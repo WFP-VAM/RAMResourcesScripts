@@ -5,6 +5,7 @@ library(expss)
 #add sample data
 data <- read_csv("LHCS_FS_Sample_Survey.csv")
 
+data <- read_csv("C:/Users/b/Desktop/LHCS_FS_Sample_Survey.csv")
 
 #assign variable and value labels
 #variable labels
@@ -24,7 +25,7 @@ data <- data %>%
     "No, because I did not need to" = 10,
     "No, because I already sold those assets or have engaged in this activity within the last 12 months and cannot continue to do it" = 20,
     "Yes" = 30,
-    "Not applicable (don’t have children/ these assets)" = 9999
+    "Not applicable (don’t have access to this strategy)" = 9999
   ))))
 
 #create a variable to specify if the household used any of the strategies by severity
