@@ -12,14 +12,14 @@ var_label(data$Lcs_stress_Saving) <- "Spent savings due to lack of food"
 var_label(data$Lcs_stress_EatOut) <- "Sent household members to eat elsewhere/live with family or friends due to lack of food"
 var_label(data$Lcs_stress_CrdtFood) <- "Purchased food/non-food on credit (incur debts) due to lack of food"
 var_label(data$Lcs_crisis_ProdAssets) <- "Sold productive assets or means of transport (sewing machine, wheelbarrow, bicycle, car, etc.)  due to lack of food"
-var_label(data$Lcs_crisis_HealthEdu) <- "Reduced expenses on health (including drugs) or education due to lack of food"
+var_label(data$Lcs_crisis_Health) <- "Reduced expenses on health (including drugs)"
 var_label(data$Lcs_crisis_OutSchool) <- "Withdrew children from school due to lack of food"
 var_label(data$Lcs_em_ResAsset) <- "Mortgaged/Sold house or land due to lack of food"
 var_label(data$Lcs_em_Begged) <- "Begged and/or scavenged (asked strangers for money/food) due to lack of food"
 var_label(data$Lcs_em_IllegalAct) <- "Engaged in illegal income activities (theft, prostitution) due to lack of food"
 #value labels
 data <- data %>%
-  mutate(across(c(Lcs_stress_DomAsset,Lcs_stress_Saving,Lcs_stress_EatOut,Lcs_stress_CrdtFood,Lcs_crisis_ProdAssets,Lcs_crisis_HealthEdu,Lcs_crisis_OutSchool,Lcs_em_ResAsset,Lcs_em_Begged,Lcs_em_IllegalAct), ~labelled(., labels = c(
+  mutate(across(c(Lcs_stress_DomAsset,Lcs_stress_Saving,Lcs_stress_EatOut,Lcs_stress_CrdtFood,Lcs_crisis_ProdAssets,Lcs_crisis_Health,Lcs_crisis_OutSchool,Lcs_em_ResAsset,Lcs_em_Begged,Lcs_em_IllegalAct), ~labelled(., labels = c(
     "No, because I did not need to" = 10,
     "No, because I already sold those assets or have engaged in this activity within the last 12 months and cannot continue to do it" = 20,
     "Yes" = 30,
@@ -38,7 +38,7 @@ var_label(data$stress_coping_FS) <- "Did the HH engage in stress coping strategi
 #Crisis
 data <- data %>% mutate(crisis_coping_FS = case_when(
   Lcs_crisis_ProdAssets == 20 |  Lcs_crisis_ProdAssets == 30 ~ 1,
-  Lcs_crisis_HealthEdu == 20 | Lcs_crisis_HealthEdu == 30 ~ 1,
+  Lcs_crisis_Health == 20 | Lcs_crisis_Health == 30 ~ 1,
   Lcs_crisis_OutSchool == 20 | Lcs_crisis_OutSchool == 30 ~ 1,
   TRUE ~ 0))
 var_label(data$crisis_coping_FS) <- "Did the HH engage in crisis coping strategies"

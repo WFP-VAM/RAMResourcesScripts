@@ -15,7 +15,7 @@ Lcs_stress_Saving
 Lcs_stress_EatOut
 Lcs_stress_CrdtFood
 Lcs_crisis_ProdAssets
-Lcs_crisis_HealthEdu
+Lcs_crisis_Health
 Lcs_crisis_OutSchool
 Lcs_em_ResAsset
 Lcs_em_Begged
@@ -45,10 +45,10 @@ end if.
 
 Variable labels 
 Lcs_crisis_ProdAssets "Sold productive assets or means of transport (sewing machine, wheelbarrow, bicycle, car, etc.)  due to lack of food"
-Lcs_crisis_HealthEdu "Reduced expenses on health (including drugs) or education due to lack of food"
+Lcs_crisis_HealthEdu "Reduced expenses on health (including drugs)  due to lack of food"
 Lcs_crisis_OutSchool  "Withdrew children from school due to lack of food".
 
-do if Lcs_crisis_ProdAssets = 20 | Lcs_crisis_ProdAssets = 30 | Lcs_crisis_HealthEdu  = 20 | Lcs_crisis_HealthEdu  = 30 | Lcs_crisis_OutSchool =20 | Lcs_crisis_OutSchool =30.
+do if Lcs_crisis_ProdAssets = 20 | Lcs_crisis_ProdAssets = 30 | Lcs_crisis_Health  = 20 | Lcs_crisis_Health  = 30 | Lcs_crisis_OutSchool =20 | Lcs_crisis_OutSchool =30.
 
 compute crisis_coping_FS =1. 
 else. 
