@@ -3,9 +3,7 @@ library(labelled)
 library(expss)
 
 #add sample data
-data <- read_csv("LHCS_FS_Sample_Survey.csv")
-
-data <- read_csv("C:/Users/b/Desktop/LHCS_FS_Sample_Survey.csv")
+data <- read_csv("~/GitHub/RAMResourcesScripts/Static/LCS_Sample_Survey/LHCS_FS_Sample_Survey.csv")
 
 #assign variable and value labels
 #variable labels
