@@ -31,8 +31,8 @@ label var HHRCSRevenue         "During times of hardship your household can chan
 label var HHRCSIncrease        "If threats to your household became more frequent and intense, you would still find a way to get by."
 label var HHRCSFinAccess       "During times of hardship your household can access the financial support you need."
 label var HHRCSSupportCommunity "Your household can rely on the support of family or friends when you need help."
-label var HHRCSLessonsLearnt    "Your household can rely on the support from public administration/government or other institutions when you need help."
-label var HHRCSSupportPublic    "Your household has learned important lessons from past hardships that will help you to better prepare for future challenges."
+label var HHRCSLessonsLearnt    "Your household has learned important lessons from past hardships that will help you to better prepare for future challenges."
+label var HHRCSSupportPublic    "Your household can rely on the support from public administration/government or other institutions when you need help."
 label var HHRCSFutureChallange  "Your household is fully prepared for any future challenges or threats that life throws at it."
 label var HHRCSWarningAccess    "Your household receives useful information warning you about future risks in advance."
 
