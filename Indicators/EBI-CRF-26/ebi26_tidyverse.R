@@ -23,7 +23,7 @@ data <- data %>%
     "Not applicable" = 999
   ))))
 
-#recode 999 to 0
+#recode 9999 to 0
 data <- data %>%
   mutate(across(EBISoilFertility:EBISanitation, ~ dplyr::recode(.x, "0" = 0, "1" = 1, "9999" = 0)))
 
