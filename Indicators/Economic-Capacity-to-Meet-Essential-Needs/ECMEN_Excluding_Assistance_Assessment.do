@@ -123,7 +123,7 @@ lab var HHExpNFAlcTobac_Purch_MN_1M "Expenditures on alchol/tobacco"
 lab var HHExpNFAlcTobac_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - alchol/tobacco"
 * If the questionnaire included further non-food categories/items label the respective variables
 
-*6 months recall period - variables lables:
+*6 months recall period - variables labels:
 lab var HHExpNFMedServ_Purch_MN_6M "Expenditures on health services"
 lab var HHExpNFMedServ_GiftAid_MN_6M "Value of consumed in-kind assistance-gifts - health services"
 lab var HHExpNFMedGood_Purch_MN_6M "Expenditures on medicines and health products"
@@ -150,7 +150,7 @@ lab var HHExpNFHHMaint_GiftAid_MN_6M "Value of consumed in-kind assistance-gifts
 egen HHExpNFTotal_Purch_MN_30D=rowtotal(HHExpNFHyg_Purch_MN_1M HHExpNFTransp_Purch_MN_1M HHExpNFFuel_Purch_MN_1M HHExpNFWat_Purch_MN_1M HHExpNFElec_Purch_MN_1M HHExpNFEnerg_Purch_MN_1M HHExpNFDwelSer_Purch_MN_1M HHExpNFPhone_Purch_MN_1M HHExpNFRecr_Purch_MN_1M HHExpNFAlcTobac_Purch_MN_1M) 
 
 * 6 months recall
-egen HHExpNFTotal_Purch_MN_6M=rowtotal(HHExpNFMedServ_Purch_MN_6M HHExpNFMedGood_Purch_MN_6M HHExpNFCloth_Purch_MN_6M HHExpNFEduFee_Purch_MN_6M HHExpNFEduGood_Purch_MN_6M HHExpNFRent_Purch_MN_6M HHExpNFHHSoft_Purch_MN_6M HHExpNFHHMaint_Purch_MN_6M) // careful with rent: should include only if also incuded in MEB
+egen HHExpNFTotal_Purch_MN_6M=rowtotal(HHExpNFMedServ_Purch_MN_6M HHExpNFMedGood_Purch_MN_6M HHExpNFCloth_Purch_MN_6M HHExpNFEduFee_Purch_MN_6M HHExpNFEduGood_Purch_MN_6M HHExpNFRent_Purch_MN_6M HHExpNFHHSoft_Purch_MN_6M HHExpNFHHMaint_Purch_MN_6M) // careful with rent: should include only if also included in MEB
 
 * Express 6 months in monthly terms
 replace HHExpNFTotal_Purch_MN_6M=HHExpNFTotal_Purch_MN_6M/6
@@ -168,7 +168,7 @@ drop HHExpNFTotal_Purch_MN_6M HHExpNFTotal_Purch_MN_30D
 egen HHExpNFTotal_GiftAid_MN_30D=rowtotal(HHExpNFHyg_GiftAid_MN_1M HHExpNFTransp_GiftAid_MN_1M HHExpNFFuel_GiftAid_MN_1M HHExpNFWat_GiftAid_MN_1M HHExpNFElec_GiftAid_MN_1M HHExpNFEnerg_GiftAid_MN_1M HHExpNFDwelSer_GiftAid_MN_1M HHExpNFPhone_GiftAid_MN_1M HHExpNFRecr_GiftAid_MN_1M HHExpNFAlcTobac_GiftAid_MN_1M) 
 
 * 6 months recall
-egen HHExpNFTotal_GiftAid_MN_6M=rowtotal(HHExpNFMedServ_GiftAid_MN_6M HHExpNFMedGood_GiftAid_MN_6M HHExpNFCloth_GiftAid_MN_6M HHExpNFEduFee_GiftAid_MN_6M HHExpNFEduGood_GiftAid_MN_6M HHExpNFRent_GiftAid_MN_6M HHExpNFHHSoft_GiftAid_MN_6M HHExpNFHHMaint_GiftAid_MN_6M) // careful with rent: should include only if also incuded in MEB
+egen HHExpNFTotal_GiftAid_MN_6M=rowtotal(HHExpNFMedServ_GiftAid_MN_6M HHExpNFMedGood_GiftAid_MN_6M HHExpNFCloth_GiftAid_MN_6M HHExpNFEduFee_GiftAid_MN_6M HHExpNFEduGood_GiftAid_MN_6M HHExpNFRent_GiftAid_MN_6M HHExpNFHHSoft_GiftAid_MN_6M HHExpNFHHMaint_GiftAid_MN_6M) // careful with rent: should include only if also included in MEB
 
 * Express 6 months in monthly terms
 replace HHExpNFTotal_GiftAid_MN_6M=HHExpNFTotal_GiftAid_MN_6M/6
@@ -204,7 +204,7 @@ label var HHAsstWFPCBTRecTot    "Amount of cash assistance received from WFP - l
 label var HHAsstUNNGOCBTRecTot  "Amount of cash assistance received by other humanitarian partners - last 3 months"
 label var HHAsstCBTCShare       "Share of cash assistance spent on consumption"
 
-* Sum the amount of cash assistance received by WFP and other humanitartian partners (UN Agencies and NGOs) - do not include cash received from government, other organizations, and other households
+* Sum the amount of cash assistance received by WFP and other humanitarian partners (UN Agencies and NGOs) - do not include cash received from government, other organizations, and other households
 egen HHAsstCBTRec = rowtotal(HHAsstWFPCBTRecTot HHAsstUNNGOCBTRecTot)
 
 * Express in monthly terms 
