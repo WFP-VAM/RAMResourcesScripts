@@ -1,4 +1,12 @@
 # RAM Resources - Scripts
+<!-- badges: start -->
+
+[![Project Status: WIP – Development is in progress, content is usable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+<!-- badges: end -->
+
+
 This folder contains all standardized scripts for indicators, analysis and visualization. The folders are organized as follows:
 
 - **Analysis:** Plots, cross-tabulations, output tables...etc.

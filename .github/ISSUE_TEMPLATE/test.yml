@@ -1,0 +1,109 @@
+---
+name: Indicator
+description: Request the modification or addition of an indicator
+title: "Indicator: "
+labels: ["new"]
+body:
+- type: markdown
+  attributes:
+    value: |
+        Thanks for taking the time to fill out this issue! 
+- type: input
+  id: test-approval
+  attributes:
+    label: Who should receive the test email for final approval
+    description: Provide final assets approver's contact
+    placeholder: brunochester@github.com
+  validations:
+    required: true
+- type: input
+  id: contact
+  attributes:
+    label: Contact Details
+    description: How can we get in touch with you if we need more info?
+    placeholder: ex. email@example.com
+  validations:
+    required: true
+- type: input
+  id: isCrf
+  attributes:
+    label: Corporate Result Framework
+    description: Is the indicator included in the CRF or piloted in the indicator compendium?
+    placeholder: Please give us a `Yes` or `No` answer
+  validations:
+    required: true
+- type: input
+  id: owner-unit
+  attributes:
+    label: Unit owning the indicator
+    description: Which unit has designed the indicator? In particular if CRF indicator.
+    placeholder: ex. RAMAE
+  validations:
+    required: true
+- type: input
+  id: test
+  attributes:
+    label: Test Email Recepients
+    description: Who should receive the test email?
+    placeholder: ex. brunochester@github.com
+  validations:
+    required: true
+- type: input
+  id: sfid
+  attributes:
+    label: Salesforce Campaign ID
+    description: Please provide Salesforce Campaign ID if this email is part of a SFDC campaign
+    placeholder: ex. 7013o000002SggXXXX
+  validations:
+    required: false
+- type: input
+  attributes:
+    label: Email name
+    description: Please add the email name followed by its send order.
+    placeholder: Campaign_name-Invite-Email-1
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Email preheader
+    description: Please add the pre-header for your email
+    placeholder: You are invited to GitHub webinar
+  validations:
+    required: false
+- type: dropdown
+    id: Software-version
+    attributes:
+      label: Software version
+      multiple: true
+      description: What software would you like to use for the calculation of this index?
+      options:
+        - R
+        - SPSS
+        - Stata
+        - Python
+    validations:
+      required: true
+- type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
