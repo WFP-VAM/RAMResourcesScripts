@@ -116,11 +116,11 @@ lab var HHExpNFPhone_Purch_MN_1M "Expenditures on communication"
 lab var HHExpNFPhone_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - communication"
 lab var HHExpNFRecr_Purch_MN_1M "Expenditures on recreation"
 lab var HHExpNFRecr_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - recreation"
-lab var HHExpNFAlcTobac_Purch_MN_1M "Expenditures on alchol/tobacco"
-lab var HHExpNFAlcTobac_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - alchol/tobacco"
+lab var HHExpNFAlcTobac_Purch_MN_1M "Expenditures on alcohol/tobacco"
+lab var HHExpNFAlcTobac_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - alcohol/tobacco"
 * If the questionnaire included further non-food categories/items, label the respective variables
 
-*6 months recall period - variables lables:
+*6 months recall period - variables labels:
 lab var HHExpNFMedServ_Purch_MN_6M "Expenditures on health services"
 lab var HHExpNFMedServ_GiftAid_MN_6M "Value of consumed in-kind assistance-gifts - health services"
 lab var HHExpNFMedGood_Purch_MN_6M "Expenditures on medicines and health products"
@@ -147,7 +147,7 @@ lab var HHExpNFHHMaint_GiftAid_MN_6M "Value of consumed in-kind assistance-gifts
 egen HHExpNFTotal_Purch_MN_30D=rowtotal(HHExpNFHyg_Purch_MN_1M HHExpNFTransp_Purch_MN_1M HHExpNFFuel_Purch_MN_1M HHExpNFWat_Purch_MN_1M HHExpNFElec_Purch_MN_1M HHExpNFEnerg_Purch_MN_1M HHExpNFDwelSer_Purch_MN_1M HHExpNFPhone_Purch_MN_1M HHExpNFRecr_Purch_MN_1M HHExpNFAlcTobac_Purch_MN_1M) 
 
 * 6 months recall
-egen HHExpNFTotal_Purch_MN_6M=rowtotal(HHExpNFMedServ_Purch_MN_6M HHExpNFMedGood_Purch_MN_6M HHExpNFCloth_Purch_MN_6M HHExpNFEduFee_Purch_MN_6M HHExpNFEduGood_Purch_MN_6M HHExpNFRent_Purch_MN_6M HHExpNFHHSoft_Purch_MN_6M HHExpNFHHMaint_Purch_MN_6M) // careful with rent: should include only if also incuded in MEB
+egen HHExpNFTotal_Purch_MN_6M=rowtotal(HHExpNFMedServ_Purch_MN_6M HHExpNFMedGood_Purch_MN_6M HHExpNFCloth_Purch_MN_6M HHExpNFEduFee_Purch_MN_6M HHExpNFEduGood_Purch_MN_6M HHExpNFRent_Purch_MN_6M HHExpNFHHSoft_Purch_MN_6M HHExpNFHHMaint_Purch_MN_6M) // careful with rent: should include only if also included in MEB
 
 * Express 6 months in monthly terms
 replace HHExpNFTotal_Purch_MN_6M=HHExpNFTotal_Purch_MN_6M/6
