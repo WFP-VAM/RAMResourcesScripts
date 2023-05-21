@@ -196,13 +196,20 @@ egen HHExpTot_1M=rowtotal(HHExpF_1M HHExpNF_1M)
 gen FES = HHExpF_1M/HHExpTot_1M
 lab var FES "Household food expenditure share"
 
+count if HHExpF_1M == 0
+count if HHExpTot_1M == 0
+
 drop HHExpTot_1M
+replace FES = 0 if mi(FES)
 
 * Transfor FES to 4 categories
-recode FES (min/.4999999=1) (.50/.64999999=2) (.65/.74999999=3) (.75/max=4), gen(Foodexp_4pt)
-lab var Foodexp_4pt "Food expenditure share categories"
+gen byte Foodexp_4pt = 1 if FES <  50
+replace  Foodexp_4pt = 2 if FES >= 50 & FES < 65
+replace  Foodexp_4pt = 3 if FES >= 65 & FES < 75
+replace  Foodexp_4pt = 4 if FES >= 75
+lab var  Foodexp_4pt "Food expenditure share categories"
 
-label define Foodexp_4pt_lab 1 "<50%" 2 "50-65%" 3 "65-75%" 4" > 75%"
+label define Foodexp_4pt_lab 1 "<50%" 2 "50-65%" 3 "65-75%" 4" >= 75%"
 label value Foodexp_4pt Foodexp_4pt_lab 
 
 * Compute FES indicator
