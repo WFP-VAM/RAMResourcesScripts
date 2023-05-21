@@ -127,12 +127,12 @@ VARIABLE LABELS
  HHExpNFPhone_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - communication'
  HHExpNFRecr_Purch_MN_1M 'Expenditures on recreation'
  HHExpNFRecr_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - recreation'
- HHExpNFAlcTobac_Purch_MN_1M 'Expenditures on alchol/tobacco'
- HHExpNFAlcTobac_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - alchol/tobacco'.
+ HHExpNFAlcTobac_Purch_MN_1M 'Expenditures on alcohol/tobacco'
+ HHExpNFAlcTobac_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - alcohol/tobacco'.
 EXECUTE.
 * If the questionnaire included further non-food categories/items label the respective variables
 
-*6 months recall period - variables lables.
+*6 months recall period - variables labels.
 VARIABLE LABELS
  HHExpNFMedServ_Purch_MN_6M 'Expenditures on health services'
  HHExpNFMedServ_GiftAid_MN_6M 'Value of consumed in-kind assistance-gifts - health services'
@@ -164,7 +164,7 @@ EXECUTE.
 
 * 6 months recall.
 COMPUTE HHExpNFTotal_Purch_MN_6M=SUM(HHExpNFMedServ_Purch_MN_6M, HHExpNFMedGood_Purch_MN_6M, HHExpNFCloth_Purch_MN_6M, + 
-HHExpNFEduFee_Purch_MN_6M, HHExpNFEduGood_Purch_MN_6M, HHExpNFRent_Purch_MN_6M, HHExpNFHHSoft_Purch_MN_6M, HHExpNFHHMaint_Purch_MN_6M). /* careful with rent: should include only if also incuded in MEB.
+HHExpNFEduFee_Purch_MN_6M, HHExpNFEduGood_Purch_MN_6M, HHExpNFRent_Purch_MN_6M, HHExpNFHHSoft_Purch_MN_6M, HHExpNFHHMaint_Purch_MN_6M). /* careful with rent: should include only if also included in MEB.
 EXECUTE.
 
 * Express 6 months in monthly terms.
@@ -188,7 +188,7 @@ EXECUTE.
 
 * 6 months recall.
 COMPUTE HHExpNFTotal_GiftAid_MN_6M=SUM(HHExpNFMedServ_GiftAid_MN_6M, HHExpNFMedGood_GiftAid_MN_6M, HHExpNFCloth_GiftAid_MN_6M, +
- HHExpNFEduFee_GiftAid_MN_6M, HHExpNFEduGood_GiftAid_MN_6M, HHExpNFRent_GiftAid_MN_6M, HHExpNFHHSoft_GiftAid_MN_6M, HHExpNFHHMaint_GiftAid_MN_6M). /* careful with rent: should include only if also incuded in MEB.
+ HHExpNFEduFee_GiftAid_MN_6M, HHExpNFEduGood_GiftAid_MN_6M, HHExpNFRent_GiftAid_MN_6M, HHExpNFHHSoft_GiftAid_MN_6M, HHExpNFHHMaint_GiftAid_MN_6M). /* careful with rent: should include only if also included in MEB.
 EXECUTE.
 
 * Express 6 months in monthly terms.
@@ -227,12 +227,12 @@ VARIABLE LABELS  HHExp_ECMEN 'Household Economic Capacity - monthly'.
 *--------------------------------------------------------------------------------*
 
 VARIABLE LABELS
- HHAsstWFPCBTRecTot         'Amount of cash assistance received from WFP - last 3 months'
+ HHAsstWFPCBTRecTot     'Amount of cash assistance received from WFP - last 3 months'
  HHAsstUNNGOCBTRecTot   'Amount of cash assistance received by other humanitarian partners - last 3 months'
- HHAsstCBTCShare                 'Share of cash assistance spent on consumption'.
+ HHAsstCBTCShare        'Share of cash assistance spent on consumption'.
 EXECUTE.
 
-* Sum the amount of cash assistance received by WFP and other humanitartian partners (UN Agencies and NGOs) - do not include cash received from government, other organizations, and other households.
+* Sum the amount of cash assistance received by WFP and other humanitarian partners (UN Agencies and NGOs) - do not include cash received from government, other organizations, and other households.
 COMPUTE HHAsstCBTRec = SUM(HHAsstWFPCBTRecTot, HHAsstUNNGOCBTRecTot).
 EXECUTE.
 
@@ -308,7 +308,7 @@ VARIABLE LABELS
 
 VALUE LABELS ECMEN_exclAsst_SMEB
     1 'Above SMEB'
-    0 ' Below SMEB'.
+    0 'Below SMEB'.
 EXECUTE.
 
 * Compute the indicator (use weights when applicable!).
