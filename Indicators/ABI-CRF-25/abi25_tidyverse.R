@@ -19,7 +19,7 @@ data <- data %>%
   mutate(across(c(HHAssetProtect,HHAssetProduct,HHAssetDecHardship,HHAssetAccess,HHTrainingAsset,HHAssetEnv,HHWorkAsset), ~labelled(., labels = c(
     "No" = 0,
     "Yes" = 1,
-    "Not applicable" = 999
+    "Not applicable" = 9999
   ))))
 
 val_lab(data$HHFFAPart) = num_lab("
@@ -29,7 +29,7 @@ val_lab(data$HHFFAPart) = num_lab("
 
 #recode 999 to 0
 data <- data %>%
-  mutate(across(HHAssetProtect:HHWorkAsset, ~ dplyr::recode(.x, "0" = 0, "1" = 1, "999" = 0)))
+  mutate(across(HHAssetProtect:HHWorkAsset, ~ dplyr::recode(.x, "0" = 0, "1" = 1, "9999" = 0)))
 
 
 #sum ABI rows
