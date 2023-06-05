@@ -51,8 +51,8 @@ ABIperc_particp_ADMIN5Name <- data %>% mutate(HHFFAPart_lab = to_character(HHFFA
 #create table presenting ABI % participants vs non-particpants (average across villages)
 ABIperc_particp <- data %>% mutate(HHFFAPart_lab = to_character(HHFFAPart)) %>% group_by(HHFFAPart_lab) %>% summarize(ABIperc = mean(ABIperc))
 
-#calculate the ABI across using weight value of 2 for non-participants which accounts for sampling imbalance between nonparticipants 
-#if ratio of participants/vs non-particpants is used then a more sophisticated method for creating weights should be used.
+#calculate the ABI across using weight value of 2 for non-participants which accounts for sampling imbalance between nonparticipants and participants
+#if ratio of participants/vs non-participants is not 2/1 then a more sophisticated method for creating weights should be used.
 ABIperc_total <- ABIperc_particp %>% mutate(ABIperc_wtd = case_when(HHFFAPart_lab == "No" ~ ABIperc *2, TRUE ~ ABIperc))  %>% ungroup() %>% summarize(ABIperc_total = sum(ABIperc_wtd)/3)
   
                                             
