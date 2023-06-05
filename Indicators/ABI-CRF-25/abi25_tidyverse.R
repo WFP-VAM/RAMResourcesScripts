@@ -2,6 +2,8 @@ library(tidyverse)
 library(labelled)
 library(expss)
 
+ data <- read_csv("ABI_Sample_Survey.csv")
+
 #import dataset
 data <- read_csv("~/GitHub/RAMResourcesScripts/Static/ABI_Sample_Survey.csv")
 
@@ -36,12 +38,26 @@ data <- data %>%
 data <- data %>% 
   mutate(ABIScore = rowSums(across(c(HHAssetProtect:HHWorkAsset))))
 
-#create denominator of questions asked
+#create denominator of questions asked 
 data <- data %>% mutate(ABIdenom = case_when(
-  ADMIN5Name == "a" ~ 5,
-  ADMIN5Name == "b" ~ 6
+  ADMIN5Name == "Community A" ~ 5,
+  ADMIN5Name == "Community B" ~ 6
 ))
 
 #create % ABI for each respondent
 data <- data %>% mutate(ABIperc = round((ABIScore/ABIdenom)*100))
 
+#create table comparing ABI % of participants and non-participants by village 
+ABIperc_particp_ADMIN5Name <- data %>% mutate(HHFFAPart_lab = to_character(HHFFAPart)) %>% group_by(ADMIN5Name, HHFFAPart_lab) %>% summarize(ABIperc = mean(ABIperc))
+
+#create table presenting ABI % participants vs non-particpants (average across villages)
+ABIperc_particp <- data %>% mutate(HHFFAPart_lab = to_character(HHFFAPart)) %>% group_by(HHFFAPart_lab) %>% summarize(ABIperc = mean(ABIperc))
+
+#calculate the ABI across using weight value of 2 for non-participants which accounts for sampling imbalance between nonparticipants 
+#if ratio of participants/vs non-particpants is used then a more sophisticated method for creating weights should be used.
+ABIperc_total <- ABIperc_particp %>% mutate(ABIperc_wtd = case_when(HHFFAPart_lab == "No" ~ ABIperc *2, TRUE ~ ABIperc))  %>% ungroup() %>% summarize(ABIperc_total = sum(ABIperc_wtd)/3)
+  
+                                            
+                                            
+                                            
+                                         
