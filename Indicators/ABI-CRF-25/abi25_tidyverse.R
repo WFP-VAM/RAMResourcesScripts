@@ -2,8 +2,6 @@ library(tidyverse)
 library(labelled)
 library(expss)
 
- data <- read_csv("ABI_Sample_Survey.csv")
-
 #import dataset
 data <- read_csv("~/GitHub/RAMResourcesScripts/Static/ABI_Sample_Survey.csv")
 
