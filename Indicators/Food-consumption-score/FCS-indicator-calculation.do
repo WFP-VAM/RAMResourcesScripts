@@ -34,12 +34,12 @@ label var FCS "Food Consumption Score"
 
 *** Use this when analyzing a country with high consumption of sugar and oil – thresholds 28-42
 
-gen FCSCat28=cond(FCS<28,1,cond(FCS<42,2,3))
+gen FCSCat28=cond(FCS <= 28,1,cond(FCS <= 42,2,3))
 label var FCSCat28 "FCS Categories, thresholds 28-42"
 
 ***Use this when analyzing a country with low consumption of sugar and oil - thresholds 21-35
 
-gen FCSCat21=cond(FCS<21,1,cond(FCS<35,2,3))
+gen FCSCat21=cond(FCS <= 21,1,cond(FCS <= 35,2,3))
 label var FCSCat21 "FCS Categories, thresholds 21-35"
 
 *** define variables labels and properties for "FCS Categories".
