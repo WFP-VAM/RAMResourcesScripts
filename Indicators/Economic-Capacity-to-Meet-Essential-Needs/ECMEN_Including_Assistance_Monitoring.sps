@@ -122,12 +122,12 @@ VARIABLE LABELS
  HHExpNFPhone_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - communication'
  HHExpNFRecr_Purch_MN_1M 'Expenditures on recreation'
  HHExpNFRecr_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - recreation'
- HHExpNFAlcTobac_Purch_MN_1M 'Expenditures on alchol/tobacco'
- HHExpNFAlcTobac_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - alchol/tobacco'.
+ HHExpNFAlcTobac_Purch_MN_1M 'Expenditures on alcohol/tobacco'
+ HHExpNFAlcTobac_GiftAid_MN_1M 'Value of consumed in-kind assistance-gifts - alcohol/tobacco'.
 EXECUTE.
 * If the questionnaire included further non-food categories/items label the respective variables
 
-*6 months recall period - variables lables.
+*6 months recall period - variables labels.
 VARIABLE LABELS
  HHExpNFMedServ_Purch_MN_6M 'Expenditures on health services'
  HHExpNFMedServ_GiftAid_MN_6M 'Value of consumed in-kind assistance-gifts - health services'
@@ -159,7 +159,7 @@ EXECUTE.
 
 * 6 months recall.
 COMPUTE HHExpNFTotal_Purch_MN_6M=SUM(HHExpNFMedServ_Purch_MN_6M, HHExpNFMedGood_Purch_MN_6M, HHExpNFCloth_Purch_MN_6M, + 
-HHExpNFEduFee_Purch_MN_6M, HHExpNFEduGood_Purch_MN_6M, HHExpNFRent_Purch_MN_6M, HHExpNFHHSoft_Purch_MN_6M, HHExpNFHHMaint_Purch_MN_6M). /* careful with rent: should include only if also incuded in MEB.
+HHExpNFEduFee_Purch_MN_6M, HHExpNFEduGood_Purch_MN_6M, HHExpNFRent_Purch_MN_6M, HHExpNFHHSoft_Purch_MN_6M, HHExpNFHHMaint_Purch_MN_6M). /* careful with rent: should include only if also included in MEB.
 EXECUTE.
 
 * Express 6 months in monthly terms.
@@ -183,7 +183,7 @@ EXECUTE.
 
 * 6 months recall.
 COMPUTE HHExpNFTotal_GiftAid_MN_6M=SUM(HHExpNFMedServ_GiftAid_MN_6M, HHExpNFMedGood_GiftAid_MN_6M, HHExpNFCloth_GiftAid_MN_6M, +
- HHExpNFEduFee_GiftAid_MN_6M, HHExpNFEduGood_GiftAid_MN_6M, HHExpNFRent_GiftAid_MN_6M, HHExpNFHHSoft_GiftAid_MN_6M, HHExpNFHHMaint_GiftAid_MN_6M). /* careful with rent: should include only if also incuded in MEB.
+ HHExpNFEduFee_GiftAid_MN_6M, HHExpNFEduGood_GiftAid_MN_6M, HHExpNFRent_GiftAid_MN_6M, HHExpNFHHSoft_GiftAid_MN_6M, HHExpNFHHMaint_GiftAid_MN_6M). /* careful with rent: should include only if also included in MEB.
 EXECUTE.
 
 * Express 6 months in monthly terms.
@@ -242,7 +242,7 @@ VARIABLE LABELS
 
 VALUE LABELS ECMEN_inclAsst
     1 'Above MEB'
-    0 ' Below MEB'.
+    0 'Below MEB'.
 EXECUTE.
 
 * Compute the indicator (use weights when applicable!).
