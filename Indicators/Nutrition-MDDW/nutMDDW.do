@@ -18,31 +18,32 @@
 	label def yesno   1 "Yes" 0 "No"
 	label val PWMDDW* yesno
 
-	label var PWMDDWStapCer				      "Foods made from grains"
-	label var PWMDDWStapRoo				      "White roots and tubers or plantains"
-	label var PWMDDWPulse				        "Pulses (beans, peas and lentils)"
-	label var PWMDDWNuts				        "Nuts and seeds"
-	label var PWMDDWMilk				        "Milk"
-	label var PWMDDWDairy				        "Milk products"
-	label var PWMDDWPrMeatO				      "Organ meats"
-	label var PWMDDWPrMeatF				      "Red flesh meat from mammals"
-	label var PWMDDWPrMeatPro			      "Processed meat"
-	label var PWMDDWPrMeatWhite         "Poultry and other white meats"
-	label var PWMDDWPrFish				      "Fish and Seafood"
-	label var PWMDDWPrEgg				        "Eggs from poultry or any other bird"
-	label var PWMDDWVegGre 				      "Dark green leafy vegetable"
-	label var PWMDDWVegOrg				      "Vitamin A-rich vegetables, roots and tubers"
 	label var PWMDDWFruitOrg			      "Vitamin A-rich fruits"
-	label var PWMDDWVegOth				      "Other vegetables"
-	label var PWMDDWFruitOth			      "Other fruits"
-	label var PWMDDWSnf					        "Specialized Nutritious Foods (SNF) for women"
-	label var PWMDDWFortFoodoil 	      "Fortified oil"
-	label var PWMDDWFortFoodwflour      "Fortified wheat flour"
-	label var PWMDDWFortFoodmflour	    "Fortified maize flour"
-	label var PWMDDWFortFoodrice  	    "Fortified Rice"
-	label var PWMDDWFortFooddrink  		  "Fortified drink"
-	label var PWMDDWFortFoodother  		  "Other:"
-	label var PWMDDWFortFoodother_oth  	"Other specify: ______"
+	label var PWMDDWStapCer					"Foods made from grains"
+	label var PWMDDWStapRoo				    "White roots and tubers or plantains"
+	label var PWMDDWPulse					"Pulses (beans, peas and lentils)"
+	label var PWMDDWNuts					"Nuts and seeds"
+	label var PWMDDWMilk					"Milk"
+	label var PWMDDWDairy					"Milk products"
+	label var PWMDDWPrMeatO				    "Organ meats"
+	label var PWMDDWPrMeatF				    "Red flesh meat from mammals"
+	label var PWMDDWPrMeatPro			    "Processed meat"
+	label var PWMDDWPrMeatWhite         	"Poultry and other white meats"
+	label var PWMDDWPrFish				    "Fish and Seafood"
+	label var PWMDDWPrEgg				    "Eggs from poultry or any other bird"
+	label var PWMDDWVegGre 				    "Dark green leafy vegetable"
+	label var PWMDDWVegOrg				    "Vitamin A-rich vegetables, roots and tubers"
+	label var PWMDDWFruitOrg			    "Vitamin A-rich fruits"
+	label var PWMDDWVegOth				    "Other vegetables"
+	label var PWMDDWFruitOth			    "Other fruits"
+	label var PWMDDWSnf					    "Specialized Nutritious Foods (SNF) for women"
+	label var PWMDDWFortFoodoil 	      	"Fortified oil"
+	label var PWMDDWFortFoodwflour      	"Fortified wheat flour"
+	label var PWMDDWFortFoodmflour	    	"Fortified maize flour"
+	label var PWMDDWFortFoodrice  	    	"Fortified Rice"
+	label var PWMDDWFortFooddrink  		  	"Fortified drink"
+	label var PWMDDWFortFoodother  		  	"Other:"
+	label var PWMDDWFortFoodother_oth  		"Other specify: ______"
 	
 
 /*  		Calculate 2 MDDW indicators based on WFP guidelines 
@@ -63,18 +64,18 @@
 	PWMDDWFortFoodother_oth will likely involve classifying line by line. 	  */
 
 	gen MDDW_Staples 	 = (PWMDDWStapCer == 1 | PWMDDWStapRoo == 1 | PWMDDWSnf == 1 | ///
-							          PWMDDWFortFoodwflour == 1 | PWMDDWFortFoodmflour == 1 	 | ///
-							          PWMDDWFortFoodrice 	 == 1 | PWMDDWFortFooddrink  == 1)
+							PWMDDWFortFoodwflour == 1 | PWMDDWFortFoodmflour == 1 	 | ///
+							PWMDDWFortFoodrice 	 == 1 | PWMDDWFortFooddrink  == 1)
 	gen MDDW_Pulses		 = (PWMDDWPulse   == 1)
-	gen MDDW_NutsSeeds = (PWMDDWNutsR   == 1)
+	gen MDDW_NutsSeeds   = (PWMDDWNutsR   == 1)
 	gen MDDW_Dairy		 = (PWMDDWDairy   == 1 | PWMDDWMilk == 1)
 	gen MDDW_MeatFish	 = (PWMDDWPrMeatO == 1 | PWMDDWPrMeatF == 1 | PWMDDWPrMeatPro == 1 | ///
 							          PWMDDWPrMeatWhite == 1 | PWMDDWPrFish == 1)
-	gen MDDW_Eggs		   = (PWMDDWPrEgg   == 1)
+	gen MDDW_Eggs		 = (PWMDDWPrEgg   == 1)
 	gen MDDW_LeafGVeg	 = (PWMDDWVegGre  == 1)
 	gen MDDW_VitA  		 = (PWMDDWVegOrg  == 1 | PWMDDWFruitOrg == 1)
-  gen MDDW_OtherVeg  = (PWMDDWVegOth  == 1)
-  gen MDDW_OtherFruits = (PWMDDWFruitOth == 1)
+	gen MDDW_OtherVeg    = (PWMDDWVegOth  == 1)
+	gen MDDW_OtherFruits = (PWMDDWFruitOth == 1)
 	
 	* calculate MDDW variable for both methods by adding together food groups and 
 	* classifying whether the woman consumed 5 or more food groups

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------#
 
 #	                        WFP RAM Standardized Scripts
-#                      Calculating and Visualizing FCSN
+#                      Calculating and Summarising FCSN
 
 #------------------------------------------------------------------------------#
 
