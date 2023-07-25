@@ -1,5 +1,5 @@
 ********************************************************************************
-*						          Minimum Dietary Diversity for Women
+*					 Minimum Dietary Diversity for Women (MDDW)
 *******************************************************************************/
 	
 ** Load data
@@ -91,23 +91,23 @@
 	PWMDDWFortFooddrink) will count in grains. Classifying 
 	PWMDDWFortFoodother_oth will likely involve classifying line by line. 	  */	
 	
-	gen MDDW_Staples_wfp   = (PWMDDWStapCer == 1 		    | PWMDDWStapRoo == 1 		    | ///
-							              PWMDDWFortFoodwflour == 1 | PWMDDWFortFoodmflour == 1 | ///
-							              PWMDDWFortFoodrice   == 1 | PWMDDWFortFooddrink  == 1)
+	gen MDDW_Staples_wfp   = (PWMDDWStapCer == 1 		| PWMDDWStapRoo == 1 	    | ///
+							  PWMDDWFortFoodwflour == 1 | PWMDDWFortFoodmflour == 1 | ///
+							  PWMDDWFortFoodrice   == 1 | PWMDDWFortFooddrink  == 1)
 	gen MDDW_Pulses_wfp	   = (PWMDDWPulse   == 1)
 	gen MDDW_NutsSeeds_wfp = (PWMDDWNutsR   == 1)
 	gen MDDW_Dairy_wfp	   = (PWMDDWDairy   == 1 | PWMDDWMilk == 1)
-	gen MDDW_MeatFish_wfp  = (PWMDDWPrMeatO == 1 | 	   PWMDDWPrMeatF == 1 | PWMDDWPrMeatPro == 1 | ///
-							              PWMDDWPrMeatWhite == 1 | PWMDDWPrFish  == 1 | PWMDDWSnf == 1)
+	gen MDDW_MeatFish_wfp  = (PWMDDWPrMeatO == 1 | PWMDDWPrMeatF == 1 	  | PWMDDWPrMeatPro == 1 | ///
+							  PWMDDWPrMeatWhite == 1 | PWMDDWPrFish  == 1 | PWMDDWSnf == 1)
 	gen MDDW_Eggs_wfp 	   = (PWMDDWPrEgg   == 1)
 	gen MDDW_LeafGVeg_wfp  = (PWMDDWVegGre  == 1)
 	gen MDDW_VitA_wfp      = (PWMDDWVegOrg  == 1 | PWMDDWFruitOrg == 1)
-  gen MDDW_OtherVeg_wfp  = (PWMDDWVegOth  == 1)
-  gen MDDW_OtherFruits_wfp  = (PWMDDWFruitOth == 1)
+	gen MDDW_OtherVeg_wfp  = (PWMDDWVegOth  == 1)
+	gen MDDW_OtherFruits_wfp = (PWMDDWFruitOth == 1)
 	
 	gen MDDW_wfp = MDDW_Staples_wfp  + MDDW_Pulses_wfp + MDDW_NutsSeeds_wfp + MDDW_Dairies_wfp + ///
-				         MDDW_MeatFish_wfp + MDDW_Eggs_wfp   + MDDW_LeafGVeg_wfp  + MDDW_VitA_wfp +    ///
-			           DDW_OtherVeg_wfp  + MDDW_OtherFruits_wfp
+				   MDDW_MeatFish_wfp + MDDW_Eggs_wfp   + MDDW_LeafGVeg_wfp  + MDDW_VitA_wfp +    ///
+			       MDDW_OtherVeg_wfp + MDDW_OtherFruits_wfp
 	gen MDDW_5_wfp = (MDDW_wfp >= 5)
 	
 	tab MDDW_5_wfp, d
