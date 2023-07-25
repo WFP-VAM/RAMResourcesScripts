@@ -1,6 +1,12 @@
-#### Title: R syntax for Food security indicators ####
+#------------------------------------------------------------------------------#
 
-###### Install/load packages ####
+#	                        WFP RAM Standardized Scripts
+#                         Calculating and Analyzing FCS
+
+#------------------------------------------------------------------------------#
+
+## Load Packages --------------------------------------------------------------#
+
 ipak <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
   if (length(new.pkg))
@@ -12,42 +18,40 @@ packages<-c('psych','diveRsity','expss')
 ipak(packages)
 
 library('psych')
-
 library("diveRsity")
-###### Set working directory #####
-## Select the working directory where the data base is stored. 
-setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
-# This is just an example. Copy and paste your own working directory. Remember to use "\\" instead of "/"
-# The data base to be used should be part of the content
+
+# Set working directory -------------------------------------------------------#
 
 ## Get working directory
 getwd()# Display current working directory
 dir()# Display working directory content
 
-### Load data base ####
+setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
+# This is just an example. Copy and paste your own working directory. Remember to use "\\" instead of "/"
+# The data base to be used should be part of the content
+
+# Load Sample Data ------------------------------------------------------------#
+
 data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
+
 names(data)# Display var names for the entire data base
 attach(data)# Attach the data base for easy access to var names. 
 
-###### Food Security Indicators Development ##########
-
-## Food Consumption Score (FCS) ####
+# Prepare FCS related variables -----------------------------------------------# 
 
 # 1. Re-coding missing values to zero
-data$FCSStap[is.na(data$FCSStap)] <-0 
-data$FCSVeg[is.na(data$FCSVeg)] <-0 
+data$FCSStap[is.na(data$FCSStap)]   <-0 
+data$FCSVeg[is.na(data$FCSVeg)]     <-0 
 data$FCSFruit[is.na(data$FCSFruit)] <-0  
-data$FCSPr[is.na(data$FCSPr)] <-0  
+data$FCSPr[is.na(data$FCSPr)]       <-0  
 data$FCSPulse[is.na(data$FCSPulse)] <-0   
 data$FCSDairy[is.na(data$FCSDairy)] <-0  
 data$FCSSugar[is.na(data$FCSSugar)] <-0  
-data$FCSFat[is.na(data$FCSFat)] <-0  
-data$FCSCond[is.na(data$FCSCond)] <-0
-
+data$FCSFat[is.na(data$FCSFat)]     <-0  
+data$FCSCond[is.na(data$FCSCond)]   <-0
 
 # Test results
 print(data$FCSStap) # How data looks like?
-print(data$FCSDairy) # How data looks like?
 
 ## 2. Variables creation and statistics testing
 # Var FCSStapCer FCSStapTub
@@ -56,9 +60,9 @@ if ("FCSStap" %in% colnames(data)) {"x"} else
  { 
   data$FCSStap <- mapply(max, data$FCSStapCer, data$FCSStapTub, na.rm=T)
  }
-  count(data$FCSStap)
-  basicStats(data$FCSStap, ci=0.95)
-  plot(density(data$FCSStap))
+count(data$FCSStap)
+basicStats(data$FCSStap, ci=0.95)
+plot(density(data$FCSStap))
 
 # Legumes/nuts (FCSPulse)
 data$FCSPulse
@@ -109,17 +113,17 @@ basicStats(data$FCSCond, ci=0.95)
 plot(density(data$FCSCond))
 
 # 2.1 Recode above 7 to 7 (only if necessary)
-data$Ncertub[data$FCSStap>7] <- 7
+data$Ncertub[data$FCSStap>7]   <- 7
 data$FCSPulse[data$FCSPulse>7] <- 7
 data$FCSDairy[data$FCSDairy>7] <- 7
-data$FCSPr[data$FCSPr>7] <- 7
-data$FCSVeg[data$FCSVeg>7] <- 7
+data$FCSPr[data$FCSPr>7]       <- 7
+data$FCSVeg[data$FCSVeg>7]     <- 7
 data$FCSFruit[data$FCSFruit>7] <- 7
-data$FCSFat[data$FCSFat>7] <- 7
+data$FCSFat[data$FCSFat>7]     <- 7
 data$FCSSugar[data$FCSSugar>7] <- 7
-data$FCSCond[data$FCSCond>7] <- 7
+data$FCSCond[data$FCSCond>7]   <- 7
 
-# 3. Multiplying food groups by weight and creates FCS1
+# Calculate FCS ---------------------------------------------------------------# 
 data$FCS <- mapply(sum,(data$FCSStap*2),(data$FCSPulse*3),(data$FCSDairy*4),
                    (data$FCSPr*4),(data$FCSVeg),(data$FCSFruit),(data$FCSFat*0.5),
                    (data$FCSSugar*0.5))
@@ -129,7 +133,8 @@ psych::describe(data$FCS)
 summary(data$FCS)
 stat.desc(data$FCS, basic = F)
 plot(density(data$FCS))
-##### FCS Categories #####
+
+# Create FCG groups based on 21/55 or 28/42 thresholds ------------------------# 
 ###Use this when analyzing a country with low consumption of sugar and oil - thresholds 21-35
 data$FCSCat21 <-cut(data$FCS,
                     breaks=c(0,21,35,Inf),
@@ -144,7 +149,6 @@ val_lab(data$FCSCat21) = num_lab("
              3 Acceptable
 ")
 
-
 ### Important note: pay attention to the threshold used by your CO when selecting the syntax (21 cat. vs 28 cat.)
 ### Use this when analyzing a country with high consumption of sugar and oil - thresholds 28-42
 data$FCSCat28 <-cut(data$FCS,
@@ -158,3 +162,5 @@ val_lab(data$FCSCat28) = num_lab("
              2 Borderline
              3 Acceptable
 ")
+
+# End of Scripts
