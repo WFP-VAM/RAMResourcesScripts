@@ -13,7 +13,6 @@
 	recode FCS* (. = 0)
 
 ** assign variable labels
-
 	label var FCSNPrMeatF	"Consumption in past 7 days: Flesh meat"
 	label var FCSNPrMeatO	"Consumption in past 7 days: Organ meat"
 	label var FCSNPrFish	"Consumption in past 7 days: Fish/shellfish"
@@ -37,11 +36,13 @@
 	gen FGHIronCat 	 = cond(FGHIron   < 1,1,cond(FGHIron   <= 6,2,3))
 
 ** define variables labels and properties for FGVitACat FGProteinCat FGHIronCat
-	label def FGN_l 1 "Never consumed" 2 "Consumed sometimes" 3 "Consumed at least 7 times"
+	label def FGN_l 1 "Never consumed" 		///
+					2 "Consumed sometimes" 	///
+					3 "Consumed at least 7 times"
 	label val FGVitACat FGProteinCat FGHIron_Cat FGHIronCat
 
 	label var FGVitACat 	"Consumption group of vitamin A-rich foods"
 	label var FGProteinCat 	"Consumption group of protein-rich foods"
-	label var FGHIronCat	"Consumption group of hem iron-rich foods"
+	label var FGHIronCat	"Consumption group of heme iron-rich foods"
 	
-* End of dofile
+* End of scripts
