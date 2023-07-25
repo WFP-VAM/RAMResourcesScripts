@@ -18,7 +18,6 @@
 	label def yesno   1 "Yes" 0 "No"
 	label val PWMDDW* yesno
 
-	label var PWMDDWFruitOrg			      "Vitamin A-rich fruits"
 	label var PWMDDWStapCer					"Foods made from grains"
 	label var PWMDDWStapRoo				    "White roots and tubers or plantains"
 	label var PWMDDWPulse					"Pulses (beans, peas and lentils)"
