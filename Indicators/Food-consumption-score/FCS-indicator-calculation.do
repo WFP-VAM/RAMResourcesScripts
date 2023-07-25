@@ -21,8 +21,8 @@
 	recode FCSStap FCSVeg FCSFruit FCSPr FCSPulse FCSDairy FCSFat FCSSugar (.=0)
 
 ** Create FCS 
-	gen FCS_check = (FCSStap * 2) + (FCSPulse * 3) + (FCSDairy * 4) + (FCSPr * 4) + 	///
-					(FCSVeg  * 1) + (FCSFruit * 1) + (FCSFat * 0.5) + (FCSSugar * 0.5)	  
+	gen FCS = (FCSStap * 2) + (FCSPulse * 3) + (FCSDairy * 4) + (FCSPr * 4) + 	///
+			  (FCSVeg  * 1) + (FCSFruit * 1) + (FCSFat * 0.5) + (FCSSugar * 0.5)	  
 
 	label var FCS "Food Consumption Score"
 
