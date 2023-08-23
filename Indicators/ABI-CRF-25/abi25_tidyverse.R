@@ -19,7 +19,7 @@ data <- data %>%
   mutate(across(c(HHAssetProtect,HHAssetProduct,HHAssetDecHardship,HHAssetAccess,HHTrainingAsset,HHAssetEnv,HHWorkAsset), ~labelled(., labels = c(
     "No" = 0,
     "Yes" = 1,
-    "Not applicable" = 999
+    "Not applicable" = 9999
   ))))
 
 val_lab(data$HHFFAPart) = num_lab("
@@ -29,19 +29,33 @@ val_lab(data$HHFFAPart) = num_lab("
 
 #recode 999 to 0
 data <- data %>%
-  mutate(across(HHAssetProtect:HHWorkAsset, ~ dplyr::recode(.x, "0" = 0, "1" = 1, "999" = 0)))
+  mutate(across(HHAssetProtect:HHWorkAsset, ~ dplyr::recode(.x, "0" = 0, "1" = 1, "9999" = 0)))
 
 
 #sum ABI rows
 data <- data %>% 
   mutate(ABIScore = rowSums(across(c(HHAssetProtect:HHWorkAsset))))
 
-#create denominator of questions asked
+#create denominator of questions asked 
 data <- data %>% mutate(ABIdenom = case_when(
-  ADMIN5Name == "a" ~ 5,
-  ADMIN5Name == "b" ~ 6
+  ADMIN5Name == "Community A" ~ 5,
+  ADMIN5Name == "Community B" ~ 6
 ))
 
 #create % ABI for each respondent
 data <- data %>% mutate(ABIperc = round((ABIScore/ABIdenom)*100))
 
+#create table comparing ABI % of participants and non-participants by village 
+ABIperc_particp_ADMIN5Name <- data %>% mutate(HHFFAPart_lab = to_character(HHFFAPart)) %>% group_by(ADMIN5Name, HHFFAPart_lab) %>% summarize(ABIperc = mean(ABIperc))
+
+#create table presenting ABI % participants vs non-particpants (average across villages)
+ABIperc_particp <- data %>% mutate(HHFFAPart_lab = to_character(HHFFAPart)) %>% group_by(HHFFAPart_lab) %>% summarize(ABIperc = mean(ABIperc))
+
+#calculate the ABI across using weight value of 2 for non-participants which accounts for sampling imbalance between nonparticipants and participants
+#if ratio of participants/vs non-participants is not 2/1 then a more sophisticated method for creating weights should be used.
+ABIperc_total <- ABIperc_particp %>% mutate(ABIperc_wtd = case_when(HHFFAPart_lab == "No" ~ ABIperc *2, TRUE ~ ABIperc))  %>% ungroup() %>% summarize(ABIperc_total = sum(ABIperc_wtd)/3)
+  
+                                            
+                                            
+                                            
+                                         
