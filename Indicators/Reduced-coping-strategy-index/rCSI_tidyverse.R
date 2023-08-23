@@ -1,32 +1,50 @@
+#------------------------------------------------------------------------------#
+
+#	                        WFP RAM Standardized Scripts
+#                      Calculating and Summarising rCSI
+
+#------------------------------------------------------------------------------#
+
+rm(list = ls())
+
+## Load Packages --------------------------------------------------------------#
+
 library(tidyverse)
+library(dplyr)
 library(labelled)
 
-#add sample data
+# Load Sample Data ------------------------------------------------------------#
+
 data <- read_csv("~/GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv")
 
-#assign variable and value labels
-var_label(data$rCSILessQlty) <-  "Rely on less preferred and less expensive food in the past 7 days"
-var_label(data$rCSIBorrow) <- "Borrow food or rely on help from a relative or friend in the past 7 days"
-var_label(data$rCSIMealNb) <-  "Reduce number of meals eaten in a day in the past 7 days"
-var_label(data$rCSIMealSize) <- "Limit portion size of meals at meal times in the past 7 days"
-var_label(data$rCSIMealAdult) <-  "Restrict consumption by adults in order for small children to eat in the past 7 days"
+# Label rCSI relevant variables -----------------------------------------------#
 
-#calculate reduced Coping Strategy Index (rCSI)
-data <- data %>% mutate(rCSI = rCSILessQlty + (2 * rCSIBorrow) + rCSIMealNb + rCSIMealSize + (3 * rCSIMealAdult))
-var_label(data$rCSI) <- "Reduced coping strategies index (rCSI)"
+var_label(data$rCSILessQlty)  <- "Relied on less preferred and less expensive food"
+var_label(data$rCSIBorrow)    <- "Borrowed food or relied on help from a relative or friend"
+var_label(data$rCSIMealNb)    <- "Reduce number of meals eaten in a day"
+var_label(data$rCSIMealSize)  <- "Limit portion size of meals at meal times"
+var_label(data$rCSIMealAdult) <- "Restricted consumption by adults for small children to eat"
 
+# Calculate rCSI --------------------------------------------------------------# 
 
-#creates a table of the mean of rCSI
-#providing two options - weighted and unweighted
+data <- data %>% mutate(rCSI = rCSILessQlty + 
+                              (rCSIBorrow * 2) + 
+                               rCSIMealNb + 
+                               rCSIMealSize + 
+                              (rCSIMealAdult * 3))
+
+var_label(data$rCSI)          <- "Reduced coping strategies index (rCSI)"
+
+# Creating weighted and unweighted summary of rCSI ----------------------------# 
 
 #unweighted
 rCSI_table_mean <- data %>% 
   drop_na(rCSI) %>% 
   summarise(meanrCSI = mean(rCSI))
   
-  
 #with weights 
 rCSI_table_mean <- data %>% 
   drop_na(rCSI) %>% 
-  summarise(meanrCSI = weighted.mean(rCSI,nameofweightvariable)) #insert name of weight variable 
+  summarise(meanrCSI = weighted.mean(rCSI,nameofweightvariable))
+#insert name of weight variable 
 
