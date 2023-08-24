@@ -13,7 +13,7 @@ import delim using "../GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv"
 
 ** Label rCSI relevant variables
 	lab var rCSILessQlty 	"Relied on less preferred, less expensive food"
-	lab var rCSIMealNb 		"Borrowed food or relied on help from friends or relatives"
+	lab var rCSIBorrow 		"Borrowed food or relied on help from friends or relatives"
 	lab var rCSIMealNb 		"Reduced the number of meals eaten per day"
 	lab var rCSIMealSize 	"Reduced portion size of meals at meals time"
 	lab var rCSIMealAdult 	"Restricted consumption by adults in order for young children to eat"
