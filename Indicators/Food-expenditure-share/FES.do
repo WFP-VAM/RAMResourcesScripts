@@ -196,11 +196,7 @@ egen HHExpTot_1M=rowtotal(HHExpF_1M HHExpNF_1M)
 gen FES = HHExpF_1M/HHExpTot_1M
 lab var FES "Household food expenditure share"
 
-count if HHExpF_1M == 0
-count if HHExpTot_1M == 0
-
 drop HHExpTot_1M
-replace FES = 0 if mi(FES)
 
 * Transfor FES to 4 categories
 gen byte Foodexp_4pt = 1 if FES <  50
