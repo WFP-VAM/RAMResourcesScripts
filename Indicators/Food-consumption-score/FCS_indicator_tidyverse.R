@@ -40,7 +40,7 @@ data <- data %>% mutate(FCS = (FCSStap  * 2) +
                               (FCSSugar * 0.5))
 var_label(data$FCS) <- "Food Consumption Score"
 
-# Create FCG groups based on 21/55 or 28/42 thresholds ------------------------# 
+# Create FCG groups based on 21/35 or 28/42 thresholds ------------------------# 
 
 # Use this when analyzing a country with low consumption of sugar and oil - thresholds 21-35
 data <- data %>% mutate(FCSCat21 = case_when(

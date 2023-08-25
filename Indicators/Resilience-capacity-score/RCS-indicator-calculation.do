@@ -5,14 +5,14 @@ This result is used to classify households in three groups (low, medium, or high
 Progress achieved or change over time in any of the 9 items is also calculated to understand which capacities or capitals contribute the most to the final score and which need to be reinforced to enhance future climate resilience. */
 
 import delim using "../../Static/RCS_Sample_Survey.csv", clear case(preserve) bindquotes(strict) varn(1)
-qui foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess {
+qui foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallenge HHRCSWarningAccess {
 	cap destring `var', replace i("n/a")
 }
 /// GENERATE RANDOM DATA
 expand 100 in 4
 generate w = runiform()
 
-foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess {
+foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallenge HHRCSWarningAccess {
 	replace w = runiform()
 	qui su w 
 	replace `var'=round((w-r(min))*(5-1)/(r(max)-r(min)) + 1,1)
@@ -33,11 +33,11 @@ label var HHRCSFinAccess       "During times of hardship your household can acce
 label var HHRCSSupportCommunity "Your household can rely on the support of family or friends when you need help."
 label var HHRCSLessonsLearnt    "Your household has learned important lessons from past hardships that will help you to better prepare for future challenges."
 label var HHRCSSupportPublic    "Your household can rely on the support from public administration/government or other institutions when you need help."
-label var HHRCSFutureChallange  "Your household is fully prepared for any future challenges or threats that life throws at it."
+label var HHRCSFutureChallenge  "Your household is fully prepared for any future challenges or threats that life throws at it."
 label var HHRCSWarningAccess    "Your household receives useful information warning you about future risks in advance."
 
 label define Likert5 1 "Strongly Agree" 2 "Partially agree" 3 "Neutral" 4 "Somewhat disagree" 5 "Totally disagree"
-label values HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess Likert5
+label values HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallenge HHRCSWarningAccess Likert5
 
 
 ** 	Standardizing the score. ***************************************************
@@ -48,7 +48,7 @@ The resilience score is standardized by minmax normalization , transforming the 
 y = (ymax-ymin)*(x-xmin)/(xmax-xmin) + ymin;
 RCS=(100-0)*(RCS/9-5)/(1-5) + 0
 */
-egen RCS= rowtotal(HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallange HHRCSWarningAccess)
+egen RCS= rowtotal(HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHRCSSupportCommunity HHRCSSupportPublic HHRCSLessonsLearnt HHRCSFutureChallenge HHRCSWarningAccess)
 replace RCS=(100-0)*((RCS/9)-5)/(1-5) + 0
 label var RCS "Resilience Capacity Score"
 
@@ -74,10 +74,10 @@ label values RCSCat33 RCSCat
 
 *Steps a and b must be repeated with the first four statements separated. 
 *In other words, including only answers to statements S1 to S4 produce the scores of resilience capacities as follows:
-gen RCSAnticipatory=(100-0)*(HHRCSBounce-5)/(1-5) + 0
-gen RCSAbsorptive=(100-0)*(HHRCSRevenue-5)/(1-5) + 0
-gen RCSTransformative=(100-0)*(HHRCSIncrease-5)/(1-5) + 0
-gen RCSAdaptive=(100-0)*(HHRCSFinAccess-5)/(1-5) + 0
+gen RCSAnticipatory=(100-0)*(HHRCSFutureChallenge-5)/(1-5) + 0
+gen RCSAbsorptive=(100-0)*(HHRCSBounce-5)/(1-5) + 0
+gen RCSTransformative=(100-0)*(HHRCSRevenue-5)/(1-5) + 0
+gen RCSAdaptive=(100-0)*(HHRCSIncrease-5)/(1-5) + 0
 
 gen RCSAnticipatoryCat33=cond(RCSAnticipatory<33,1,cond(RCSAnticipatory<66,2,3))
 gen RCSAbsorptiveCat33=cond(RCSAbsorptive<33,1,cond(RCSAbsorptive<66,2,3))

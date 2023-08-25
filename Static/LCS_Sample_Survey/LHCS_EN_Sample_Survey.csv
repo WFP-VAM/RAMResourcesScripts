@@ -1,4 +1,4 @@
-LcsEN_stress_DomAsset,LcsEN_stress_Saving,LcsEN_stress_CrdtFood,LcsEN_stress_BorrowCash,LcsEN_crisis_ProdAssets,LcsEN_crisis_Health,LcsEN_crisis_OutSchool,LcsEN_em_ResAsset,LcsEN_em_Begged,LcsEN_em_IllegalAct,LhCSIEnAccess/1,LhCSIEnAccess/2,LhCSIEnAccess/3,LhCSIEnAccess/4,LhCSIEnAccess/5,LhCSIEnAccess/6,LhCSIEnAccess/7,LhCSIEnAccess/8,LhCSIEnAccess/999,LhCSIEnAccess_oth
+LcsEN_stress_DomAsset,LcsEN_stress_Saving,LcsEN_stress_BorrowCash,LcsEN_stress_Utilities,LcsEN_crisis_ProdAssets,LcsEN_crisis_Health,LcsEN_crisis_OutSchool,LcsEN_em_ResAsset,LcsEN_em_Begged,LcsEN_em_IllegalAct,LhCSIEnAccess.1,LhCSIEnAccess.2,LhCSIEnAccess.3,LhCSIEnAccess.4,LhCSIEnAccess.5,LhCSIEnAccess.6,LhCSIEnAccess.7,LhCSIEnAccess.8,LhCSIEnAccess.999,LhCSIEnAccess_oth
 20,10,10,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,test
 20,20,20,20,20,20,20,20,20,20,1,0,0,0,0,0,0,0,0,n/a
 30,30,30,30,30,30,30,30,30,30,0,0,1,0,0,0,0,0,0,n/a

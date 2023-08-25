@@ -1,4 +1,4 @@
-EnuName,Lcs_stress_DomAsset,Lcs_stress_Saving,Lcs_stress_EatOut,Lcs_stress_CrdtFood,Lcs_crisis_ProdAssets,Lcs_crisis_Health,Lcs_crisis_OutSchool,Lcs_em_ResAsset,Lcs_em_Begged,Lcs_em_IllegalAct
+EnuName,Lcs_stress_DomAsset,Lcs_stress_Saving,Lcs_stress_BorrowCash,Lcs_stress_Utilities,Lcs_crisis_ProdAssets,Lcs_crisis_Health,Lcs_crisis_OutSchool,Lcs_em_ResAsset,Lcs_em_Begged,Lcs_em_IllegalAct
 1,20,10,9999,30,30,30,30,30,30,30
 1,20,30,10,20,10,30,30,20,10,20
 1,10,10,10,10,10,10,10,10,10,10
