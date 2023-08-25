@@ -202,7 +202,7 @@ drop HHExpTot_1M
 recode FES (min/.4999999=1) (.50/.64999999=2) (.65/.74999999=3) (.75/max=4), gen(Foodexp_4pt)
 lab var Foodexp_4pt "Food expenditure share categories"
 
-label define Foodexp_4pt_lab 1 "<50%" 2 "50-65%" 3 "65-75%" 4" > 75%"
+label define Foodexp_4pt_lab 1 "<50%" 2 "50-65%" 3 "65-75%" 4" >= 75%"
 label value Foodexp_4pt Foodexp_4pt_lab 
 
 * Compute FES indicator
