@@ -4,7 +4,7 @@
 						   
 *ECMEN calculation is based on the standard module available here: https://docs.wfp.org/api/documents/WFP-0000115416/download/
 
-* Detailed guidance on the computation of the ECMEN can be found here: add link to standalone guidance when available
+* Detailed guidance on the computation of the ECMEN can be found here: https://docs.wfp.org/api/documents/WFP-0000145644/download/
 
 * Note : the computation of the ECMEN requires having already established a Minimum Expenditure Basket (MEB). More information on MEBs can be found here: https://docs.wfp.org/api/documents/WFP-0000074198/download/
 
