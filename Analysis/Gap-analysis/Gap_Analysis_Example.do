@@ -2,20 +2,13 @@
  * STATA Syntax for example of gap analysis
  *******************************************************************************
 						   
-* This syntax file refers to the sample dataset accessible here: XXXXX
-
-* Detailed guidance on conducting a gap analysis can be found here: XXXX
-
-*-------------------------------------------------------------------------------*
-
 *-------------------------------------------------------------------------------*
 * Open dataset
 *-------------------------------------------------------------------------------*
 
 clear all
 
-
-use "XXX/Gap_Analysis_Sample" // replace before publishing
+use "[...]/Gap_Analysis_Sample" // replace [...] with folder where you saved the dataset
 
 
 *------------------------------------------------------------------------------*
