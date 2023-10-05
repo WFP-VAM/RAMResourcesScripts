@@ -1,22 +1,14 @@
 ﻿* Encoding: UTF-8.
 ********************************************************************************
- * STATA Syntax for example of gap analysis
+ * SPSS Syntax for example of gap analysis
  *******************************************************************************
-						   
-* This syntax file refers to the sample dataset accessible here: XXXXX
-
-* Detailed guidance on conducting a gap analysis can be found here: XXXX
-
-*-------------------------------------------------------------------------------*
 
 *-------------------------------------------------------------------------------*
 * Open dataset
 *-------------------------------------------------------------------------------*
 
- * // replace before publishing.
 GET
-  FILE='C:\Users\lorenzo.moncada\OneDrive - World Food Programme\Shared Documents\05 - Guidance package\Gap Analysis guidance\Syntax_Data\Gap_Analysis_Sample.sav'.
-
+  FILE='[...]\Gap_Analysis_Sample.sav'. /* replace [...] with folder where you saved the dataset.
 
 *------------------------------------------------------------------------------*
 *  Estimate the gap 
