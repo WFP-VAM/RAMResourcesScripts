@@ -37,7 +37,7 @@ my_logbook <- rbind(my_logbook, check_others)
 check_ki_age <- raw_data %>% 
   filter(RESPAge < 18) %>% 
   log_sheet(question.name = "RESPAge",
-            issue = "the respondent is under age, please check if there was gardian",
+            issue = "the respondent is under age, please check if there was guardian",
             action = "check")
 my_logbook <- rbind(my_logbook, check_ki_age)
 
