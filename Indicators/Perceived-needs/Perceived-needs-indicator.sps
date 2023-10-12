@@ -1,196 +1,254 @@
-* Encoding: UTF-8.
-***Perceived Needs Analysis for Essential Needs**
-**************************************************************************************************************
-** Objective: Perceived Needs Analysis
-/* Survey module : https://docs.wfp.org/api/documents/WFP-0000121342/download/
+﻿* Encoding: UTF-8.
+********************************************************************************
+ * SPSS Syntax for the Perceived Needs Indicators
+ *******************************************************************************
 
-***Variable labels for all indicators**
-    
-variable labels 
-HHPercNeedWater	'Not enough water that is safe for drinking or cooking'
-HHPercNeedFood	'Not enough food, or good enough food, or because you are not able to cook food'
-HHPercNeedHousing	'No suitable place to live in'
-HHPercNeedToilet	'No easy and safe access to a clean toilet'
-HHPercNeedHygienem	'For men: Not enough soap, water or a suitable place to wash'
-HHPercNeedHygienew	'For women: Not enough soap, sanitary materials, water or a suitable place to wash'
-HHPercNeedClothTex	'Not enough or good enough, clothes, shoes, bedding or blankets'
-HHPercNeedLivelihood	'Not  enough income, money or resources to live'
-HHPercNeedDisabIll	'A serious problem with your physical health'
-HHPercNeedHealthm	'For men: Not able to get adequate health care for yourself'
-HHPercNeedHealthw	'For women: Not able to get adequate health care for yourself (Including health care during pregnancy or childbirth)'
-HHPercNeedSafety	'Your family are not safe or protected where you live now'
-HHPercNeedEducation	'Your children are not in school, or are not getting a good enough education'
-HHPercNeedCaregive	'It is difficult to care for family members who live with you'
-HHPercNeedInfoDis	'For displaced people: Do you have a serious problem because you do not have enough information'
-HHPercNeedInfoND	'For non-displaced people: Do you have a serious problem because you do not have enough information'
-HHPercNeedAsstInfo	'Inadequate aid'
-CMPercNeedJustice	'Inadequate system for law and justice, or because people do not know enough about their legal rights'
-CMPercNeedGBViolence 'Physical or sexual violence towards them, either in the community or in their homes'
-CMPercNeedSubstAbuse 'Is there a serious problem in your community because people drink a lot of alcohol, or use harmful drugs?'
-CMPercNeedMentalCare	 'Is there a serious problem in your community because people have a mental illness?'
-CMPercNeedCaregiving	 'Is there a serious problem in your community because there is not enough care for people who are on their own?'.
-execute.
+* NOTE: this syntax file assumes the use of all the questions included in the standard module. If any question is dropped, the corresponding variable names should be deleted from the syntax file.
+
+* The sample data on which this syntax file is based can be found here: https://github.com/WFP-VAM/RAMResourcesScripts/tree/main/Static
+ 
+* For more information on the Perceived Needs Indicators (including module), see the VAM Resource Center: https://resources.vam.wfp.org/data-analysis/quantitative/essential-needs/perceived-needs-indicators
 
 
-/**Value labels for indicators 
-    
-    
-value labels HHPercNeedWater
-HHPercNeedFood
-HHPercNeedHousing
-HHPercNeedToilet
-HHPercNeedHygienem
-HHPercNeedHygienew
-HHPercNeedClothTex
-HHPercNeedLivelihood
-HHPercNeedDisabIll
-HHPercNeedHealthm
-HHPercNeedHealthw
-HHPercNeedSafety
-HHPercNeedEducation
-HHPercNeedCaregive
-HHPercNeedInfoDis
-HHPercNeedInfoND
-HHPercNeedAsstInfo
-CMPercNeedNote
-CMPercNeedJustice
-CMPercNeedGBViolence
-CMPercNeedSubstAbuse
-CMPercNeedMentalCare
-CMPercNeedCaregiving
+*-------------------------------------------------------------------------------*
+* Open dataset
+*-------------------------------------------------------------------------------*
+
+* Import sample dataset (Import Data/CSV data) and go with default import options
+
+*-------------------------------------------------------------------------------*
+* Labels
+*-------------------------------------------------------------------------------*
+
+* variable labels.
+VARIABLE LABELS
+ HHPercNeedWater 'Not enough water that is safe for drinking or cooking' 
+ HHPercNeedFood 'Not enough food, or good enough food, or not able to cook food' 
+ HHPercNeedHousing 'No suitable place to live in'
+ HHPercNeedToilet 'No easy and safe access to a clean toilet' 
+ HHPercNeedHygiene 'Not enough soap, sanitary materials, water or a suitable place to wash'
+ HHPercNeedClothTex	'Not enough or good enough, clothes, shoes, bedding or blankets'
+ HHPercNeedLivelihood 'Not enough income, money or resources to live' 
+ HHPercNeedDisabIll 'Serious problem with physical health'
+  HHPercNeedHealth 'Not able to get adequate health care (including during pregnancy or childbirth - for women)'
+ HHPercNeedSafety 'Not safe or protected where you live now'
+ HHPercNeedEducation 'Children not in school, or not getting a good enough education'
+ HHPercNeedCaregive 'Difficult to care for family members who live with you'
+ HHPercNeedInfo 'Not have enough information (including on situation at home - for displaced)' 
+ HHPercNeedAsstInfo 'Inadequate aid'
+ CMPercNeedJustice 'Inadequate system for law and justice in community'
+ CMPercNeedGBViolence 'Physical or sexual violence towards women in community' 
+ CMPercNeedSubstAbuse 'People drink a lot of alcohol or use harmful drugs in community' 
+ CMPercNeedMentalCare 'Mental illness in community'
+ CMPercNeedCaregiving 'Not enough care for people who are on their own in community'. 
+EXECUTE.
+
+
+*Value labels for indicators .
+VALUE LABELS
+ HHPercNeedWater 
+ HHPercNeedFood
+ HHPercNeedHousing
+ HHPercNeedToilet
+ HHPercNeedHygiene
+ HHPercNeedClothTex
+ HHPercNeedLivelihood
+ HHPercNeedDisabIll
+  HHPercNeedHealth
+ HHPercNeedSafety
+ HHPercNeedEducation
+ HHPercNeedCaregive
+ HHPercNeedInfo
+ HHPercNeedAsstInfo
+ CMPercNeedJustice
+ CMPercNeedGBViolence
+ CMPercNeedSubstAbuse
+ CMPercNeedMentalCare
+ CMPercNeedCaregiving
  0	'No serious problem'
 1	'Serious problem'
 8888	"Don't know, not applicable, declines to answer".
 execute.
 
-value labels  RESPSex
-0 'Female'
-1 'Male'.
-execute.
-/**Frequencies 
-    
-CTABLES
+*Add value labels for the problems - make sure that all variables are nominal.
+VALUE LABELS
+ CMPercNeedRFirst 
+ CMPercNeedRSec
+ CMPercNeedRThird
+ 1'Drinking water' 
+ 2'Food' 
+ 3'Place to live in' 
+ 4'Toilets' 
+ 5'Keeping clean' 
+ 6'Clothes, shoes, bedding or blankets'
+  7'Income or livelihood' 
+  8'Physical health' 
+  9'Health care' 
+  10'Safety' 
+  11 'Education for your children'
+  12'Care for family members' 
+  13'Information' 
+  14'The way aid is provided' 
+  15'Law and injustice in your community' 
+  16'Safety or protection from violence for women in your community' 
+  17'Alcohol or drug use in your community' 
+  18'Mental illness in your community' 
+  19'Care for people in your community who are on their own' 
+  20'Other problem'.
+EXECUTE.
+
+
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------*
+* For each aspect/question, report the share of households who indicated it as a "serious problem"
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
+*Frequencies. 	
+CTABLES 
   /VLABELS VARIABLES=HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
-    HHPercNeedHygienem HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll 
-    HHPercNeedHealthm HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive 
-    HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence 
-    CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving 
-    DISPLAY=LABEL
+    HHPercNeedHygiene HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll HHPercNeedHealth 
+    HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive HHPercNeedInfo HHPercNeedAsstInfo 
+    CMPercNeedJustice CMPercNeedGBViolence CMPercNeedSubstAbuse CMPercNeedMentalCare 
+    CMPercNeedCaregiving CMPercNeedOther 
+    DISPLAY=LABEL 
   /TABLE HHPercNeedWater [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedFood [COUNT F40.0, 
     COLPCT.COUNT PCT40.1] + HHPercNeedHousing [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedToilet 
-    [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedHygienem [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
-    HHPercNeedHygienew [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedClothTex [COUNT F40.0, 
-    COLPCT.COUNT PCT40.1] + HHPercNeedLivelihood [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
-    HHPercNeedDisabIll [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedHealthm [COUNT F40.0, 
-    COLPCT.COUNT PCT40.1] + HHPercNeedHealthw [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedSafety 
-    [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedEducation [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
-    HHPercNeedCaregive [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedInfoDis [COUNT F40.0, 
-    COLPCT.COUNT PCT40.1] + HHPercNeedInfoND [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedAsstInfo 
+    [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedHygiene [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
+    HHPercNeedClothTex [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedLivelihood [COUNT F40.0, 
+    COLPCT.COUNT PCT40.1] + HHPercNeedDisabIll [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedHealth 
+    [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedSafety [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
+    HHPercNeedEducation [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedCaregive [COUNT F40.0, 
+    COLPCT.COUNT PCT40.1] + HHPercNeedInfo [COUNT F40.0, COLPCT.COUNT PCT40.1] + HHPercNeedAsstInfo 
     [COUNT F40.0, COLPCT.COUNT PCT40.1] + CMPercNeedJustice [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
     CMPercNeedGBViolence [COUNT F40.0, COLPCT.COUNT PCT40.1] + CMPercNeedSubstAbuse [COUNT F40.0, 
     COLPCT.COUNT PCT40.1] + CMPercNeedMentalCare [COUNT F40.0, COLPCT.COUNT PCT40.1] + 
-    CMPercNeedCaregiving [COUNT F40.0, COLPCT.COUNT PCT40.1]
+    CMPercNeedCaregiving [COUNT F40.0, COLPCT.COUNT PCT40.1] + CMPercNeedOther [COUNT F40.0, 
+    COLPCT.COUNT PCT40.1] 
   /CATEGORIES VARIABLES=HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
-    HHPercNeedHygienem ORDER=A KEY=VALUE EMPTY=INCLUDE
-  /CATEGORIES VARIABLES=HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood 
-    HHPercNeedDisabIll HHPercNeedHealthm HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation 
-    HHPercNeedCaregive HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice 
-    CMPercNeedGBViolence CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving ORDER=A 
-    KEY=VALUE EMPTY=EXCLUDE
-**Recode all not answered options into system missing
+    HHPercNeedHygiene HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll HHPercNeedHealth 
+    HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive HHPercNeedInfo HHPercNeedAsstInfo 
+    CMPercNeedJustice CMPercNeedGBViolence CMPercNeedSubstAbuse CMPercNeedMentalCare 
+    CMPercNeedCaregiving CMPercNeedOther ORDER=A KEY=VALUE EMPTY=EXCLUDE 
+  /CRITERIA CILEVEL=95. 
+
+
+* show only the share of households that reported an aspect as serious problem out of the total populations (including those that did not answer)
+preserve.
+
+  * first recode into 8888 to 0 into new variables.  
+RECODE 
+ HHPercNeedWater 
+ HHPercNeedFood
+ HHPercNeedHousing
+ HHPercNeedToilet
+ HHPercNeedHygiene
+ HHPercNeedClothTex
+ HHPercNeedLivelihood
+ HHPercNeedDisabIll
+  HHPercNeedHealth
+ HHPercNeedSafety
+ HHPercNeedEducation
+ HHPercNeedCaregive
+ HHPercNeedInfo
+ HHPercNeedAsstInfo
+ CMPercNeedJustice
+ CMPercNeedGBViolence
+ CMPercNeedSubstAbuse
+ CMPercNeedMentalCare
+ CMPercNeedCaregiving
+    (8888=0) (else=copy) into 
+ rec_HHPercNeedWater 
+ rec_HHPercNeedFood
+ rec_HHPercNeedHousing
+ rec_HHPercNeedToilet
+ rec_HHPercNeedHygiene
+ rec_HHPercNeedClothTex
+ rec_HHPercNeedLivelihood
+ rec_HHPercNeedDisabIll
+rec_HHPercNeedHealth
+rec_HHPercNeedSafety
+ rec_HHPercNeedEducation
+ rec_HHPercNeedCaregive
+ rec_HHPercNeedInfo
+ rec_HHPercNeedAsstInfo
+ rec_CMPercNeedJustice
+ rec_CMPercNeedGBViolence
+ rec_CMPercNeedSubstAbuse
+ rec_CMPercNeedMentalCare
+ rec_CMPercNeedCaregiving.     
+EXECUTE.
+
+DESCRIPTIVES VARIABLES=rec_HHPercNeedWater rec_HHPercNeedFood rec_HHPercNeedHousing 
+    rec_HHPercNeedToilet rec_HHPercNeedHygiene rec_HHPercNeedClothTex rec_HHPercNeedLivelihood 
+    rec_HHPercNeedDisabIll rec_HHPercNeedHealth rec_HHPercNeedSafety rec_HHPercNeedEducation 
+    rec_HHPercNeedCaregive rec_HHPercNeedInfo rec_HHPercNeedAsstInfo rec_CMPercNeedJustice 
+    rec_CMPercNeedGBViolence rec_CMPercNeedSubstAbuse rec_CMPercNeedMentalCare rec_CMPercNeedCaregiving
+  /STATISTICS=MEAN.
+
+* Now drop the recoded variables.
+DELETE VARIABLES rec_HHPercNeedWater rec_HHPercNeedFood rec_HHPercNeedHousing 
+    rec_HHPercNeedToilet rec_HHPercNeedHygiene rec_HHPercNeedClothTex rec_HHPercNeedLivelihood 
+    rec_HHPercNeedDisabIll rec_HHPercNeedHealth rec_HHPercNeedSafety rec_HHPercNeedEducation 
+    rec_HHPercNeedCaregive rec_HHPercNeedInfo rec_HHPercNeedAsstInfo rec_CMPercNeedJustice 
+    rec_CMPercNeedGBViolence rec_CMPercNeedSubstAbuse rec_CMPercNeedMentalCare rec_CMPercNeedCaregiving.
+EXECUTE.
     
-recode HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
-    HHPercNeedHygienem HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll 
-    HHPercNeedHealthm HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive 
-    HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence 
-    CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving (8888=0).
-    
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------*
+* For each aspect/question, report the share of households who indicated it among their top three problems (amo
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
+* for each problem generate a variable indicating if the respondent mentioned it among their top three problems.
+COMPUTE Top3_Water=(CMPercNeedRFirst=1 OR CMPercNeedRSec=1 OR CMPercNeedRThird=1).
+COMPUTE Top3_Food=(CMPercNeedRFirst=2 OR CMPercNeedRSec=2 OR CMPercNeedRThird=2).
+COMPUTE Top3_Housing=(CMPercNeedRFirst=3 OR CMPercNeedRSec=3 OR CMPercNeedRThird=3).
+COMPUTE Top3_Toilet=(CMPercNeedRFirst=4 OR CMPercNeedRSec=4 OR CMPercNeedRThird=4).
+COMPUTE Top3_Hygiene=(CMPercNeedRFirst=5 OR CMPercNeedRSec=5 OR CMPercNeedRThird=5).
+COMPUTE Top3_ClothTex=(CMPercNeedRFirst=6 OR CMPercNeedRSec=6 OR CMPercNeedRThird=6).
+COMPUTE Top3_Livelihood=(CMPercNeedRFirst=7 OR CMPercNeedRSec=7 OR CMPercNeedRThird=7).
+COMPUTE Top3_Disabil=(CMPercNeedRFirst=8 OR CMPercNeedRSec=8 OR CMPercNeedRThird=8).
+COMPUTE Top3_Health=(CMPercNeedRFirst=9 OR CMPercNeedRSec=9 OR CMPercNeedRThird=9).
+COMPUTE Top3_Safety=(CMPercNeedRFirst=10 OR CMPercNeedRSec=10 OR CMPercNeedRThird=10).
+COMPUTE Top3_Education=(CMPercNeedRFirst=11 OR CMPercNeedRSec=11 OR CMPercNeedRThird=11).
+COMPUTE Top3_Caregive=(CMPercNeedRFirst=12 OR CMPercNeedRSec=12 OR CMPercNeedRThird=12).
+COMPUTE Top3_Info=(CMPercNeedRFirst=13 OR CMPercNeedRSec=13 OR CMPercNeedRThird=13).
+COMPUTE Top3_AsstInfo=(CMPercNeedRFirst=14 OR CMPercNeedRSec=14 OR CMPercNeedRThird=14).
+COMPUTE Top3_Justice=(CMPercNeedRFirst=15 OR CMPercNeedRSec=15 OR CMPercNeedRThird=15).
+COMPUTE Top3_GBViolence=(CMPercNeedRFirst=16 OR CMPercNeedRSec=16 OR CMPercNeedRThird=16).
+COMPUTE Top3_SubstAbuse=(CMPercNeedRFirst=17 OR CMPercNeedRSec=17 OR CMPercNeedRThird=17).
+COMPUTE Top3_MentalCare=(CMPercNeedRFirst=18 OR CMPercNeedRSec=18 OR CMPercNeedRThird=18).
+COMPUTE Top3_Caregiving=(CMPercNeedRFirst=19 OR CMPercNeedRSec=19 OR CMPercNeedRThird=19).
+COMPUTE Top3_Other=(CMPercNeedRFirst=20 OR CMPercNeedRSec=20 OR CMPercNeedRThird=20).
+EXECUTE.
+
+* recode missings to zero.
+RECODE Top3_Water Top3_Food Top3_Housing Top3_Toilet Top3_Hygiene Top3_ClothTex 
+    Top3_Livelihood Top3_Disabil Top3_Health Top3_Safety Top3_Education Top3_Caregive Top3_Info 
+    Top3_AsstInfo Top3_Justice Top3_GBViolence Top3_SubstAbuse Top3_MentalCare Top3_Caregiving 
+    Top3_Other (sysmis=0).
+EXE.
 
 
-***Create multiple response dataset to show average of all response %
-    
-MRSETS
-  /MDGROUP NAME=$AllPercNeeds LABEL='All perceived needs indicators ' CATEGORYLABELS=VARLABELS 
-    VARIABLES=HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet HHPercNeedHygienem 
-    HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll HHPercNeedHealthm 
-    HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive HHPercNeedInfoDis 
-    HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence CMPercNeedSubstAbuse 
-    CMPercNeedMentalCare CMPercNeedCaregiving VALUE=1
-  /DISPLAY NAME=[$AllPercNeeds].
+* report share of households who indicated an area among their top three problems.
+DESCRIPTIVES VARIABLES=Top3_Water Top3_Food Top3_Housing Top3_Toilet Top3_Hygiene Top3_ClothTex 
+    Top3_Livelihood Top3_Disabil Top3_Health Top3_Safety Top3_Education Top3_Caregive Top3_Info 
+    Top3_AsstInfo Top3_Justice Top3_GBViolence Top3_SubstAbuse Top3_MentalCare Top3_Caregiving 
+    Top3_Other
+  /STATISTICS=MEAN.
 
-**Analyze all problems with average of all response %
-    
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------*
+* Mean/median number of aspects indicated as "serious problems"
+*---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-* Custom Tables.
-CTABLES
-  /VLABELS VARIABLES=$AllPercNeeds DISPLAY=LABEL
-  /TABLE $AllPercNeeds [TABLEPCT.RESPONSES PCT40.1]
-  /CATEGORIES VARIABLES=$AllPercNeeds  EMPTY=INCLUDE
-  /CRITERIA CILEVEL=95.
-  /CRITERIA CILEVEL=95.
+* create a variable  that counts the number of aspects perceived as serious problems.  
+COUNT Perceived_total=HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
+    HHPercNeedHygiene HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll HHPercNeedHealth 
+    HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive HHPercNeedInfo HHPercNeedAsstInfo 
+    CMPercNeedJustice CMPercNeedGBViolence CMPercNeedSubstAbuse CMPercNeedMentalCare 
+    CMPercNeedCaregiving CMPercNeedOther(1).
+VARIABLE LABELS  Perceived_total 'Total number of problems identified'.
+EXECUTE.
 
-
-
-***Analyze the most serious problems**
-    
-/**Add value labels for the problems - make sure that all variables are nominal
-    
-value labels  CMPercNeedRFirst  CMPercNeedRSec CMPercNeedRThird
-1	'Drinking water'
-2	'Food'
-3	'Place to live in'
-4	'Toilets'
-5	'Keeping clean'
-6	'Clothes, shoes, bedding or blankets'
-7	'Income or livelihood'
-8	'Physical health'
-9	'Health care'
-10	'Safety'
-11	'Education for your children'
-12	'Care for family members'
-13	'Information'
-14	'The way aid is provided'
-15	'Law and injustice in your community'
-16	'Safety or protection from violence for women in your community'
-17	'Alcohol or drug use in your community'
-18	'Mental illness in your community'
-19	'Care for people in your community who are on their own'
-20	'Any other serious problem that was not asked but mentioned'
-999	'No serious problem'
-8888	"Don't know, not applicable, declines to answer".
-execute.
-
-
-    
-
-/***Percentage of households who rank a certain problem among their top three priority problems
-
-* Custom Tables.
-CTABLES
-  /VLABELS VARIABLES=CMPercNeedRFirst CMPercNeedRSec CMPercNeedRThird DISPLAY=LABEL
-  /TABLE CMPercNeedRFirst [COLPCT.COUNT PCT40.1] + CMPercNeedRSec [COLPCT.COUNT PCT40.1] + 
-    CMPercNeedRThird [COLPCT.COUNT PCT40.1]
-  /CATEGORIES VARIABLES=CMPercNeedRFirst CMPercNeedRSec CMPercNeedRThird ORDER=A KEY=VALUE 
-    EMPTY=INCLUDE
-  /CRITERIA CILEVEL=95.
-
-/**Mean or median number of problems 
-    
-recode HHPercNeedWater HHPercNeedFood HHPercNeedHousing HHPercNeedToilet 
-    HHPercNeedHygienem HHPercNeedHygienew HHPercNeedClothTex HHPercNeedLivelihood HHPercNeedDisabIll 
-    HHPercNeedHealthm HHPercNeedHealthw HHPercNeedSafety HHPercNeedEducation HHPercNeedCaregive 
-    HHPercNeedInfoDis HHPercNeedInfoND HHPercNeedAsstInfo CMPercNeedJustice CMPercNeedGBViolence 
-    CMPercNeedSubstAbuse CMPercNeedMentalCare CMPercNeedCaregiving (8888=0).
-    
-compute Perceived_total=sum( HHPercNeedWater, HHPercNeedFood, HHPercNeedHousing, HHPercNeedToilet, HHPercNeedHygienem, 
-    HHPercNeedHygienew, HHPercNeedClothTex, HHPercNeedLivelihood, HHPercNeedDisabIll, HHPercNeedHealthm, 
-    HHPercNeedHealthw, HHPercNeedSafety, HHPercNeedEducation, HHPercNeedCaregive, HHPercNeedInfoDis, 
-    HHPercNeedInfoND, HHPercNeedAsstInfo, CMPercNeedJustice, CMPercNeedGBViolence, CMPercNeedSubstAbuse, 
-    CMPercNeedMentalCare, CMPercNeedCaregiving).
-execute.
-variable labels Perceived_total 'Total number of problems identified'.
-execute.
-frequencies Perceived_total /statistics=mean /statistics=median.
+FREQUENCIES VARIABLES=Perceived_total
+  /STATISTICS=MEAN MEDIAN.
 
 
 
