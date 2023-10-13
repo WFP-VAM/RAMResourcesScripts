@@ -1,5 +1,13 @@
+*** --------------------------------------------------------------------------
+
+***	                        WFP RAM Standardized Scripts
+***              Calculating Food Consumption Score Nutrition (FCSN)
+
+*** --------------------------------------------------------------------------
+
 * Encoding: UTF-8.
-***Create Food Consumption Score  Nutrition*** 
+
+*** Define labels
 
 Variable labels 
 FCSNPrMeatF  "Consumption in past 7 days: Flesh meat"
@@ -10,7 +18,7 @@ FCSNVegOrg   "Consumption in past 7 days: Orange vegetables (vegetables rich in 
 FCSNVegGre   "Consumption in past 7 days: Green leafy vegetables"
 FCSNFruiOrg  "Consumption in past 7 days: Orange fruits (Fruits rich in Vitamin A)".
 
-***recode "n/a" values to 0 and change variable type to numeric
+*** Recode "n/a" values to 0 and change variable type to numeric
  
 ALTER TYPE FCSNPrMeatF FCSNPrMeatO FCSNPrFish FCSNPrEggs FCSNVegOrg FCSNVegGre FCSNFruiOrg (a5).
   
@@ -20,7 +28,7 @@ EXECUTE.
 
 ALTER TYPE FCSNPrMeatF FCSNPrMeatO FCSNPrFish FCSNPrEggs FCSNVegOrg FCSNVegGre FCSNFruiOrg (F1).
 
-***compute aggregates of key micronutrient consumption – vitamin, iron and protein 
+*** Compute aggregates of key micronutrient consumption – vitamin, iron and protein 
 
 Compute FGVitA = sum(FCSDairy, FCSNPrMeatO, FCSNPrEggs, FCSNVegOrg, FCSNVegGre, FCSNFruiOrg). 
 Variable labels FGVitA 'Consumption of vitamin A-rich foods'. 
@@ -34,7 +42,7 @@ Compute FGHIron = sum(FCSNPrMeatF, FCSNPrMeatO, FCSNPrFish).
 Variable labels FGHIron 'Consumption of hem iron-rich foods'. 
 EXECUTE. 
  
-*** recode into nutritious groups  
+*** Recode into nutritious groups  
 
 Recode FGVitA (0=1) (1 thru 6=2) (7 thru 42=3) into FGVitACat. 
 Variable labels FGVitACat 'Consumption group of vitamin A-rich foods'. 
@@ -48,9 +56,11 @@ Recode FGHIron (0=1) (1 thru 6=2) (7 thru 42=3) into FGHIronCat.
 Variable labels FGHIronCat 'Consumption group of hem iron-rich foods'. 
 EXECUTE. 
 
- *** define variables labels and properties for "FGVitACat FGProteinCat FGHIronCat". 
+ *** Define variables labels and properties for "FGVitACat FGProteinCat FGHIronCat". 
 
  Value labels FGVitACat FGProteinCat FGHIronCat 
 1.00 'Never consumed' 2.00 'Consumed sometimes' 3.00 'Consumed at least 7 times'. 
 
 EXECUTE. 
+
+*** End of Scripts

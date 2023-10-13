@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------#
 
 #	                        WFP RAM Standardized Scripts
-#                      Calculating and Summarising FCSN
+#             Calculating Food Consumption Score - Nutrition (FCSN)
 
 #------------------------------------------------------------------------------#
 
