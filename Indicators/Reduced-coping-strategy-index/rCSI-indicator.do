@@ -9,8 +9,7 @@ import delim using "../GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv"
        
 ** Check and recode missing values as 0
 	sum rCSI*
-	recode rCSI* （. = 0）
-
+	
 ** Label rCSI relevant variables
 	lab var rCSILessQlty 	"Relied on less preferred, less expensive food"
 	lab var rCSIBorrow 		"Borrowed food or relied on help from friends or relatives"
@@ -20,7 +19,7 @@ import delim using "../GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv"
 
 ** Calculate rCSI
 	gen rCSI = (rCSILessQlty * 1) + (rCSIBorrow * 2) + (rCSIMealNb * 1) + ///
-			   (rCSIMealSize * 1) + (rCSIMealAdult * 3)		   
+			   (rCSIMealSize * 1) + (rCSIMealAdult * 3)	
 	lab var rCSI "Reduced Consumption Strategies Index"
 
 ** End of Scripts

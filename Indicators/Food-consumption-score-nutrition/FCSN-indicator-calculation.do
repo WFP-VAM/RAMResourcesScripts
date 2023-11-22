@@ -1,8 +1,11 @@
-********************************************************************************
-*						Create Food Consumption Score - Nutrition
-*******************************************************************************/
-	
-** Load data
+*------------------------------------------------------------------------------*
+
+*	                        WFP RAM Standardized Scripts
+*                 Calculating Food Consumption Score - Nutrition (FCSN)
+
+* -----------------------------------------------------------------------------*	
+*
+* Load data
 * ---------
 	import delim using "../GitHub/RAMResourcesScripts/Static/FCSN_Sample_Survey.csv", ///
 		   clear case(preserve)

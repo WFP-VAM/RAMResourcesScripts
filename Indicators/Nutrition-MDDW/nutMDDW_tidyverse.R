@@ -133,8 +133,8 @@ data <- data %>% mutate(
 data <- data %>% mutate(
   MDDW_Staples_wfp = case_when(
     PWMDDWStapCer == 1 |  PWMDDWStapRoo == 1 | PWMDDWFortFoodwflour == 1 | 
-      PWMDDWFortFoodmflour == 1 | PWMDDWFortFoodrice == 1 | 
-      PWMDDWFortFooddrink == 1 ~ 1, TRUE ~ 0),
+    PWMDDWFortFoodmflour == 1 | PWMDDWFortFoodrice == 1 | 
+    PWMDDWFortFooddrink == 1 ~ 1, TRUE ~ 0),
   MDDW_Pulses_wfp = case_when(
     PWMDDWPulse == 1 ~ 1, TRUE ~ 0),
   MDDW_NutsSeeds_wfp  = case_when(

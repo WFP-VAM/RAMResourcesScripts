@@ -69,7 +69,7 @@
 	gen MDDW_NutsSeeds   = (PWMDDWNutsR   == 1)
 	gen MDDW_Dairy		 = (PWMDDWDairy   == 1 | PWMDDWMilk == 1)
 	gen MDDW_MeatFish	 = (PWMDDWPrMeatO == 1 | PWMDDWPrMeatF == 1 | PWMDDWPrMeatPro == 1 | ///
-							          PWMDDWPrMeatWhite == 1 | PWMDDWPrFish == 1)
+							PWMDDWPrMeatWhite == 1 | PWMDDWPrFish == 1)
 	gen MDDW_Eggs		 = (PWMDDWPrEgg   == 1)
 	gen MDDW_LeafGVeg	 = (PWMDDWVegGre  == 1)
 	gen MDDW_VitA  		 = (PWMDDWVegOrg  == 1 | PWMDDWFruitOrg == 1)
@@ -79,7 +79,7 @@
 	* calculate MDDW variable for both methods by adding together food groups and 
 	* classifying whether the woman consumed 5 or more food groups
 	gen MDDW = MDDW_Staples + MDDW_Pulses + MDDW_NutsSeeds + MDDW_Dairies + MDDW_MeatFish + ///
-			       MDDW_Eggs + MDDW_LeafGVeg + MDDW_VitA + MDDW_OtherVeg + MDDW_OtherFruits
+			   MDDW_Eggs + MDDW_LeafGVeg + MDDW_VitA + MDDW_OtherVeg + MDDW_OtherFruits
 	gen MDDW_5 = (MDDW >= 5)
 	
 	tab MDDW_5, d
