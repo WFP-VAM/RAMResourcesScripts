@@ -735,7 +735,7 @@ COMPUTE Percent_assistance = (Assistance / Total_source)*100.
 EXECUTE.  
 
 * Define Variable Properties. 
-* Own production and fishing  
+* Own production
 
 VARIABLE LEVEL Percent_ownprod(SCALE).  
 VARIABLE LABELS Percent_ownprod '% of main source: Own production'.  
