@@ -102,7 +102,7 @@ frequencies MDDI_health1.
 
    **Number of sick or disabled people > 1 or >50% of household members.
 compute HHSickNb= sum(HHDisabledNb, HHChronIllNb).
-compute HHSickShare= HHSickNb/ HHSize.
+compute HHSickShare= HHSickNb/ HHSizeCalc.
 compute MDDI_health2 = (HHSickNb>1 | HHSickShare>0.5).
 execute.
 variable labels MDDI_health2 ‘HH with more than half members or more than one member sick’.
@@ -124,7 +124,7 @@ execute.
 frequencies MDDI_shelter2.
 
     **Crowding Index - (Number of HH members/Number of rooms (excluding kitchen, corridors))>3 .
-compute crowding= HHSize/HHRoomUsed.
+compute crowding= HHSizeCalc/HHRoomUsed.
 compute MDDI_shelter3= ( crowding > 3).
 execute.
 variable labels MDDI_shelter3 ‘HH with at least 3 HH members sharing one room to sleep’.
