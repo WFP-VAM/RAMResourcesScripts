@@ -80,7 +80,7 @@ tab MDDI_health1
    **Number of sick or disabled people > 1 or >50% of household members 
 egen HHSickNb=rowtotal(HHDisabledNb HHChronIllNb) 
 replace HHSickNb= . if HHDisabledNb==. & HHChronIllNb==. 
-gen HHSickShare= HHSickNb/HHSize
+gen HHSickShare= HHSickNb/HHSizeCalc
 gen MDDI_health2=(HHSickNb>1 | HHSickShare>0.5) 
 replace MDDI_health2=. if HHSickNb==. & HHSickShare==.
 lab var MDDI_health2 "HH with more than half members or more than one member sick"
@@ -101,7 +101,7 @@ lab var MDDI_shelter2 "HH with not improved source of energy for lighting"
 tab MDDI_shelter2
 
     **Crowding Index - (Number of HH members/Number of rooms (excluding kitchen, corridors))>3 
-gen crowding=HHSize/HHRoomUsed
+gen crowding=HHSizeCalc/HHRoomUsed
 gen MDDI_shelter3=crowding>3 
 replace MDDI_shelter3=. if crowding==.
 lab var MDDI_shelter3 "HH with at least 3 HH members sharing one room to sleep"
