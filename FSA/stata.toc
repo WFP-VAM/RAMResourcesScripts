@@ -1,4 +1,4 @@
 v 0
 d WFP Food Security Analysis Stata Package Repository
 p shapes_aggregate Package description
-p shapes aggregate Package description
+p shapes_outputs Package description
