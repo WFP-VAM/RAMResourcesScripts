@@ -1,0 +1,9 @@
+v 0.0.1
+d 'SHAPES OUTPUT': output data transformation script
+d 
+d Distribution-Date:   20240505
+d License: MIT
+d See https://github.com/WFP-VAM
+d
+F shapes_aggregate.ado
+F shapes_aggregate.sthlp
