@@ -6,6 +6,5 @@ d License: MIT
 d See https://github.com/WFP-VAM
 d
 F shapes_aggregate.ado
-p shapes_aggregate.ado
 F shapes_aggregate.sthlp
-p shapes_aggregate.sthlp
+f shapes_indicators.py
