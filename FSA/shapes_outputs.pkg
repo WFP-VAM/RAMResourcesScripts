@@ -8,3 +8,4 @@ d
 F shapes_aggregate.ado
 F shapes_aggregate.sthlp
 f shapes_indicators.py
+f ../Indicators/Food-consumption-score/FCS-indicator-calculation.do
