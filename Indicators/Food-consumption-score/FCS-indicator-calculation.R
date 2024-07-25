@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------#
 
-#	                        WFP RAM Standardized Scripts
-#                               Calculating FCS
+#	                        WFP APP Standardized Scripts
+#                   Calculating Food Consumption Score (FCS)
 
 #------------------------------------------------------------------------------#
 
