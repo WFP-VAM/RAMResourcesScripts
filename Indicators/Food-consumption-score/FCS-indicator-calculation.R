@@ -1,8 +1,6 @@
 #------------------------------------------------------------------------------#
-
-#	                        WFP APP Standardized Scripts
+#	                          WFP Standardized Scripts
 #                   Calculating Food Consumption Score (FCS)
-
 #------------------------------------------------------------------------------#
 
 ## Load Packages --------------------------------------------------------------#
@@ -26,7 +24,7 @@ library("diveRsity")
 getwd()# Display current working directory
 dir()# Display working directory content
 
-setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
+#setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
 # This is just an example. Copy and paste your own working directory. Remember to use "\\" instead of "/"
 # The data base to be used should be part of the content
 
