@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#	                        WFP APP Standardized Scripts
+#	                          WFP Standardized Scripts
 #                     Calculating Food Consumption Score (FCS)
 #------------------------------------------------------------------------------#
 
