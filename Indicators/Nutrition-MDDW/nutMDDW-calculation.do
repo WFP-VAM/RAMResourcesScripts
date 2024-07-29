@@ -1,14 +1,15 @@
 ********************************************************************************
-*					 Minimum Dietary Diversity for Women (MDDW)
+*	                       	   WFP Standardized Scripts
+* .             Calculating  Minimum Dietary Diversity for Women (MDDW)
 *******************************************************************************/
 	
 ** Load data
 * ---------
-	import delim using "../Nutrition_module_MDD_W_submodule_RepeatMDDW.csv", ///
-		     clear case(preserve)
+*	import delim using "../Nutrition_module_MDD_W_submodule_RepeatMDDW.csv", ///
+*		     clear case(preserve)
 	   
 ** rename varuavke to remove group names
-	ren Nutrition_moduleMDD_W_submoduleRepeatMDDW* *
+	cap ren Nutrition_moduleMDD_W_submoduleRepeatMDDW* *
 	
 ** check and recode missing values as 0
 	sum	   PWMDDW*
@@ -112,4 +113,4 @@
 	
 	tab MDDW_5_wfp, d
 	
-* End of dofile
+* End of Scripts
