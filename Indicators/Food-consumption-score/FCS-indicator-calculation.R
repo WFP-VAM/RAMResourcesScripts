@@ -32,10 +32,9 @@ setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
-
-names(data)# Display var names for the entire data base
-attach(data)# Attach the data base for easy access to var names. 
+#data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
+#names(data)# Display var names for the entire data base
+#attach(data)# Attach the data base for easy access to var names. 
 
 # Prepare FCS related variables -----------------------------------------------# 
 

@@ -15,7 +15,7 @@ library(haven)
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/FCS_Sample_Survey.csv")
+#data <- read_csv("~/GitHub/RAMResourcesScripts/Static/FCS_Sample_Survey.csv")
 
 # Label relevant FCS variables ------------------------------------------------# 
 

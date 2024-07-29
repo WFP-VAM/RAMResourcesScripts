@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------#
 #	                        WFP APP Standardized Scripts
-#                                 Calculating FCS
+#                     Calculating Food Consumption Score (FCS)
 #------------------------------------------------------------------------------#
 
 # Load Packages --------------------------------------------------------------#
@@ -12,9 +12,8 @@ import seaborn as sns
 
 # Load Sample Data ------------------------------------------------------------#
 
-df = pd.read_csv("FCS_Sample_Survey.csv", na_values="n/a")
-
-print(df.columns) # Display var names for the entire data base
+#df = pd.read_csv("FCS_Sample_Survey.csv", na_values="n/a")
+#print(df.columns) # Display var names for the entire data base
 
 # Prepare FCS related variables -----------------------------------------------#
 
