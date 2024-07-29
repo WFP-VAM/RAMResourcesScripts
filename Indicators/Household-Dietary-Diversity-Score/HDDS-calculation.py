@@ -9,22 +9,6 @@ import pandas as pd
 # Load Sample Data ------------------------------------------------------------#
 #df = pd.read_csv("~/GitHub/RAMResourcesScripts/Static/HDDS_Sample_Survey.csv")
 
-# Rename variables to match the script ----------------------------------------#
-df.rename(columns={
-    'HDDSStapCer':  'HDDSStapCer',
-    'HDDSStapRoot': 'HDDSStapRoot',
-    'HDDSVeg':      'HDDSVeg',
-    'HDDSFruit':    'HDDSFruit',
-    'HDDSPrMeat':   'HDDSPrMeat',
-    'HDDSPrEggs':   'HDDSPrEggs',
-    'HDDSPrFish':   'HDDSPrFish',
-    'HDDSPulse':    'HDDSPulse',
-    'HDDSDairy':    'HDDSDairy',
-    'HDDSFat':      'HDDSFat',
-    'HDDSSugar':    'HDDSSugar',
-    'HDDSCond':     'HDDSCond'
-}, inplace=True)
-
 # Compute HDDS ---------------------------------------------------------------#
 df['HDDS'] = (df['HDDSStapCer'] + df['HDDSStapRoot'] + df['HDDSVeg'] +
               df['HDDSFruit']   + df['HDDSPrMeat']   + df['HDDSPrEggs'] +
