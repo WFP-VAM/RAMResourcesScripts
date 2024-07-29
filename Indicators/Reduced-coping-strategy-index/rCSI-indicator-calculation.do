@@ -1,13 +1,14 @@
 ********************************************************************************
-*						reduced Coping Strategy Index (rCSI)
+*	                            WFP Standardized Scripts
+* .                 Calculating Reduced Coping Strategy Index (rCSI)
 *******************************************************************************/
 
 ** Load data
 * ---------
-import delim using "../GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv", ///
-       clear case(preserve)
+*import delim using "../GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv", ///
+*       clear case(preserve)
        
-** Check and recode missing values as 0
+** Check missing values and hanle if necessary
 	sum rCSI*
 	
 ** Label rCSI relevant variables
