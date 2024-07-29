@@ -37,10 +37,9 @@ getwd()   # Display current working directory
 dir()     # Display working directory content
 
 # change path to your working folder
-setwd("/Users/nicolewu/Desktop")
-
+#setwd("/Users/nicolewu/Desktop")
 # add sample data
-data <- read_csv("sample_data.csv") #read.spss and other formats can also work
+#data <- read_csv("sample_data.csv") #read.spss and other formats can also work
 
 # Set switches -----------------------------------------------------------------
 

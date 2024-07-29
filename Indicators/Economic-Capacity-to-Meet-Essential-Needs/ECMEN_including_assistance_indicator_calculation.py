@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#	                        WFP RAM Standardized Scripts
+#	                          WFP Standardized Scripts
 #                         Calculating and Summarising ECMEN 
 #                    (Including Assistance Version - Monitoring)
 #------------------------------------------------------------------------------#
@@ -10,10 +10,8 @@ import pandas as pd
 import numpy as np
 
 # Load Sample Data ------------------------------------------------------------#
-
-df = pd.read_csv("ECMEN_Sample_Survey.csv")
-
-print(df.columns) # Display var names for the entire data base
+#df = pd.read_csv("ECMEN_Sample_Survey.csv")
+#print(df.columns) # Display var names for the entire data base
 
 # Initialize columns with their respective labels
 columns_food = {
