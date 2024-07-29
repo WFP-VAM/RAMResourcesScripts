@@ -1,8 +1,6 @@
 #------------------------------------------------------------------------------#
-
-#	                        WFP RAM Standardized Scripts
-#                      Calculating and Summarising rCSI
-
+#	                            WFP Standardized Scripts
+#                Calculating Reduced Coping Strategy Index (rCSI)
 #------------------------------------------------------------------------------#
 
 rm(list = ls())
@@ -15,7 +13,7 @@ library(labelled)
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv")
+#data <- read_csv("~/GitHub/RAMResourcesScripts/Static/rCSI_Sample_Survey.csv")
 
 # Label rCSI relevant variables -----------------------------------------------#
 
@@ -48,3 +46,4 @@ rCSI_table_mean <- data %>%
   summarise(meanrCSI = weighted.mean(rCSI,nameofweightvariable))
 #insert name of weight variable 
 
+# End of Scripts
