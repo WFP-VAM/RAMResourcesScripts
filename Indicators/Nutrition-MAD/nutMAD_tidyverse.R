@@ -1,74 +1,47 @@
+
 library(tidyverse)
 library(labelled)
 library(expss)
 
 #add sample data
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_MAD_Sample_Survey/MAD_submodule_RepeatMAD.csv")
-
-#can only download repeat csv data as zip file from moda with group names - will update this code with more elegant solution to remove group names or if you download as SPSS you can skip this step
-#rename to remove group names
-data <- data %>% rename(PCMADChildAge_months = 'MAD_submodule/RepeatMAD/PCMADChildAge_months',
-                        PCMADBreastfeed = 'MAD_submodule/RepeatMAD/PCMADBreastfeed',
-                        PCMADInfFormula = 'MAD_submodule/RepeatMAD/PCMADInfFormula',
-                        PCMADInfFormulaNum = 'MAD_submodule/RepeatMAD/PCMADInfFormulaNum',
-                        PCMADMilk = 'MAD_submodule/RepeatMAD/PCMADMilk',
-                        PCMADMilkNum = 'MAD_submodule/RepeatMAD/PCMADMilkNum',
-                        PCMADYogurtDrink = 'MAD_submodule/RepeatMAD/PCMADYogurtDrink',
-                        PCMADYogurtDrinkNum = 'MAD_submodule/RepeatMAD/PCMADYogurtDrinkNum',
-                        PCMADYogurt = 'MAD_submodule/RepeatMAD/PCMADYogurt',
-                        PCMADStapCer = 'MAD_submodule/RepeatMAD/PCMADStapCer',
-                        PCMADVegOrg = 'MAD_submodule/RepeatMAD/PCMADVegOrg',
-                        PCMADStapRoo = 'MAD_submodule/RepeatMAD/PCMADStapRoo',
-                        PCMADVegGre = 'MAD_submodule/RepeatMAD/PCMADVegGre',
-                        PCMADVegOth = 'MAD_submodule/RepeatMAD/PCMADVegOth',
-                        PCMADFruitOrg = 'MAD_submodule/RepeatMAD/PCMADFruitOrg',
-                        PCMADFruitOth = 'MAD_submodule/RepeatMAD/PCMADFruitOth',
-                        PCMADPrMeatO = 'MAD_submodule/RepeatMAD/PCMADPrMeatO',
-                        PCMADPrMeatPro = 'MAD_submodule/RepeatMAD/PCMADPrMeatPro',
-                        PCMADPrMeatF = 'MAD_submodule/RepeatMAD/PCMADPrMeatF', 
-                        PCMADPrEgg = 'MAD_submodule/RepeatMAD/PCMADPrEgg',
-                        PCMADPrFish = 'MAD_submodule/RepeatMAD/PCMADPrFish',
-                        PCMADPulse = 'MAD_submodule/RepeatMAD/PCMADPulse',
-                        PCMADCheese = 'MAD_submodule/RepeatMAD/PCMADCheese',
-                        PCMADSnf = 'MAD_submodule/RepeatMAD/PCMADSnf',
-                        PCMADMeals = 'MAD_submodule/RepeatMAD/PCMADMeals'
-                        )
+#data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_MAD_Sample_Survey/MAD_submodule_RepeatMAD.csv")
 
 #assign variable and value labels
 var_label(data$PCMADChildAge_months) <- 'What is the age in months of ${PCMADChildName} ?'
-var_label(data$PCMADBreastfeed) <- 'Was ${PCMADChildName} breastfed yesterday during the day or at night?'
-var_label(data$PCMADInfFormula) <- 'Infant formula, such as [insert local names of common formula]?'
-var_label(data$PCMADInfFormulaNum) <- 'How many times did ${PCMADChildName} drink formula'
-var_label(data$PCMADMilk) <- 'Milk from animals, such as fresh, tinned or powdered milk?'
-var_label(data$PCMADMilkNum) <- 'How many times did ${PCMADChildName} drink milk from animals, such as fresh, tinned or powdered milk?'
-var_label(data$PCMADYogurtDrink) <- 'Yogurt drinks such as [insert local names of common types of yogurt drinks]?'
-var_label(data$PCMADYogurtDrinkNum) <- 'How many times did  ${PCMADChildName} drink Yogurt drinks such as [insert local names of common types of yogurt drinks]?'
-var_label(data$PCMADYogurt) <- 'Yogurt, other than yogurt drinks?'
-var_label(data$PCMADStapCer) <- 'Porridge, bread, rice, noodles, pasta or [insert other commonly consumed grains, including foods made from grains like rice dishes, noodle dishes, etc.]?'
-var_label(data$PCMADVegOrg) <- 'Pumpkin, carrots, sweet red peppers, squash or sweet potatoes that are yellow or orange inside? [any additions to this list should meet “Criteria for defining foods and liquids as ‘sources’ of vitamin A”]'
-var_label(data$PCMADStapRoo) <- 'Plantains, white potatoes, white yams, manioc, cassava or [insert other commonly consumed starchy tubers or starchy tuberous roots that are white or pale inside]'
-var_label(data$PCMADVegGre) <- 'Dark green leafy vegetables, such as [insert  commonly consumed vitamin A-rich dark green leafy vegetables]?'
-var_label(data$PCMADVegOth) <- 'Any other vegetables, such as [insert commonly consumed vegetables]?'
-var_label(data$PCMADFruitOrg) <- 'Ripe mangoes or ripe papayas or [insert other commonly consumed vitamin A-rich fruits]?'
-var_label(data$PCMADFruitOth) <- 'Any other fruits, such as [insert commonly consumed fruits]?'
-var_label(data$PCMADPrMeatO) <- 'Liver, kidney, heart or [insert other commonly consumed organ meats]?'
-var_label(data$PCMADPrMeatPro) <- 'Sausages, hot dogs/frankfurters, ham, bacon, salami, canned meat or [insert other commonly consumed processed meats]?'
-var_label(data$PCMADPrMeatF) <- 'Any other meat, such as beef, pork, lamb, goat, chicken, duck or [insert other commonly consumed meat]?'
-var_label(data$PCMADPrEgg) <- 'Eggs'
-var_label(data$PCMADPrFish) <- 'Fresh or dried fish, shellfish or seafood'
-var_label(data$PCMADPulse) <- 'Beans, peas, lentils, nuts , seeds or [insert commonly consumed foods made from beans, peas, lentils, nuts, or seeds]?'
-var_label(data$PCMADCheese) <- 'Hard or soft cheese such as [insert commonly consumed types of cheese]?'
-var_label(data$PCMADSnf) <- 'Specialized Nutritious Foods (SNF) such as [insert the SNFs distributed by WFP]?'
-var_label(data$PCMADMeals) <- 'How many times did ${PCMADChildName}  eat any solid, semi -solid or soft foods yesterday during the day or night?'
+var_label(data$PCMADBreastfeed)      <- 'Was ${PCMADChildName} breastfed yesterday during the day or at night?'
+var_label(data$PCMADInfFormula)      <- 'Infant formula, such as [insert local names of common formula]?'
+var_label(data$PCMADInfFormulaNum)   <- 'How many times did ${PCMADChildName} drink formula'
+var_label(data$PCMADMilk)            <- 'Milk from animals, such as fresh, tinned or powdered milk?'
+var_label(data$PCMADMilkNum)         <- 'How many times did ${PCMADChildName} drink milk from animals, such as fresh, tinned or powdered milk?'
+var_label(data$PCMADYogurtDrink)     <- 'Yogurt drinks such as [insert local names of common types of yogurt drinks]?'
+var_label(data$PCMADYogurtDrinkNum)  <- 'How many times did  ${PCMADChildName} drink Yogurt drinks such as [insert local names of common types of yogurt drinks]?'
+var_label(data$PCMADYogurt)          <- 'Yogurt, other than yogurt drinks?'
+var_label(data$PCMADStapCer)         <- 'Porridge, bread, rice, noodles, pasta or [insert other commonly consumed grains, including foods made from grains like rice dishes, noodle dishes, etc.]?'
+var_label(data$PCMADVegOrg)          <- 'Pumpkin, carrots, sweet red peppers, squash or sweet potatoes that are yellow or orange inside? [any additions to this list should meet “Criteria for defining foods and liquids as ‘sources’ of vitamin A”]'
+var_label(data$PCMADStapRoo)         <- 'Plantains, white potatoes, white yams, manioc, cassava or [insert other commonly consumed starchy tubers or starchy tuberous roots that are white or pale inside]'
+var_label(data$PCMADVegGre)          <- 'Dark green leafy vegetables, such as [insert  commonly consumed vitamin A-rich dark green leafy vegetables]?'
+var_label(data$PCMADVegOth)          <- 'Any other vegetables, such as [insert commonly consumed vegetables]?'
+var_label(data$PCMADFruitOrg)        <- 'Ripe mangoes or ripe papayas or [insert other commonly consumed vitamin A-rich fruits]?'
+var_label(data$PCMADFruitOth)        <- 'Any other fruits, such as [insert commonly consumed fruits]?'
+var_label(data$PCMADPrMeatO)         <- 'Liver, kidney, heart or [insert other commonly consumed organ meats]?'
+var_label(data$PCMADPrMeatPro)       <- 'Sausages, hot dogs/frankfurters, ham, bacon, salami, canned meat or [insert other commonly consumed processed meats]?'
+var_label(data$PCMADPrMeatF)         <- 'Any other meat, such as beef, pork, lamb, goat, chicken, duck or [insert other commonly consumed meat]?'
+var_label(data$PCMADPrEgg)           <- 'Eggs'
+var_label(data$PCMADPrFish)          <- 'Fresh or dried fish, shellfish or seafood'
+var_label(data$PCMADPulse)           <- 'Beans, peas, lentils, nuts , seeds or [insert commonly consumed foods made from beans, peas, lentils, nuts, or seeds]?'
+var_label(data$PCMADCheese)          <- 'Hard or soft cheese such as [insert commonly consumed types of cheese]?'
+var_label(data$PCMADSnf)             <- 'Specialized Nutritious Foods (SNF) such as [insert the SNFs distributed by WFP]?'
+var_label(data$PCMADMeals)           <- 'How many times did ${PCMADChildName}  eat any solid, semi -solid or soft foods yesterday during the day or night?'
 
 data <- data %>%
-  mutate(across(c(PCMADBreastfeed,PCMADInfFormula,PCMADMilk,PCMADYogurtDrink, PCMADYogurt,PCMADStapCer,PCMADVegOrg,PCMADStapRoo,PCMADVegGre,PCMADVegOth,PCMADFruitOrg,
-                  PCMADFruitOth,PCMADPrMeatO,PCMADPrMeatPro,PCMADPrMeatF,PCMADPrEgg,PCMADPrFish,PCMADPulse,PCMADCheese,PCMADSnf), ~labelled(., labels = c(
+  mutate(across(c(PCMADBreastfeed,PCMADInfFormula,PCMADMilk,PCMADYogurtDrink,PCMADYogurt,
+                  PCMADStapCer,PCMADVegOrg,PCMADStapRoo,PCMADVegGre,PCMADVegOth,PCMADFruitOrg,
+                  PCMADFruitOth,PCMADPrMeatO,PCMADPrMeatPro,PCMADPrMeatF,PCMADPrEgg,PCMADPrFish,
+                  PCMADPulse,PCMADCheese,PCMADSnf), ~labelled(., labels = c(
     "No" = 0,
     "Yes" = 1,
     "Don't know" = 888
   ))))
-
 
 #Creat Minimum Dietary Diversity 6-23 months (MDD)
 # for population assesments - SNF is counted in cereals group (MDD)
@@ -136,12 +109,10 @@ val_lab(data$MDD_wfp) = num_lab("
              1 Meets MDD 
 ")
 
-
 table(data$MDD)
 table(data$MDD_wfp)
 
-#Calculate Minimum Meal Frequency 6-23 months (MMF) 
-
+#Calculate Minimum Meal Frequency 6-23 months (MMF)
 #Recode into new variables turning dont know and missing valules into 0  - this makes syntax for calculation simpler
 
 data <- data %>% mutate(PCMADBreastfeed_yn = case_when(
@@ -183,12 +154,10 @@ val_lab(data$MMFF) = num_lab("
              1 Meets MMFF
 ")
 
-
 # Minimum Acceptable Diet (MAD)
 
 #For breastfed infants: if MDD and MMF are both achieved, then MAD is achieved
 #For nonbreastfed infants: if MDD, MMF and MMFF are all achieved, then MAD is achieved
-
 
 #using MDD for population assesments
 data <- data %>% mutate(MAD = case_when(
@@ -208,7 +177,6 @@ val_lab(data$MAD) = num_lab("
              1 Meets MAD
 ")
 
-
 #creates a table of the weighted percentage of MAD
 #and providing the option to use weights if needed
 
@@ -221,3 +189,5 @@ MAD_table_wide <- data %>%
   pivot_wider(names_from = MAD,
               values_from = Percentage,
               values_fill =  0) 
+
+# End of Scripts
