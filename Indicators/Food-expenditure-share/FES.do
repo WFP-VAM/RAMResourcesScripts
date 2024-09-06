@@ -86,13 +86,11 @@ egen HHExp_Food_Own_MN_1M=rowtotal(HHExpFCer_Own_MN_7D HHExpFTub_Own_MN_7D HHExp
 replace HHExp_Food_Own_MN_1M=HHExp_Food_Own_MN_1M*(30/7) // conversion in monthly terms - do it only if recall period for food was 7 days
 lab var HHExp_Food_Own_MN_1M "Total monthly food consumption from own-production"
 
-
 *-------------------------------------------------------------------------------*
 *2. Create variables for non-food expenditure, by source	
 *-------------------------------------------------------------------------------*
 
 *** 2.a Label variables: 
-
 *1 month recall period - variables labels:
 lab var HHExpNFHyg_Purch_MN_1M  "Expenditures on hygiene"
 lab var HHExpNFHyg_GiftAid_MN_1M "Value of consumed in-kind assistance-gifts - hygiene"
@@ -136,7 +134,6 @@ lab var HHExpNFHHMaint_GiftAid_MN_6M "Value of consumed in-kind assistance-gifts
 * If the questionnaire included further non-food categories/items, label the respective variables
 
 *** 2.b Calculate total value of non-food expenditures/consumption by source
-
 ** Total non-food expenditure (cash/credit)
 
 * 30 days recall
@@ -208,3 +205,4 @@ label value Foodexp_4pt Foodexp_4pt_lab
 * Compute FES indicator
 tab Foodexp_4pt
     			   
+** End of Scripts

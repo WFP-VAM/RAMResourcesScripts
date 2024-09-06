@@ -1,8 +1,6 @@
 *** --------------------------------------------------------------------------
-
-***	                        WFP RAM Standardized Scripts
-***              Calculating Food Consumption Score Nutrition (FCSN)
-
+***	                         WFP Standardized Scripts
+***              Calculating Food Consumption Score - Nutrition (FCSN)
 *** --------------------------------------------------------------------------
 
 * Encoding: UTF-8.

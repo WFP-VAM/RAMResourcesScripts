@@ -1,14 +1,12 @@
 *------------------------------------------------------------------------------*
-
-*	                        WFP RAM Standardized Scripts
+*	                        WFP APP Standardized Scripts
 *                 Calculating Food Consumption Score - Nutrition (FCSN)
-
 * -----------------------------------------------------------------------------*	
 *
 * Load data
 * ---------
-	import delim using "../GitHub/RAMResourcesScripts/Static/FCSN_Sample_Survey.csv", ///
-		   clear case(preserve)
+*	import delim using "../GitHub/RAMResourcesScripts/Static/FCSN_Sample_Survey.csv", ///
+*		   clear case(preserve)
 	
 ** check and recode missing values as 0
 	sum	   FCS*

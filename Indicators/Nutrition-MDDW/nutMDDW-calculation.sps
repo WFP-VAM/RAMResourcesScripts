@@ -1,4 +1,9 @@
-﻿* Encoding: UTF-8.
+﻿*** --------------------------------------------------------------------------
+***	                          WFP Standardized Scripts
+***             Calculating Minimum Dietary Diversity for Women (MDDW)
+*** --------------------------------------------------------------------------
+
+* Encoding: UTF-8.
 
 *can only download repeat csv data as zip file from moda with group names - will update this code to remove group names
 *rename to remove group names - because of the variable length SPSS changes name slightly
@@ -87,7 +92,6 @@ if (PWMDDWVegOth = 1) MDDW_OtherVeg = 1.
 Compute  MDDW_OtherFruits = 0.
 if (PWMDDWFruitOth = 1) MDDW_OtherFruits = 1.
 
-
 *WFP MDDW method for program monitoring - SNF will count in the meats group
 *in this example all - PWMDDWFortFoodwflour,PWMDDWFortFoodmflour,PWMDDWFortFoodrice,PWMDDWFortFooddrink will also count in grains
 *classifying PWMDDWFortFoodother_oth will likely involve classifying line by line 
@@ -113,9 +117,6 @@ if (PWMDDWVegOth = 1) MDDW_OtherVeg_wfp = 1.
 Compute  MDDW_OtherFruits_wfp = 0.
 if (PWMDDWFruitOth = 1) MDDW_OtherFruits_wfp = 1. 
 
-
-
-
 *calculate MDDW variable for both methods by adding together food groups and classifying whether the woman consumed 5 or more food groups
 
 *Standard MDDW method where SNF is counted in grains
@@ -130,14 +131,11 @@ Value labels  MDDW_5 1 '>=5' 0  '<5 '.
 
 Value labels  MDDW_5 1 '>=5' 0  '<5 '.
 
-
-
 *WFP MDDW method for program monitoring - SNF will count in the meats group
  
 compute MDDW_wfp = sum(MDDW_Staples_wfp,MDDW_Pulses_wfp ,MDDW_NutsSeeds_wfp ,MDDW_Dairy_wfp ,MDDW_MeatFish_wfp ,MDDW_Eggs_wfp ,MDDW_LeafGreenVeg_wfp ,MDDW_VitA_wfp ,MDDW_OtherVeg_wfp ,MDDW_OtherFruits_wfp).
 
 *count how many women consumed 5 or more groups
-
 
 Compute  MDDW_5_wfp = 0.
 if (MDDW_wfp >= 5) MDDW_5_wfp = 1.
@@ -145,14 +143,12 @@ Value labels  MDDW_5_wfp 1 '>=5' 0  '<5 '.
 
 Value labels  MDDW_5_wfp 1 '>=5' 0  '<5 '.
 
-
 *Frequency of Standard MDDW Method - MDDW_5 
 
 freq MDDW_5.
-
 
 *Frequency of WFP MDDW method for program monitoring - MDDW_5_wfp
 
 freq MDDW_5_wfp.
 
-
+*** End of scripts

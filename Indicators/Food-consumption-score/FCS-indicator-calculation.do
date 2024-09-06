@@ -1,14 +1,12 @@
 *------------------------------------------------------------------------------*
-
-*	                        WFP RAM Standardized Scripts
+*	                          WFP Standardized Scripts
 *                     Calculating Food Consumption Score (FCS)
-
 *-----------------------------------------------------------------------------
 
 ** Load data
 * ---------
-	import delim using "../../Static/FCS_Sample_Survey.csv", clear 	///
-		   case(preserve) bindquotes(strict) varn(1)
+*	import delim using "../../Static/FCS_Sample_Survey.csv", clear 	///
+*		   case(preserve) bindquotes(strict) varn(1)
 
 ** Label FCS relevant variables
 	label var FCSStap		"Consumption over the past 7 days: cereals, grains and tubers"

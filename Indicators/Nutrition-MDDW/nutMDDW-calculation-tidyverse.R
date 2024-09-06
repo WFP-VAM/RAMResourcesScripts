@@ -15,7 +15,7 @@ library(expss)
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_MDDW/Nutrition_module_MDD_W_submodule_RepeatMDDW.csv")
+#data <- read_csv("~/GitHub/RAMResourcesScripts/Static/Nut_MDDW/Nutrition_module_MDD_W_submodule_RepeatMDDW.csv")
 
 # Rename MDDW relevant variables ----------------------------------------------#
 

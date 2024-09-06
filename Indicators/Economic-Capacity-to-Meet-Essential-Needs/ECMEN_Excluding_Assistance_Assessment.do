@@ -6,7 +6,7 @@
 
 * Detailed guidance on the computation of the ECMEN can be found here: https://docs.wfp.org/api/documents/WFP-0000145644/download/
 
-*Note 1: In the version used for assessment: a) the household economic capacity aggregate should not include the value of consumed in-kind assistance gifts; b) the value of the cash assistance received from the humanitarian sector should be deducted from the household economic capacity aggregate (but only for the estimated share of the cash assistance that is used for consumption, when available).
+* Note 1: In the version used for assessment: a) the household economic capacity aggregate should not include the value of consumed in-kind assistance gifts; b) the value of the cash assistance received from the humanitarian sector should be deducted from the household economic capacity aggregate (but only for the estimated share of the cash assistance that is used for consumption, when available).
 
 * Note 2: the computation of the ECMEN requires having already established a Minimum Expenditure Basket (MEB). More information on MEBs can be found here: https://docs.wfp.org/api/documents/WFP-0000074198/download/
 
