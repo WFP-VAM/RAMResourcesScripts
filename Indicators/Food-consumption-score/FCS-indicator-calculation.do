@@ -1,50 +1,65 @@
 *------------------------------------------------------------------------------*
+*                           WFP RAM Standardized Scripts
+*                Food Consumption Score (FCS) Calculation in STATA
+*------------------------------------------------------------------------------*
+* 1. Purpose:
+* This script calculates the Food Consumption Score (FCS) using standardized 
+* food group variables. It assumes that the required variables are available in 
+* your dataset and correctly formatted for use in the calculation.
+*
+* 2. Assumptions:
+* - The dataset contains standardized variables from Survey Designer.
+* - The variables used for the FCS calculation are properly named and cleaned.
+* - The dataset is already loaded in STATA.
+*
+* 3. Requirements:
+* - Required variables in the dataset:
+*   - FCSStap  : Consumption of starchy staples
+*   - FCSPulse : Consumption of pulses/legumes
+*   - FCSDairy : Consumption of dairy products
+*   - FCSPr    : Consumption of meat/fish/protein
+*   - FCSVeg   : Consumption of vegetables
+*   - FCSFruit : Consumption of fruits
+*   - FCSFat   : Consumption of fats/oils
+*   - FCSSugar : Consumption of sugar
+*
+* 4. STATA Version:
+* - STATA 14 or higher is recommended.
+*------------------------------------------------------------------------------*
 
-*	                        WFP RAM Standardized Scripts
-*                     Calculating Food Consumption Score (FCS)
+*------------------------------------------------------------------------------
+* Step 1: Calculate the Food Consumption Score (FCS)
+*------------------------------------------------------------------------------
 
-*-----------------------------------------------------------------------------
+* The formula for FCS is:
+* FCS = (FCSStap * 2) + (FCSPulse * 3) + (FCSDairy * 4) + (FCSPr * 4)
+*     + FCSVeg + FCSFruit + (FCSFat * 0.5) + (FCSSugar * 0.5)
 
-** Load data
-* ---------
-	import delim using "../../Static/FCS_Sample_Survey.csv", clear 	///
-		   case(preserve) bindquotes(strict) varn(1)
+gen FCS = (FCSStap * 2) +
+          (FCSPulse * 3) +
+          (FCSDairy * 4) +
+          (FCSPr * 4) +
+          FCSVeg +
+          FCSFruit +
+          (FCSFat * 0.5) +
+          (FCSSugar * 0.5)
 
-** Label FCS relevant variables
-	label var FCSStap		"Consumption over the past 7 days: cereals, grains and tubers"
-	label var FCSPulse		"Consumption over the past 7 days: pulses"
-	label var FCSDairy		"Consumption over the past 7 days: dairy products"
-	label var FCSPr			"Consumption over the past 7 days: meat, fish and eggs"
-	label var FCSVeg		"Consumption over the past 7 days: vegetables"
-	label var FCSFruit		"Consumption over the past 7 days: fruit"
-	label var FCSFat		"Consumption over the past 7 days: fat and oil"
-	label var FCSSugar		"Consumption over the past 7 days: sugaror sweets"
-	label var FCSCond		"Consumption over the past 7 days: condiments or spices"
+*------------------------------------------------------------------------------
+* Step 2: Categorize FCS into Groups Based on Thresholds
+*------------------------------------------------------------------------------
 
-** Clean and recode missing values
-	recode FCSStap FCSVeg FCSFruit FCSPr FCSPulse FCSDairy FCSFat FCSSugar (. = 0)
+* Create categorical variables based on thresholds for low and high consumption 
+* of sugar and oil.
 
-** Create FCS 
-	gen FCS = (FCSStap * 2) + (FCSPulse * 3) + (FCSDairy * 4) + (FCSPr * 4) + 	///
-			  (FCSVeg  * 1) + (FCSFruit * 1) + (FCSFat * 0.5) + (FCSSugar * 0.5)	  
+* Low consumption of sugar and oil:
+gen FCSCat21 = ""
+replace FCSCat21 = "Poor" if FCS < 21
+replace FCSCat21 = "Borderline" if FCS >= 21 & FCS <= 35
+replace FCSCat21 = "Acceptable" if FCS > 35
 
-	label var FCS "Food Consumption Score"
+* High consumption of sugar and oil:
+gen FCSCat28 = ""
+replace FCSCat28 = "Poor" if FCS < 28
+replace FCSCat28 = "Borderline" if FCS >= 28 & FCS <= 42
+replace FCSCat28 = "Acceptable" if FCS > 42
 
-** Create FCG groups based on 21/35 or 28/42 thresholds
-*** Use this when analyzing a country with low consumption of sugar and oil
-
-*** thresholds 21-35
-	gen FCSCat21 = cond(FCS <= 21, 1, cond(FCS <= 35, 2, 3))
-	label var FCSCat21 "FCS Categories, thresholds 21-35"
-
-*** thresholds 28-42
-	gen FCSCat28 = cond(FCS <= 28, 1, cond(FCS <= 42, 2, 3))
-	label var FCSCat28 "FCS Categories, thresholds 28-42"
-
-
-*** define variables labels and properties for "FCS Categories"
-	label def FCSCat 1 "Poor" 2 "Borderline" 3 "Acceptable"
-	label val FCSCat21 FCSCat28 FCSCat
-	
-* ---------
-** End of Scripts

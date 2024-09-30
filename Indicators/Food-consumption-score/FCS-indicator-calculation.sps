@@ -1,51 +1,73 @@
-*** --------------------------------------------------------------------------
+*------------------------------------------------------------------------------*
+*                           WFP RAM Standardized Scripts
+*                Food Consumption Score (FCS) Calculation in SPSS
+*------------------------------------------------------------------------------*
+* 1. Purpose:
+* This script calculates the Food Consumption Score (FCS) using standardized 
+* food group variables. It assumes that the required variables are available in 
+* your dataset and correctly formatted for use in the calculation.
+*
+* 2. Assumptions:
+* - The dataset contains standardized variables from Survey Designer.
+* - The variables used for the FCS calculation are properly named and cleaned.
+* - The dataset is already loaded in SPSS.
+*
+* 3. Requirements:
+* - Required variables in the dataset:
+*   - FCSStap  : Consumption of starchy staples
+*   - FCSPulse : Consumption of pulses/legumes
+*   - FCSDairy : Consumption of dairy products
+*   - FCSPr    : Consumption of meat/fish/protein
+*   - FCSVeg   : Consumption of vegetables
+*   - FCSFruit : Consumption of fruits
+*   - FCSFat   : Consumption of fats/oils
+*   - FCSSugar : Consumption of sugar
+*
+* 4. SPSS Version:
+* - SPSS 21 or higher is recommended.
+*------------------------------------------------------------------------------*
 
-***	                        WFP RAM Standardized Scripts
-***                     Calculating Food Consumption Score (FCS)
+*------------------------------------------------------------------------------
+* Step 1: Calculate the Food Consumption Score (FCS)
+*------------------------------------------------------------------------------
 
-*** --------------------------------------------------------------------------
+* The formula for FCS is:
+* FCS = (FCSStap * 2) + (FCSPulse * 3) + (FCSDairy * 4) + (FCSPr * 4)
+*     + FCSVeg + FCSFruit + (FCSFat * 0.5) + (FCSSugar * 0.5)
 
-* Encoding: UTF-8.
-
-*** Define labels
-
-Variable labels
-FCSStap  'Consumption over the past 7 days: cereals, grains and tubers'
-FCSPulse 'Consumption over the past 7 days: pulses'
-FCSDairy 'Consumption over the past 7 days: dairy products'
-FCSPr    'Consumption over the past 7 days: meat, fish and eggs'
-FCSVeg   'Consumption over the past 7 days: vegetables and leaves'
-FCSFruit 'Consumption over the past 7 days: fruit'
-FCSFat   'Consumption over the past 7 days: fat and oil'
-FCSSugar 'Consumption over the past 7 days: sugar or sweets'
-FCSCond  'Consumption over the past 7 days: condiments or spices'.
-
-*** Calculate FCS 
-Compute FCS = sum(FCSStap*2, FCSPulse*3, FCSDairy*4, FCSPr*4, FCSVeg*1, FCSFruit*1, FCSFat*0.5, FCSSugar*0.5).
-Variable labels FCS "Food Consumption Score".
+COMPUTE FCS = (FCSStap * 2) +
+              (FCSPulse * 3) +
+              (FCSDairy * 4) +
+              (FCSPr * 4) +
+              FCSVeg +
+              FCSFruit +
+              (FCSFat * 0.5) +
+              (FCSSugar * 0.5).
 EXECUTE.
 
-*** Use this when analyzing a country with low consumption of sugar and oil - thresholds 21-35
+*------------------------------------------------------------------------------
+* Step 2: Categorize FCS into Groups Based on Thresholds
+*------------------------------------------------------------------------------
 
-Recode FCS (lowest thru 21 = 1) (21.5 thru 35 = 2) (35.5 thru highest = 3) into FCSCat21.
-Variable labels FCSCat21 "FCS Categories: 21/35 thresholds".
+* Create categorical variables based on thresholds for low and high consumption 
+* of sugar and oil.
+
+* Low consumption of sugar and oil:
+DO IF (FCS < 21).
+   COMPUTE FCSCat21 = 'Poor'.
+ELSE IF (FCS >= 21 AND FCS <= 35).
+   COMPUTE FCSCat21 = 'Borderline'.
+ELSE IF (FCS > 35).
+   COMPUTE FCSCat21 = 'Acceptable'.
+END IF.
 EXECUTE.
 
-*** Define value labels and properties for "FCS Categories".
-
-Value labels FCSCat21 1.00 "Poor" 2.00 "Borderline" 3.00 "Acceptable".
+* High consumption of sugar and oil:
+DO IF (FCS < 28).
+   COMPUTE FCSCat28 = 'Poor'.
+ELSE IF (FCS >= 28 AND FCS <= 42).
+   COMPUTE FCSCat28 = 'Borderline'.
+ELSE IF (FCS > 42).
+   COMPUTE FCSCat28 = 'Acceptable'.
+END IF.
 EXECUTE.
-
-*** Important note: pay attention to the threshold used by your CO when selecting the syntax (21 cat. vs 28 cat.)
-*** Use this when analyzing a country with high consumption of sugar and oil – thresholds 28-42
-
-Recode FCS (lowest thru 28 = 1) (28.5 thru 42 = 2) (42.5 thru highest = 3) into FCSCat28.
-Variable labels FCSCat28 "FCS Categories: 28/42 thresholds".
-EXECUTE.
-
-*** Define value labels and properties for "FCS Categories"
-
-Value labels FCSCat28 1.00 "Poor" 2.00 "Borderline" 3.00 "Acceptable".
-EXECUTE.
-
-*** End of scripts
