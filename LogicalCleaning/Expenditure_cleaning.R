@@ -580,12 +580,3 @@ df <- reconcile_exp_variables(df, F_expvars, NF_1M_expvars, NF_6M_expvars, all_e
 
 # 9. Retransform from capita to household
 df <- retransform_per_capita_to_household(df, all_expvars, 'HHSize')
-
-
-# Calculate the sum of sums for the 'pc_' columns
-sum_of_sums_pc_r <- sum(colSums(df[, all_expvars, drop = FALSE], na.rm = TRUE))
-
-# Display the total sum of sums for 'pc_' columns
-print(paste('Sum of sums of pc_ columns in R:', sum_of_sums_pc_r))
-
-

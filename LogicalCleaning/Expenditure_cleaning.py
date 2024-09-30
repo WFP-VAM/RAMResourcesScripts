@@ -686,7 +686,3 @@ df = retransform_per_capita_to_household(df, all_expvars, hh_size_col='HHSize')
 aggr_column_dict = {prefix: [f'{prefix}_{col}' for col in aggr_base_vars] for prefix in col_prefixes}
 aggr_columns_to_drop = [col for cols in aggr_column_dict.values() for col in cols] # # Combine all columns to drop into a single list
 df = drop_temporary_columns(df, aggr_columns_to_drop)
-
-print(df[all_expvars].sum().sum())
-
-df.to_excel('testing_dropping.xlsx')
