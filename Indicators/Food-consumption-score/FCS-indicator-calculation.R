@@ -23,15 +23,9 @@
 #   - FCSFat   : Consumption of fats/oils
 #   - FCSSugar : Consumption of sugar
 #
-# - Required Packages:
-#   - dplyr (Install with `install.packages("dplyr")`)
-#
 # 4. R Version: 
 # - R version 3.x or higher is recommended for compatibility with modern libraries.
 #------------------------------------------------------------------------------#
-
-# Load necessary libraries
-library(dplyr)
 
 # Function to calculate FCS
 calculate_fcs <- function(df) {
