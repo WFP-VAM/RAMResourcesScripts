@@ -80,5 +80,6 @@ rsconnect/
 # CUSTOM 
 Indicators/Food-consumption-score/.Rhistory
 *.xlsx
+*.csv
 *.sav
 node_modules
