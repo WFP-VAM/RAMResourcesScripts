@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#                           WFP RAM Standardized Scripts
+#                           WFP APP Standardized Scripts
 #              Calculating Household Dietary Diversity Score (HDDS) in R
 #------------------------------------------------------------------------------#
 # 1. Purpose:
@@ -41,19 +41,11 @@ calculate_hdds <- function(df) {
   # Returns:
   # - df: DataFrame, the dataset with the calculated 'HDDS' variable
   
-  df$HDDS <- df$HDDSStapCer +
-             df$HDDSStapRoot +
-             df$HDDSVeg +
-             df$HDDSFruit +
-             df$HDDSPrMeat +
-             df$HDDSPrEggs +
-             df$HDDSPrFish +
-             df$HDDSPulse +
-             df$HDDSDairy +
-             df$HDDSFat +
-             df$HDDSSugar +
-             df$HDDSCond
-             
+  # Sum the columns and treat NA as 0
+  df$HDDS <- rowSums(df[, c('HDDSStapCer', 'HDDSStapRoot', 'HDDSVeg', 'HDDSFruit',
+                            'HDDSPrMeat', 'HDDSPrEggs', 'HDDSPrFish', 'HDDSPulse',
+                            'HDDSDairy', 'HDDSFat', 'HDDSSugar', 'HDDSCond')], na.rm = TRUE)
+  
   return(df)
 }
 

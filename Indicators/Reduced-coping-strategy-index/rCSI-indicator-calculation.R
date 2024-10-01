@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#                           WFP RAM Standardized Scripts
+#                           WFP APP Standardized Scripts
 #                Reduced Coping Strategies Index (rCSI) Calculation in R
 #------------------------------------------------------------------------------#
 # 1. Purpose:

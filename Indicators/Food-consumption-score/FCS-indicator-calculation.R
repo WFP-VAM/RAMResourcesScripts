@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#                           WFP RAM Standardized Scripts
+#                           WFP APP Standardized Scripts
 #                   Food Consumption Score (FCS) Calculation in R
 #------------------------------------------------------------------------------#
 # 1. Purpose:

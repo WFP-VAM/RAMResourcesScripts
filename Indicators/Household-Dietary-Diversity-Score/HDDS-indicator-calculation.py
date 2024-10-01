@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------#
-#                           WFP RAM Standardized Scripts
+#                           WFP APP Standardized Scripts
 #              Calculating Household Dietary Diversity Score (HDDS) in Python
 #------------------------------------------------------------------------------#
 # 1. Purpose:
@@ -48,19 +48,10 @@ def calculate_hdds(df):
     Returns:
     - df: pandas.DataFrame, the dataset with the calculated 'HDDS' variable
     """
-    # Calculate HDDS by summing the 12 food group variables
-    df['HDDS'] = (df['HDDSStapCer'] +
-                  df['HDDSStapRoot'] +
-                  df['HDDSVeg'] +
-                  df['HDDSFruit'] +
-                  df['HDDSPrMeat'] +
-                  df['HDDSPrEggs'] +
-                  df['HDDSPrFish'] +
-                  df['HDDSPulse'] +
-                  df['HDDSDairy'] +
-                  df['HDDSFat'] +
-                  df['HDDSSugar'] +
-                  df['HDDSCond'])
+    # Sum the 12 food group variables, treating NaN as 0
+    df['HDDS'] = df[['HDDSStapCer', 'HDDSStapRoot', 'HDDSVeg', 'HDDSFruit',
+                     'HDDSPrMeat', 'HDDSPrEggs', 'HDDSPrFish', 'HDDSPulse',
+                     'HDDSDairy', 'HDDSFat', 'HDDSSugar', 'HDDSCond']].sum(axis=1, skipna=True)
     
     return df
 

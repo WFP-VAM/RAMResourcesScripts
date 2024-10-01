@@ -1,5 +1,5 @@
 *------------------------------------------------------------------------------*
-*                           WFP RAM Standardized Scripts
+*                           WFP APP Standardized Scripts
 *              Calculating Household Dietary Diversity Score (HDDS) in STATA
 *------------------------------------------------------------------------------*
 * 1. Purpose:
@@ -35,19 +35,10 @@
 * Step 1: Calculate the Household Dietary Diversity Score (HDDS)
 *------------------------------------------------------------------------------
 
-* The formula for HDDS is a sum of the 12 food group variables
-gen HDDS = HDDSStapCer + 
-           HDDSStapRoot + 
-           HDDSVeg + 
-           HDDSFruit + 
-           HDDSPrMeat + 
-           HDDSPrEggs + 
-           HDDSPrFish + 
-           HDDSPulse + 
-           HDDSDairy + 
-           HDDSFat + 
-           HDDSSugar + 
-           HDDSCond
+* Use rowtotal() to sum the 12 food group variables and treat missing values as 0
+gen HDDS = rowtotal(HDDSStapCer HDDSStapRoot HDDSVeg HDDSFruit HDDSPrMeat 
+                    HDDSPrEggs HDDSPrFish HDDSPulse HDDSDairy HDDSFat 
+                    HDDSSugar HDDSCond)
 
 *------------------------------------------------------------------------------
 * Step 2: Categorize HDDS into Groups Based on IPC Thresholds

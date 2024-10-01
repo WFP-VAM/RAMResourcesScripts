@@ -1,5 +1,5 @@
 *------------------------------------------------------------------------------*
-*                           WFP RAM Standardized Scripts
+*                           WFP APP Standardized Scripts
 *              Calculating Household Dietary Diversity Score (HDDS) in SPSS
 *------------------------------------------------------------------------------*
 * 1. Purpose:
@@ -35,19 +35,10 @@
 * Step 1: Calculate the Household Dietary Diversity Score (HDDS)
 *------------------------------------------------------------------------------
 
-* The formula for HDDS is a sum of the 12 food group variables.
-COMPUTE HDDS = HDDSStapCer + 
-               HDDSStapRoot + 
-               HDDSVeg + 
-               HDDSFruit + 
-               HDDSPrMeat + 
-               HDDSPrEggs + 
-               HDDSPrFish + 
-               HDDSPulse + 
-               HDDSDairy + 
-               HDDSFat + 
-               HDDSSugar + 
-               HDDSCond.
+* Use SUM() function to sum the 12 food group variables, treating missing values as 0.
+COMPUTE HDDS = SUM(HDDSStapCer, HDDSStapRoot, HDDSVeg, HDDSFruit, 
+                   HDDSPrMeat, HDDSPrEggs, HDDSPrFish, HDDSPulse, 
+                   HDDSDairy, HDDSFat, HDDSSugar, HDDSCond).
 EXECUTE.
 
 *------------------------------------------------------------------------------
