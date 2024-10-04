@@ -10,7 +10,12 @@ If you are using a different module or if the module was partially edited
 Important: The script assumes that a single currency is used. 
 If multiple currencies are used, convert to a single currency before running the script.
 */					
-				
+
+#------------------------------------------------------------------------------*
+#                  Import data (Adjust the path as needed)
+# ------------------------------------------------------------------------------*
+import delimited "E:/LogicalCleaning/Expcleaning_Sample_Raw.csv", clear
+
 #------------------------------------------------------------------------------*
 #                1. Listing Variables in the Expenditure Module
 # ------------------------------------------------------------------------------*

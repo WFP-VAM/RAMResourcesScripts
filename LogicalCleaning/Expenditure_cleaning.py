@@ -622,8 +622,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-# Load Data
-df = pd.read_excel('Sample Data/Expcleaning_Sample_Raw.xlsx')
+# Load the data (Adjust the path as needed)
+df = pd.read_csv('Expcleaning_Sample_Raw.csv')
 
 # Check if all columns exist in the DataFrame
 check_columns_exist(df, all_expvars + admin_levels + [hhsize_var, enumerator_var])
@@ -650,16 +650,6 @@ df = apply_ihs_transformation(df, all_expvars)
 df = standardize_using_mad(df, all_expvars)
 df = identify_outliers(df, all_expvars)
 df = replace_outliers_with_median(df, all_expvars, admin_levels)
-
-# Create a list of 'pc_' column names based on all_expvars
-pc_columns_python = [f'pc_{var}' for var in all_expvars]
-
-# Calculate the sum of sums for the 'pc_' columns
-sum_of_sums_pc_python = df[pc_columns_python].sum().sum()
-
-# Display the total sum of sums for 'pc_' columns
-print('Sum of sums of pc_ columns in Python:', sum_of_sums_pc_python)
-
 
 # Dropping temporary columns
 col_prefixes = ['tpc', 'd', 'z', 'o', 'n0', 'm0', 'n1', 'n2', 'n3', 'n4', 'm1', 'm2', 'm3', 'm4']

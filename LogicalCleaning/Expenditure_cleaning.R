@@ -506,8 +506,8 @@ library(readxl)
 library(dplyr)
 library(openxlsx)
 
-# Load the data
-df <- read_excel('E:/ExpCleaning/RAW/Expcleaning_Sample_Raw.xlsx')
+# Load the data (Adjust the path as needed)
+df <- read.csv('Expcleaning_Sample_Raw.csv')
 
 # Check if all columns exist in the DataFrame
 check_columns_exist(df, c(all_expvars, admin_levels, hhsize_var, enumerator_var))
