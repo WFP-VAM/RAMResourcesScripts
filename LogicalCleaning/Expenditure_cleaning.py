@@ -627,7 +627,7 @@ df = pd.read_csv('Expcleaning_Sample_Raw.csv')
 
 # Check if all columns exist in the DataFrame
 check_columns_exist(df, all_expvars + admin_levels + [hhsize_var, enumerator_var])
-print(df[all_expvars].sum().sum())
+
 # Set zero and negative values to missing
 df = set_zero_negative_to_missing(df, all_expvars)
 
@@ -676,5 +676,3 @@ df = retransform_per_capita_to_household(df, all_expvars, hh_size_col='HHSize')
 aggr_column_dict = {prefix: [f'{prefix}_{col}' for col in aggr_base_vars] for prefix in col_prefixes}
 aggr_columns_to_drop = [col for cols in aggr_column_dict.values() for col in cols] # # Combine all columns to drop into a single list
 df = drop_temporary_columns(df, aggr_columns_to_drop)
-
-print(df[all_expvars].sum().sum())
