@@ -1,8 +1,6 @@
 #------------------------------------------------------------------------------#
-
-#	                        WFP RAM Standardized Scripts
-#                               Calculating FCS
-
+#	                          WFP Standardized Scripts
+#                   Calculating Food Consumption Score (FCS)
 #------------------------------------------------------------------------------#
 
 ## Load Packages --------------------------------------------------------------#
@@ -26,16 +24,15 @@ library("diveRsity")
 getwd()# Display current working directory
 dir()# Display working directory content
 
-setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
+#setwd("C:\\Users\\name.lastname\\Documents\\Rfolder")
 # This is just an example. Copy and paste your own working directory. Remember to use "\\" instead of "/"
 # The data base to be used should be part of the content
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
-
-names(data)# Display var names for the entire data base
-attach(data)# Attach the data base for easy access to var names. 
+#data <- read.csv("../../Static/FCS_Sample_Survey.csv",na.strings = "n/a")
+#names(data)# Display var names for the entire data base
+#attach(data)# Attach the data base for easy access to var names. 
 
 # Prepare FCS related variables -----------------------------------------------# 
 

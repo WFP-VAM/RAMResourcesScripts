@@ -1,8 +1,6 @@
 #------------------------------------------------------------------------------#
-
-#	                        WFP RAM Standardized Scripts
-#                                  Calculating FCS
-
+#	                          WFP Standardized Scripts
+#                   Calculating Food Consumption Score (FCS)
 #------------------------------------------------------------------------------#
 
 ## Load Packages --------------------------------------------------------------#
@@ -15,7 +13,7 @@ library(haven)
 
 # Load Sample Data ------------------------------------------------------------#
 
-data <- read_csv("~/GitHub/RAMResourcesScripts/Static/FCS_Sample_Survey.csv")
+#data <- read_csv("~/GitHub/RAMResourcesScripts/Static/FCS_Sample_Survey.csv")
 
 # Label relevant FCS variables ------------------------------------------------# 
 
