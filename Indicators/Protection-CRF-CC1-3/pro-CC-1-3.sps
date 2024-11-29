@@ -1,29 +1,42 @@
-﻿* Encoding: UTF-8.
+﻿********************************************************************************
+*                          WFP Standardized Scripts
+*                    Respect and Dignity in WFP Programmes
+********************************************************************************
 
-Variable labels HHAsstRespect ‘Do you think WFPandor partner staff have treated you and members of your household respectfully? ’.
+* This script processes the indicators related to whether households feel 
+* respected and dignified while engaging in WFP programmes.
 
-Variable labels HHDTPDign ‘Do you think the conditions of WFP programme sites are dignified?’.
+* Define variable and value labels.
+VARIABLE LABELS 
+    HHAsstRespect "Do you think WFP and/or partner staff have treated you and members of your household respectfully?".
+VARIABLE LABELS 
+    HHDTPDign     "Do you think the conditions of WFP programme sites are dignified?".
 
-Value labels HHAsstRespect HHDTPDign 1 'Yes' 0  'No'.
+VALUE LABELS HHAsstRespect HHDTPDign 
+    1 'Yes' 
+    0 'No'.
 
-* cross tab first to see how many are "Yes" in both questions
-
+* Cross tabulate to see how many are "Yes" in both questions.
 CROSSTABS
   /TABLES=HHAsstRespect BY HHDTPDign
   /FORMAT=AVALUE TABLES
   /CELLS=COUNT
   /COUNT ROUND CELL.
 
+DO IF (HHAsstRespect = 1) & (HHDTPDign = 1).
+  COMPUTE HHAsstRespectDign = 1.
+ELSE.
+  COMPUTE HHAsstRespectDign = 0.
+END IF.
 
-do if (HHAsstRespect = 1) & (HHDTPDign = 1). 
-compute HHAsstRespectDign = 1.
-Else.
-Compute HHAsstRespectDign = 0.
-End if.
+VARIABLE LABELS 
+    HHAsstRespectDign "Treated with respect while engaging in WFP programs".
+VALUE LABELS 
+    HHAsstRespectDign 
+    0 'No' 
+    1 'Yes'.
 
-variable labels HHAsstRespectDign "Treated with respect while engaging in WFP programs".
-value labels HHAsstRespectDign
-0 "No"
-1 "Yes".
+* Display frequency of HHAsstRespectDign.
+FREQUENCIES VARIABLES = HHAsstRespectDign.
 
-freq HHAsstRespectDign.
+* End of Scripts.
