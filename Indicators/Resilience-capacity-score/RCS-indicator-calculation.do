@@ -9,6 +9,7 @@ qui foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess
 	cap destring `var', replace i("n/a")
 }
 /// GENERATE RANDOM DATA
+*/
 expand 100 in 4
 generate w = runiform()
 
@@ -18,7 +19,7 @@ foreach var of varlist HHRCSBounce HHRCSRevenue HHRCSIncrease HHRCSFinAccess HHR
 	replace `var'=round((w-r(min))*(5-1)/(r(max)-r(min)) + 1,1)
 	
 }
-
+*/
 //// END OF RANDOM DATA GENERATION
 ***Resilience Capacity Score***
 capture confirm variable RCS 
