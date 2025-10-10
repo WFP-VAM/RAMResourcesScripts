@@ -1,116 +1,127 @@
-Syntax for Calculating the Household Hunger Scale 
+* Encoding: UTF-8.
+*** ----------------------------------------------------------------------------------------------------
 
-***Create Household Hunger Scale*** 
-
-**define variables  
-
-Variable labels  
-HHSNoFood 	‘In the past [4 weeks/30 days], was there ever no food to eat of any kind in your house because of lack of resources to get food?’ 
-HHSNoFood_FR	‘How often did this happen in the past [4 weeks/30 days]?’ 
-HHSBedHung 	‘In the past [4 weeks/30 days], did you or any household member go to sleep at night hungry because there was not enough food?’ 
-HHSBedHung_FR	‘How often did this happen in the past [4 weeks/30 days]?’ 
-HHSNotEat	‘In the past 4 weeks (30 days), did you or any household member go a whole day and night without eating anything because there was not enough food?’ 
-HHSNotEat_FR	‘How often did this happen in the past [4 weeks/30 days]?’. 
+***	                        WFP Standardized Scripts
+***                                      Household Hunger Scale (HHS)
 
 
-***define labels 
+*** Last Update: Oct 2025
+*** Purpose: This script calculates the Household Hunger Scale
 
-Value labels HHSNoFood HHSBedHung HHSNotEat 
-0 ‘No’	 
-1 ‘Yes’. 
+***   Data Quality Guidance References:
+***   - Recommended high frequency checks: Page 31
+***   - Recommended cleaning steps: Page 37
 
-Value labels HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR 
-1 ‘Rarely (1–2 times)’	 
-2 ‘Sometimes (3–10 times)’	 
-3 ‘Often (more than 10 times)’.	 
+*** ----------------------------------------------------------------------------------------------------
 
-**Cleaning of HHS variables: make sure that is consistency between the filter and the frequency questions** 
+*** Define group labels -  these should match Survey Designer naming conventions
 
-* HHSNoFood and HHSNoFood_FR* 
+VARIABLE LABELS  
+HHSNoFood            "In the past 30 days, was there ever no food to eat of any kind in your house because of lack of resources to get food?"
+HHSNoFood_FR     "How often did this happen in the past 30 days?"
+HHSBedHung          "In the past 30 days, did you or any household member go to sleep at night hungry because there was not enough food?"
+HHSBedHung_FR   "How often did this happen in the past 30 days?"
+HHSNotEat	             "In the past 30 days, did you or any household member go a whole day and night without eating anything because there was not enough food?"
+HHSNotEat_FR        "How often did this happen in the past 30 days?". 
 
-Do if (HHSNoFood_FR >0). 
-Compute HHSNoFood =1. 
-ELSE. 
-End if. 
+*** Define labels
+
+VALUE LABELS HHSNoFood HHSBedHung HHSNotEat 
+   0 "No"
+   1 "Yes". 
+
+VALUE LABELS HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR 
+   1 "Rarely (1-2 times)"
+   2 "Sometimes (3-10 times)" 
+   3 "Often (more than 10 times)".	 
+
+*** Harmonize Data Quality Guidance measures
+*** Check that values for main indocator are between 0-1
+
+FREQUENCIES VARIABLES = HHSNoFood HHSBedHung HHSNotEat
+  /STATISTICS=MINIMUM MAXIMUM
+  /ORDER=ANALYSIS.
+
+*** Clean values falling outside of range
+
+RECODE HHSNoFood HHSBedHung HHSNotEat (LOWEST THRU -1 = SYSMIS).
+RECODE HHSNoFood HHSBedHung HHSNotEat (2 THRU HIGHEST = SYSMIS).
 EXECUTE. 
 
-* HHSBedHung and HHSBedHung_FR* 
+*** Check that values for follow up questions are between 1-3
+    
+FREQUENCIES VARIABLES = HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR
+  /STATISTICS=MINIMUM MAXIMUM
+  /ORDER=ANALYSIS.
 
-Do if (HHSBedHung_FR >0). 
-Compute HHSBedHung =1. 
-ELSE. 
-End if. 
+*** Clean values falling outside of range
+
+RECODE HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR (LOWEST THRU -1 = SYSMIS).
+RECODE HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR (4 THRU HIGHEST = SYSMIS).
 EXECUTE. 
 
-* HHSNotEat and HHSNotEat_FR* 
-
-Do if (HHSNotEat_FR>0). 
-Compute HHSNotEat =1. 
-ELSE. 
-End if. 
-EXECUTE. 
-
-**Create a new variable for each frequency-of-occurrence question: the objective is to recode each frequency-of-occurrence question from three frequency categories (“rarely,” “sometimes,” “often”) into two frequency categories (“rarely or sometimes” and “often”)** 
+*** Create a new variable for each question reflecting the requency-of-occurrence
 
 RECODE HHSNoFood_FR HHSBedHung_FR HHSNotEat_FR (1=1) (2=1) (3=2) (ELSE=0) INTO HHSQ1 HHSQ2 HHSQ3. 
-
-***define variables 
-
- 
-
-Variable labels  
-HHSQ1 	'Was there ever no food to eat in HH?'  
-HHSQ2 	'Did any HH member go sleep hungry?'  
-HHSQ3 	'Did any HH member go whole day without food?'. 
+VARIABLE LABELS
+HHSQ1                    "Was there ever no food to eat in HH?"  
+HHSQ2                    "Did any HH member go sleep hungry?"  
+HHSQ3                    "Did any HH member go whole day without food?". 
 EXECUTE. 
 
- 
-**The values of HHSQ1, HHSQ2, and HHSQ3 are summed for each household to calculate the HHS score** 
+*** Use the three values to calculate the final HHS score (always use + instead of SUM to ensure missing values are not considered)
 
-COMPUTE HHS=HHSQ1 + HHSQ2 + HHSQ3. 
-
-Variable labels HHS 'Household Hunger Score'. 
+COMPUTE HHS = HHSQ1 + HHSQ2 + HHSQ3. 
+VARIABLE LABELS HHS 'Household Hunger Score'. 
 EXECUTE. 
 
-**Each household should have an HHS score between 0 and 6. These values are then used to generate the HHS indicators** 
+*** According to Data Quality Guidance, flag any household reflecting potential Famine conditions.
+*** If any household is flagged, the recommended action is to triangulate against other key food security indicators
+*** Refer to page 31 in the Data Quality Guidance if you are in the data collection phase, or page 37 if you are in the data cleaning phase
+
+COMPUTE HHS_flag = 0.
+IF (HHS GE 5) HHS_flag =  1.
+VARIABLE LABELS HHS_flag "HHS shows potential famine conditions that could be a Data Quality issue if the context does not indicate extreme food insecurity. Triangulation is recommended".
+VALUE LABELS HHS_flag
+    0 "No"
+    1 "Yes".
+EXECUTE.
+
+FREQUENCIES VARIABLES = HHS_flag.
+
+*** To be used for regular reporting
+*** Based on the HHS score, divide the households into three categories
+
+RECODE HHS (0 THRU 1 = 1) (2 THRU 3 = 2) (4 THRU 6 = 3) INTO HHSCat. 
+VARIABLE LABELS HHSCat "Household Hunger Scale categories - for reporting". 
+VALUE LABELS HHSCat
+   1 "Little to no hunger in the household"
+   2 "Moderate hunger in the household"
+   3 "Severe hunger in the household". 
+EXECUTE.
+
+*** Check distribution of final categories
 
 FREQUENCIES VARIABLES=HHS 
   /STATISTICS=MEAN MEDIAN MINIMUM MAXIMUM 
   /ORDER=ANALYSIS. 
 
-**To tabulate the categorical HHS indicator, two different cutoff values (> 1 and > 3) are applied to the HHS scores that were generated in Step 3 above** 
+FREQUENCIES HHSCat.
 
-RECODE HHS (0 thru 1=1) (2 thru 3=2) (4 thru Highest=3) INTO HHSCat. 
-variable labels HHSCat 'Household Hunger Score Categories'. 
-EXECUTE. 
+*** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
- 
-
-***define labels 
-
-Value labels HHSCat  
-
-1 `No or little hunger in the household` 
-2 `Moderate hunger in the household` 
-3 `Severe hunger in the household`. 
-
-
-**Note: to tabulate the categorical HHS indicator for the IPC, using the four IPC cutoff values (0, 1, 2-3, 4 and 5+) are applied to the HHS scores that were generated in Step 3 above** 
-
-RECODE HHSr (0=0) (1=1) (2 thru 3=2) (4=3) (5 thru Highest=4) INTO HHSCatr. 
-variable labels HHSCatr 'Household Hunger Score Categories'. 
-EXECUTE. 
-
-
-***define labels 
-
-Value labels HHSCat_IPC 
-0 No hunger in the household 
-1 little hunger in the household stress 
-2 Moderate hunger in the household crisis 
-3 Severe hunger in the household emergency 
-4 Very severe hunger in the household catastrophe. 
+RECODE HHS (0 = 1) (1 = 2) (2 THRU 3 = 3) (4 = 4) (5 THRU 6 = 5) INTO HHSCat_IPC. 
+VARIABLE LABELS HHSCat_IPC 'Household Hunger Scale categories - for IPC'. 
+VALUE LABELS HHSCat_IPC
+    1 "HHS [0] - IPC Phase 1: No hunger in the household"
+    2 "HHS [1] - IPC Phase 2: Slight hunger in the household" 
+    3 "HHS [2-3] - IPC Phase 3: Moderate hunger in the household"
+    4 "HHS [4] - IPC Phase 4: Severe hunger in the household" 
+    5 "HHS [5-6] - IPC Phase 5: Severe hunger in the household".
+EXECUTE.
 
 FREQUENCIES HHSCat_IPC. 
 
-*****END***** 
+*** ----------------------------------------------------------------------------------------------------
+*** END OF SCRIPT
+*** ----------------------------------------------------------------------------------------------------
