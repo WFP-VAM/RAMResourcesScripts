@@ -13,8 +13,6 @@
 ***   - Recommended high frequency checks: Page 31-32
 ***   - Recommended cleaning steps: Page 38-40
 ***   - Automised data cleaning syntax: Find on the VAM Resource Centre (Food Expenditure Share page)
- ********************************************************************************************************* ODAI - PLEASE ENSURE IT IS UPLOADED TO THIS PAGE
-
 *** ----------------------------------------------------------------------------------------------------
  
 *** Important note: The value of consumed in-kind assistance/gifts must always be considered when calculating the FES - both for VAM and monitoring  
