@@ -13,9 +13,7 @@
 ***   - Recommended usage of constraints and warning messages in coded tool: Page 18 and page 21
 ***   - Recommended high frequency checks: Page 31-32
 ***   - Recommended cleaning steps: Page 38-40
-***   - Automised data cleaning syntax: Find on the VAM Resource Centre (ECMEN page) ********************************************************************************************************* ODAI - PLEASE ENSURE IT IS UPLOADED TO THIS PAGE
-
-*** ----------------------------------------------------------------------------------------------------
+***   - Automised data cleaning syntax: Find on the VAM Resource Centre (ECMEN page) 
 
 *** Note: In the version used for assessment: 
        a) the household economic capacity aggregate should not include the value of consumed in-kind assistance gifts; 
