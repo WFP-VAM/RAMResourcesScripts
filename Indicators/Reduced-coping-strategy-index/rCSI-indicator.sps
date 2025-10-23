@@ -51,7 +51,7 @@ DESCRIPTIVES VARIABLES=rCSI
 *** Clean any impossible FCS values
 
 RECODE rCSI (LOWEST THRU -1 = SYSMIS).
-RECODE rCSI (56 THRU HIGHEST = SYSMIS).
+RECODE rCSI (57 THRU HIGHEST = SYSMIS).
 EXECUTE.
 
 *** Flagging potential Data Quality issues. If any cases reflected here, refer to the Data Quality Guidance note page 31. This can be found on the VAM Ressource Centre, 
