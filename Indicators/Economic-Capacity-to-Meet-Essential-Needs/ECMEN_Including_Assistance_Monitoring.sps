@@ -6,7 +6,7 @@
 ***       Economic Capacity to Meet Essential Needs (ECMEN) - for assessments
 
 
-*** Last Update  : #/#/2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the Economic Capacity to Meet Essential Needs indicator - version including assistance (for monitoring)
 
 ***   Data Quality Guidance References:
