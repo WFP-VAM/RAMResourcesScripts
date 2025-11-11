@@ -6,7 +6,7 @@
 ***                        Livelihood Coping Strategies - Essential Needs (LCS-EN)
 
 
-*** Last Update: Oct 2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the Livelihood Coping Strategies Index
 
 ***   Data Quality Guidance References:
@@ -143,18 +143,18 @@ FREQUENCIES Max_coping_behaviourFS.
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases) - can only be done with the LCS FS indicator, never LCS EN
 
-COMPUTE Max_coping_behaviourFS_IPC = Max_coping_behaviourFS.
-VARIABLE LABELS Max_coping_behaviourFS_IPC "Official IPC Classification for LCS".
-VALUE LABELS Max_coping_behaviourFS_IPC 
+*COMPUTE Max_coping_behaviourFS_IPC = Max_coping_behaviourFS.
+*VARIABLE LABELS Max_coping_behaviourFS_IPC "Official IPC Classification for LCS".
+*VALUE LABELS Max_coping_behaviourFS_IPC 
     1 "LCSI [none] - IPC Phase 1"
     2 "LCSI [stress] - IPC Phase 2"
     3 "LCSI [crisis]  - IPC Phase 3"
     4 "LCSI [emergency] - IPC Phase 4-5".
-EXECUTE.
+*EXECUTE.
 
 *** Check distribution of final categories
 
-FREQUENCIES VARIABLES=Max_coping_behaviourFS_IPC 
+*FREQUENCIES VARIABLES=Max_coping_behaviourFS_IPC 
   /ORDER=ANALYSIS.
 
 *** ----------------------------------------------------------------------------------------------------
