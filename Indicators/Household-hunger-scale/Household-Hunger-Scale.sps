@@ -5,7 +5,7 @@
 ***                                      Household Hunger Scale (HHS)
 
 
-*** Last Update: Oct 2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the Household Hunger Scale
 
 ***   Data Quality Guidance References:
@@ -110,17 +110,17 @@ FREQUENCIES HHSCat.
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
-RECODE HHS (0 = 1) (1 = 2) (2 THRU 3 = 3) (4 = 4) (5 THRU 6 = 5) INTO HHSCat_IPC. 
-VARIABLE LABELS HHSCat_IPC 'Household Hunger Scale categories - for IPC'. 
-VALUE LABELS HHSCat_IPC
+*RECODE HHS (0 = 1) (1 = 2) (2 THRU 3 = 3) (4 = 4) (5 THRU 6 = 5) INTO HHSCat_IPC. 
+*VARIABLE LABELS HHSCat_IPC 'Household Hunger Scale categories - for IPC'. 
+*VALUE LABELS HHSCat_IPC
     1 "HHS [0] - IPC Phase 1: No hunger in the household"
     2 "HHS [1] - IPC Phase 2: Slight hunger in the household" 
     3 "HHS [2-3] - IPC Phase 3: Moderate hunger in the household"
     4 "HHS [4] - IPC Phase 4: Severe hunger in the household" 
     5 "HHS [5-6] - IPC Phase 5: Severe hunger in the household".
-EXECUTE.
+*EXECUTE.
 
-FREQUENCIES HHSCat_IPC. 
+*FREQUENCIES HHSCat_IPC. 
 
 *** ----------------------------------------------------------------------------------------------------
 *** END OF SCRIPT
