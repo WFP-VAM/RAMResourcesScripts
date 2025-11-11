@@ -5,7 +5,7 @@
 ***                                     Household Dietary Diversity Score (HDDS)
 
 
-*** Last Update: Oct 2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the Household Dietary Diversity Score
 
 ***   Data Quality Guidance References:
@@ -165,11 +165,11 @@ FREQUENCIES VARIABLES = HDDS_flag_zero HDDS_flag_low HDDS_flag_high HDDS_flag_ce
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
-IF (HDDS LE 2) HDDSCat_IPC = 3.
-IF (HDDS = 3 OR HDDS = 4) HDDSCat_IPC = 2.
-IF (HDDS GE 5) HDDSCat_IPC = 1.    
-VARIABLE LABELS HDDSCat_IPC 'HDDS categories using the IPC severity scale'.
-VALUE LABELS HDDSCat_IPC 
+*IF (HDDS LE 2) HDDSCat_IPC = 3.
+*IF (HDDS = 3 OR HDDS = 4) HDDSCat_IPC = 2.
+*IF (HDDS GE 5) HDDSCat_IPC = 1.    
+*VARIABLE LABELS HDDSCat_IPC 'HDDS categories using the IPC severity scale'.
+*VALUE LABELS HDDSCat_IPC 
     1 "5-12 food groups (IPC phase 1 to 2)"
     2 "3-4 food groups (IPC phase 3)"
     3 "0-2 food groups (IPC phase 4 to 5)".
@@ -177,7 +177,7 @@ EXECUTE.
 
 *** Check distribution of final categories
 
-FREQUENCIES VARIABLES=HDDSCat_IPC
+*FREQUENCIES VARIABLES=HDDSCat_IPC
   /ORDER=ANALYSIS.
 
 *** ----------------------------------------------------------------------------------------------------
