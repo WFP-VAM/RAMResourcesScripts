@@ -2,10 +2,10 @@
 *** ----------------------------------------------------------------------------------------------------
 
 ***	                        WFP Standardized Scripts
-***                                     reduced Coping Strategies Index (rCSI)
+***                   reduced Coping Strategies Index (rCSI)
 
 
-*** Last Update: Oct 2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the reduced Coping Strategies Index
 
 ***   Data Quality Guidance References:
@@ -87,17 +87,17 @@ FREQUENCIES VARIABLES=rCSI
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
-RECODE rCSI (LOWEST THRU 3 = 1) (4 THRU 18 = 2) (19 THRU HIGHEST = 3) INTO rCSI_IPC.
-VARIABLE LABELS rCSI_IPC "Official IPC Classification for rCSI".
-VALUE LABELS rCSI_IPC
+*RECODE rCSI (LOWEST THRU 3 = 1) (4 THRU 18 = 2) (19 THRU HIGHEST = 3) INTO rCSI_IPC.
+*VARIABLE LABELS rCSI_IPC "Official IPC Classification for rCSI".
+*VALUE LABELS rCSI_IPC
     1 "rCSI [0-3] - IPC Phase 1"
     2 "rCSI [4-18] - IPC Phase 2"
     3 "rCSI [>=19] - IPC Phase 3-5".
-EXECUTE.
+*EXECUTE.
 
 *** Check distribution of final categories
 
-FREQUENCIES VARIABLES=rCSI_IPC
+*FREQUENCIES VARIABLES=rCSI_IPC
   /ORDER=ANALYSIS.
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases) - indicating high values (potential Phase 4)
