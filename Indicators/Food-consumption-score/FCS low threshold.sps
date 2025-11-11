@@ -6,7 +6,7 @@
 ***                           Food Consumption Score (FCS), 21-35 thresholds
 
 
-*** Last Update: Oct 2025
+*** Last Update: Nov 2025
 *** Purpose: This script calculates the Food Consumption Score (FCS) using standard methodology with low thresholds (21-35) for populations with low sugar/oil consumption
 *** For setting the right threshold, please refer to the FCS technical guidance on the VAM Resource Centre: https://resource-centre.document360.io/docs/food-consumption-score
 
@@ -105,22 +105,23 @@ FREQUENCIES VARIABLES=FCSStap FCSPulse FCSDairy FCSPr FCSVeg FCSFruit FCSFat FCS
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
-RECODE FCS (LOWEST THRU 21 = 3) (21.5 THRU 35 = 2) (35.5 THRU HIGHEST = 1) INTO FCSCat21IPC.
-VARIABLE LABELS FCSCat21IPC "Official IPC Classification for FCS - low thresholds".
-VALUE LABELS FCSCat21IPC 
+*RECODE FCS (LOWEST THRU 21 = 3) (21.5 THRU 35 = 2) (35.5 THRU HIGHEST = 1) INTO FCSCat21IPC.
+*VARIABLE LABELS FCSCat21IPC "Official IPC Classification for FCS - low thresholds".
+*VALUE LABELS FCSCat21IPC 
     1 "Acceptable - IPC Phase 1-2" 
     2 "Borderline - IPC Phase 3" 
     3 "Poor - IPC Phase 4-5".
-EXECUTE.
+*EXECUTE.
 
 *** Check distribution of final categories
 
-FREQUENCIES VARIABLES=FCSCat21IPC
+*FREQUENCIES VARIABLES=FCSCat21IPC
   /ORDER=ANALYSIS.
 
 *** ----------------------------------------------------------------------------------------------------
 *** END OF SCRIPT
 *** ----------------------------------------------------------------------------------------------------
+
 
 
 
