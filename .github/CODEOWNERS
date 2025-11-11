@@ -1,0 +1,3 @@
+# This file represent approved Codeowners that reflect internal WFP policies on analytical methodologies.
+
+*.sps @reviewers-assessment @apprd
