@@ -1,9 +1,17 @@
-﻿* Encoding: UTF-8.
+﻿********************************************************************************
+*                          WFP Standardized Scripts
+*                          Security Challenges Indicator
+********************************************************************************
 
-* define variable and value labels
+* This script processes the security challenges indicator by assessing 
+* whether households have experienced any security challenge related to WFP assistance.
 
-Variable labels HHAsstSecurity ‘Have you or any of your household members experienced any security challenge related to WFP assistance?’.
+* Define variable and value labels.
 
-Value labels HHAsstSecurity 1 'Yes' 0  'No '.
+VARIABLE LABELS HHAsstSecurity "Have you or any of your household members experienced any security challenge related to WFP assistance?".
+VALUE LABELS HHAsstSecurity 1 'Yes' 0 'No' 888 'Don\'t know'.
 
-freq HHAsstSecurity.
+* Display frequency of HHAsstSecurity.
+FREQUENCIES VARIABLES = HHAsstSecurity.
+
+* End of Scripts.
