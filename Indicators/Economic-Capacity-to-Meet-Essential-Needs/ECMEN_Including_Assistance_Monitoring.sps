@@ -3,7 +3,7 @@
 *** ----------------------------------------------------------------------------------------------------
 
 ***	                        WFP Standardized Scripts
-***       Economic Capacity to Meet Essential Needs (ECMEN) - for assessments
+***       Economic Capacity to Meet Essential Needs (ECMEN) - for monitoring
 
 
 *** Last Update: Nov 2025
