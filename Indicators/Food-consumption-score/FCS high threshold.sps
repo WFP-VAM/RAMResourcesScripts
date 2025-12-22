@@ -106,12 +106,12 @@ FREQUENCIES VARIABLES=FCSStap FCSPulse FCSDairy FCSPr FCSVeg FCSFruit FCSFat FCS
 
 *** Optional: Compute the same variable to be used directly for IPC analysis (referring to IPC phases)
 
-*RECODE FCS (LOWEST THRU 28 = 1) (28.5 THRU 42 = 2) (42.5 THRU HIGHEST = 3) INTO FCSCat28IPC.
+*RECODE FCS (LOWEST THRU 28 = 3) (28.5 THRU 42 = 2) (42.5 THRU HIGHEST = 1) INTO FCSCat28IPC.
 *VARIABLE LABELS FCSCat28IPC "Official IPC Classification for FCS - high thresholds".
 *VALUE LABELS FCSCat28IPC 
-    1 "Poor - IPC Phase 4-5" 
+    1 "Acceptable - IPC Phase 1-2" 
     2 "Borderline - IPC Phase 3" 
-    3 "Acceptable - IPC Phase 1-2".
+    3 "Poor - IPC Phase 4-5".
 *EXECUTE.    
 
 *** Check distribution of final categories
