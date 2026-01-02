@@ -81,7 +81,7 @@ FREQUENCIES VARIABLES=FCS_flag_low FCS_flag_high
 
 *** Use this when analyzing a country with HIGH consumption of sugar and oil – thresholds 28-42
 
-RECODE FCS (LOWEST THRU 28 = 3) (28.5 THRU 42 = 2) (42.5 THRU HIGHEST = 1) INTO FCSCat28.
+RECODE FCS (LOWEST THRU 28 = 1) (28.5 THRU 42 = 2) (42.5 THRU HIGHEST = 3) INTO FCSCat28.
 VARIABLE LABELS FCSCat28 "FCS Categories: High thresholds  - for IPC".
 EXECUTE.
 
