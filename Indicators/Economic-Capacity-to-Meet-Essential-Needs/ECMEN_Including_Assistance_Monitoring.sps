@@ -291,7 +291,7 @@ VARIABLE LABELS PCExp_ECMEN 'Household Economic Capacity per capita - monthly'.
 
 *** Define variable indicating if per capita Household Economic Capacity is equal or greater than MEB
 
-IF NOT(SYSMIS(PCExp_ECMEN) AND SYSMIS(MEB)) ECMEN_inclAsst=PCExp_ECMEN > MEB. /* Make sure to rename MEB variable as appropriate.
+IF NOT(SYSMIS(PCExp_ECMEN) AND SYSMIS(MEB)) ECMEN_inclAsst=PCExp_ECMEN >= MEB. /* Make sure to rename MEB variable as appropriate.
 EXECUTE.
 
 VARIABLE LABELS ECMEN_inclAsst  'Economic capacity to meet essential needs - including assistance'.
@@ -308,7 +308,7 @@ FREQUENCIES ECMEN_inclAsst.
 
 *** Define variable indicating if per capita Household Economic Capacity is equal or greater than SMEB.
 
-IF NOT(SYSMIS(PCExp_ECMEN) AND SYSMIS(SMEB)) ECMEN_inclAsst_SMEB=PCExp_ECMEN > SMEB. /* Make sure to rename SMEB variable as appropriate.
+IF NOT(SYSMIS(PCExp_ECMEN) AND SYSMIS(SMEB)) ECMEN_inclAsst_SMEB=PCExp_ECMEN >= SMEB. /* Make sure to rename SMEB variable as appropriate.
 EXECUTE.
 
 VARIABLE LABELS ECMEN_inclAsst_SMEB  'Economic capacity to meet essential needs - SMEB - including assistance'.
