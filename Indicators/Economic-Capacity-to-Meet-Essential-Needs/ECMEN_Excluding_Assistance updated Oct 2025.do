@@ -474,7 +474,7 @@ label var PCExp_ECMEN "Household Economic Capacity per capita - monthly"
 *--------------------------------------------------------------------
 gen ECMEN_exclAsst = .    // initialize as missing
 
-replace ECMEN_exclAsst = (PCExp_ECMEN > MEB) if !missing(PCExp_ECMEN) | !missing(MEB)
+replace ECMEN_exclAsst = (PCExp_ECMEN >= MEB) if !missing(PCExp_ECMEN) | !missing(MEB)
 
 label var ECMEN_exclAsst "Economic capacity to meet essential needs - excluding assistance"
 
@@ -493,7 +493,7 @@ tabulate ECMEN_exclAsst
 *--------------------------------------------------------------------
 gen ECMEN_exclAsst_SMEB = .   // start as missing * Compute only if NOT (both are missing)
 
-replace ECMEN_exclAsst_SMEB = (PCExp_ECMEN > SMEB) if !missing(PCExp_ECMEN) | !missing(SMEB)
+replace ECMEN_exclAsst_SMEB = (PCExp_ECMEN >= SMEB) if !missing(PCExp_ECMEN) | !missing(SMEB)
 
 label var ECMEN_exclAsst_SMEB "Economic capacity to meet essential needs - SMEB - excluding assistance"
 
