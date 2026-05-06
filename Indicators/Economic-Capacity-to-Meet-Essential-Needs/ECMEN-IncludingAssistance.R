@@ -131,7 +131,7 @@ df <- df %>%
   mutate(
     ECMEN_inclAsst = if_else(
       !is.na(PCExp_ECMEN) & !is.na(.data[[meb_var]]),
-      as.integer(PCExp_ECMEN > .data[[meb_var]]),
+      as.integer(PCExp_ECMEN >= .data[[meb_var]]),
       NA_integer_
     )
   )
@@ -155,7 +155,7 @@ if (smeb_var %in% names(df)) {
     mutate(
       ECMEN_inclAsst_SMEB = if_else(
         !is.na(PCExp_ECMEN) & !is.na(.data[[smeb_var]]),
-        as.integer(PCExp_ECMEN > .data[[smeb_var]]),
+        as.integer(PCExp_ECMEN >= .data[[smeb_var]]),
         NA_integer_
       )
     )
