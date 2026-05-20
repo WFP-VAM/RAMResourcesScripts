@@ -1,34 +1,42 @@
-﻿* Encoding: UTF-8.
+﻿********************************************************************************
+*                          WFP Standardized Scripts
+*                         NUT8 Adherence Indicator
+********************************************************************************
 
-*can only download repeat csv data as zip file from moda with group names - will update this code to remove group names
-*rename to remove group names - because of the variable length SPSS truncates name
+* Note: This syntax file processes the NUT8 adherence indicator by assessing 
+* whether participants received an adequate number of distributions as per 
+* program requirements.
 
-RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgCard = PNutProgCard).
+* Can only download repeat CSV data as a zip file from MODA with group names.
+* Will update this code to remove group names.
+
+* Rename to remove group names.
+RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgCard      = PNutProgCard).
 RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgShouldN_A = PNutProgShouldNbrCard).
-RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgDidNbrC = PNutProgDidNbrCard).
-RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgShouldN = PNutProgShouldNbrNoCard).
-RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgDidNbrN = PNutProgDidNbrNoCard).
+RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgDidNbrC   = PNutProgDidNbrCard).
+RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgShouldN   = PNutProgShouldNbrNoCard).
+RENAME VARIABLES (Nutrition_moduleNutProg_submoduleRepeatNutProgPNutProgDidNbrN   = PNutProgDidNbrNoCard).
 
-* define variable and value labels
+* Define variable and value labels.
+VARIABLE LABELS PNutProgCard             "May I see participant's program participation card?".
+VARIABLE LABELS PNutProgShouldNbrCard    "Number of distributions entitled to - measured with participation card".
+VARIABLE LABELS PNutProgDidNbrCard       "Number of distributions received - measured with participation card".
+VARIABLE LABELS PNutProgShouldNbrNoCard  "Number of distributions entitled to - measured without participation card".
+VARIABLE LABELS PNutProgDidNbrNoCard     "Number of distributions received - measured without participation card".
 
-Variable labels PNutProgCard "May I see participant's program participation card?".
-Variable labels PNutProgShouldNbrCard 'number of distributions entitled to - measured with participation card'.
-Variable labels PNutProgDidNbrCard 'number of distributions received - measured with participation card'.
-Variable labels PNutProgShouldNbrNoCard 'number of distributions entitled to - measured without participation card'.
-Variable labels PNutProgDidNbrNoCard 'number of distributions received - measured without participation card'.
+VALUE LABELS PNutProgCard 1 'Yes' 0 'No'.
 
-Value labels PNutProgCard 1 'Yes' 0  'No '.
+* Create variable which classifies if participant received 66% or more of planned distributions.
+DO IF ((PNutProgCard = 1) & ((PNutProgDidNbrCard / PNutProgShouldNbrCard) >= .66)) OR ((PNutProgCard = 0) & ((PNutProgDidNbrNoCard / PNutProgShouldNbrNoCard) >= .66)).
+    COMPUTE NutProgRecAdequate = 1.
+ELSE.
+    COMPUTE NutProgRecAdequate = 0.
+END IF.
 
-*create variable which classifies if participant received 66% or more of planned distributions 
+VARIABLE LABELS NutProgRecAdequate "Participant received adequate number of distributions?".
+VALUE LABELS NutProgRecAdequate 1 'Yes' 0 'No'.
 
-do if ((PNutProgCard = 1) & ((PNutProgDidNbrCard / PNutProgShouldNbrCard) >= .66)) OR ((PNutProgCard = 0) & ((PNutProgDidNbrNoCard / PNutProgShouldNbrNoCard) >= .66)) . 
-compute NutProgRecAdequate = 1.
-Else.
-Compute NutProgRecAdequate = 0.
-End if.
+* Frequency table for NutProgRecAdequate.
+FREQUENCIES VARIABLES=NutProgRecAdequate.
 
-Variable labels PNutProgDidNbrNoCard "Participant recieved adequate number of distributions?".
-Value labels NutProgRecAdequate 1 'Yes' 0  'No '.
-
-freq NutProgRecAdequate.
-
+* End of Scripts.
