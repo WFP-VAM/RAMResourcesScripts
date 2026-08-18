@@ -4,7 +4,7 @@
 ***                         Food Consumption Score (FCS), 21-35 thresholds
 
 
-*** Last Update: Oct 2025
+*** Last Update: August 2026
 *** Purpose: This script calculates the Food Consumption Score (FCS) using standard methodology with HIGH thresholds (28-42) for sugar/oil consuming populations.
 *** For setting the right threshold, please refer to the FCS technical guidance on the VAM Resource Centre: https://resource-centre.document360.io/docs/food-consumption-score
 
