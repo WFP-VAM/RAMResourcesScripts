@@ -9,7 +9,15 @@ library(expss)
 library(readr)
 
 # 2. Load your dataset.
-data <- readr::read_csv("HFA_Survey_Data.csv")
+# IMPORTANT:
+# Replace the example below with the full path to your csv file.
+# Use forward slashes "/" in the path.
+
+# Example (do NOT copy as-is):
+# data <- read_csv("C:/Users/name.lastname/Documents/YourFolder/HFA_Survey_Data.csv")
+
+# Write your own path and file name here:
+data <- read_csv("C:/.../.../HFA_Survey_Data.csv")
 
 # 3. Clean missing values.
 data[] <- lapply(data, function(x) {
