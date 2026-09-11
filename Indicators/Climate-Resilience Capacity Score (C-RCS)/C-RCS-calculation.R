@@ -227,16 +227,20 @@ crcs_table_wide <- crcs_table_adj %>%
   tidyr::pivot_wider(
     names_from  = category,
     values_from = percent_round,
-    values_fill = 0
+    values_fill = list(percent_round = 0)
+  ) %>%
+  dplyr::mutate(
+    Low    = if ("Low"    %in% names(.)) Low    else 0,
+    Medium = if ("Medium" %in% names(.)) Medium else 0,
+    High   = if ("High"   %in% names(.)) High   else 0
   ) %>%
   dplyr::mutate(
     Low    = paste0(Low, "%"),
     Medium = paste0(Medium, "%"),
     High   = paste0(High, "%")
   ) %>%
+  dplyr::select(component, Low, Medium, High) %>%
   dplyr::arrange(component)
-
-crcs_table_wide
 
 # 9. Print all outputs at once for easier interpretation.
 sample_size
@@ -244,4 +248,3 @@ shock_type_dist
 climate_shocks
 sei_shocks
 crcs_table_wide
-   
