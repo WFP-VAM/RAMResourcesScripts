@@ -1,5 +1,5 @@
 * CARI-ECMEN complete-case validation using synthetic records only.
-* Expected result: 10 passed cases and zero failed cases.
+* Expected result: 11 passed cases and zero failed cases.
 
 clear all
 set more off
@@ -15,6 +15,7 @@ input str10 case_id FCSCat21 rCSI Max_coping_behaviourFS ECMEN_exclAsst ECMEN_ex
 "ECMEN-08" 3 0 1 . 1 .
 "ECMEN-09" 3 0 1 0 . .
 "ECMEN-10" . . . . . .
+"ECMEN-11" 3 0 1 1 . .
 end
 
 * Candidate calculation section.
@@ -39,7 +40,7 @@ label values ECMEN_class_4pt ECMEN_class_4pt_lbl
 egen Mean_coping_capacity_ECMEN = rowmean(Max_coping_behaviourFS ECMEN_class_4pt)
 egen CARI_unrounded_ECMEN = rowmean(FCS_4pt Mean_coping_capacity_ECMEN)
 gen CARI_ECMEN = round(CARI_unrounded_ECMEN)
-replace CARI_ECMEN = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_class_4pt)
+replace CARI_ECMEN = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_exclAsst, ECMEN_exclAsst_SMEB, ECMEN_class_4pt)
 
 * Test assertion: missing matches missing, or calculated value matches expected value.
 gen byte TEST_PASS = (missing(expected_CARI_ECMEN) & missing(CARI_ECMEN)) | ///

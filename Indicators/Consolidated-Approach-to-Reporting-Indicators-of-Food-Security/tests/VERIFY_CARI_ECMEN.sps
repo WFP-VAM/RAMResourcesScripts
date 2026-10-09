@@ -1,5 +1,5 @@
 * CARI-ECMEN complete-case validation using synthetic records only.
-* Expected result: 10 passed cases and zero failed cases.
+* Expected result: 11 passed cases and zero failed cases.
 
 NEW FILE.
 DATA LIST FREE /
@@ -16,6 +16,7 @@ BEGIN DATA
 "ECMEN-08" 3 0 1 -999 1 -999
 "ECMEN-09" 3 0 1 0 -999 -999
 "ECMEN-10" -999 -999 -999 -999 -999 -999
+"ECMEN-11" 3 0 1 1 -999 -999
 END DATA.
 DATASET NAME CARI_ECMEN_VALIDATION.
 
@@ -44,7 +45,7 @@ VALUE LABELS ECMEN_class_4pt 1 'Least vulnerable' 3 'Vulnerable' 4 'Highly vulne
 COMPUTE Mean_coping_capacity_ECMEN = MEAN(Max_coping_behaviourFS, ECMEN_class_4pt).
 COMPUTE CARI_unrounded_ECMEN = MEAN(FCS_4pt, Mean_coping_capacity_ECMEN).
 COMPUTE CARI_ECMEN = RND(CARI_unrounded_ECMEN).
-IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_class_4pt) > 0) CARI_ECMEN = $SYSMIS.
+IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_exclAsst, ECMEN_exclAsst_SMEB, ECMEN_class_4pt) > 0) CARI_ECMEN = $SYSMIS.
 EXECUTE.
 
 * Test assertion: missing matches missing, or calculated value matches expected value.

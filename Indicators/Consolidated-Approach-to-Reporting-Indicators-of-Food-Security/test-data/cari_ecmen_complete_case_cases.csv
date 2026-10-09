@@ -9,3 +9,4 @@
 "ECMEN-08","3","0","1","","1","1","","ECMEN cannot be classified: MEB result missing"
 "ECMEN-09","3","0","1","0","","1","","ECMEN cannot be classified: SMEB result missing"
 "ECMEN-10","","","","","","","","All required components missing"
+"ECMEN-11","3","0","1","1","","1","","Meets MEB but SMEB result is missing"

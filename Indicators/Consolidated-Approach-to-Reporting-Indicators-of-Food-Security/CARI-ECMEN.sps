@@ -69,8 +69,8 @@ Compute Mean_coping_capacity_ECMEN = MEAN (Max_coping_behaviourFS, ECMEN_class_4
 Compute CARI_unrounded_ECMEN = MEAN (FCS_4pt, Mean_coping_capacity_ECMEN). 
 Compute CARI_ECMEN = RND (CARI_unrounded_ECMEN).  
 
-* Apply the complete-case rule: CARI-ECMEN requires FCS, rCSI, LCS-FS and ECMEN.
-IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_class_4pt) > 0) CARI_ECMEN = $SYSMIS.
+* Apply the complete-case rule: CARI-ECMEN requires FCS, rCSI, LCS-FS and both ECMEN threshold results.
+IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_exclAsst, ECMEN_exclAsst_SMEB, ECMEN_class_4pt) > 0) CARI_ECMEN = $SYSMIS.
 
 Variable labels CARI_ECMEN 'CARI classification (using ECMEN)'.
 EXECUTE. 
