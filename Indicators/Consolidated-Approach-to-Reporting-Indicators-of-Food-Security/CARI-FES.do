@@ -45,8 +45,8 @@ egen Mean_coping_capacity_FES = rowmean(Max_coping_behaviourFS Foodexp_4pt)
 egen CARI_unrounded_FES = rowmean(FCS_4pt Mean_coping_capacity_FES)
 gen CARI_FES = round(CARI_unrounded_FES)
 
-* Apply the complete-case rule: CARI-FES requires FCS, rCSI, LCS-FS and FES.
-replace CARI_FES = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, Foodexp_4pt)
+* Apply the complete-case rule: CARI-FES requires FCS, rCSI, LCS-FS, FES and its 4-point classification.
+replace CARI_FES = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, FES, Foodexp_4pt)
 label variable CARI_FES "CARI classification (using FES)"
 label define CARI_FES_lbl 1 "Food secure" 2 "Marginally food secure" 3 "Moderately food insecure" 4 "Severely food insecure"
 label values CARI_FES CARI_FES_lbl

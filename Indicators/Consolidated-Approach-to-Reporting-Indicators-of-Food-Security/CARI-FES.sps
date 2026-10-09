@@ -52,8 +52,8 @@ Compute Mean_coping_capacity_FES = MEAN(Max_coping_behaviourFS, Foodexp_4pt).
 Compute CARI_unrounded_FES = MEAN(FCS_4pt, Mean_coping_capacity_FES). 
 Compute CARI_FES = RND(CARI_unrounded_FES).
 
-* Apply the complete-case rule: CARI-FES requires FCS, rCSI, LCS-FS and FES.
-IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, Foodexp_4pt) > 0) CARI_FES = $SYSMIS.
+* Apply the complete-case rule: CARI-FES requires FCS, rCSI, LCS-FS, FES and its 4-point classification.
+IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, FES, Foodexp_4pt) > 0) CARI_FES = $SYSMIS.
 EXECUTE. 
 
 Value labels CARI_FES 1 'Food secure'   2 'Marginally food secure'   3 'Moderately food insecure'   4 'Severely food insecure'.

@@ -1,5 +1,5 @@
 * CARI-FES complete-case validation using synthetic records only.
-* Expected result: 10 passed cases and zero failed cases.
+* Expected result: 12 passed cases and zero failed cases.
 
 NEW FILE.
 DATA LIST FREE /
@@ -16,6 +16,8 @@ BEGIN DATA
 "FES-08" 3 0 1 -999 -999 -999
 "FES-09" 3 0 -999 -999 -999 -999
 "FES-10" -999 -999 -999 -999 -999 -999
+"FES-11" 3 0 1 -999 1 -999
+"FES-12" 3 0 1 .8 -999 -999
 END DATA.
 DATASET NAME CARI_FES_VALIDATION.
 
@@ -37,7 +39,7 @@ VALUE LABELS FCS_4pt 1 'Acceptable' 2 'Acceptable and rCSI>=4' 3 'Borderline' 4 
 COMPUTE Mean_coping_capacity_FES = MEAN(Max_coping_behaviourFS, Foodexp_4pt).
 COMPUTE CARI_unrounded_FES = MEAN(FCS_4pt, Mean_coping_capacity_FES).
 COMPUTE CARI_FES = RND(CARI_unrounded_FES).
-IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, Foodexp_4pt) > 0) CARI_FES = $SYSMIS.
+IF (NMISS(FCS_4pt, rCSI, Max_coping_behaviourFS, FES, Foodexp_4pt) > 0) CARI_FES = $SYSMIS.
 EXECUTE.
 
 * Test assertion: missing matches missing, or calculated value matches expected value.
@@ -48,7 +50,7 @@ FORMATS TEST_PASS (F1.0) CARI_FES expected_CARI_FES (F2.0).
 EXECUTE.
 
 TITLE 'CARI-FES complete-case validation: all cases'.
-LIST VARIABLES=case_id FCSCat21 rCSI Max_coping_behaviourFS Foodexp_4pt expected_CARI_FES CARI_FES TEST_PASS.
+LIST VARIABLES=case_id FCSCat21 rCSI Max_coping_behaviourFS FES Foodexp_4pt expected_CARI_FES CARI_FES TEST_PASS.
 FREQUENCIES VARIABLES=TEST_PASS.
 
 TITLE 'CARI-FES complete-case validation: failures only (expected zero cases)'.

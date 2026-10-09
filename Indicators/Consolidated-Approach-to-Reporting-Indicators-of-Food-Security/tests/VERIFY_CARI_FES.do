@@ -1,5 +1,5 @@
 * CARI-FES complete-case validation using synthetic records only.
-* Expected result: 10 passed cases and zero failed cases.
+* Expected result: 12 passed cases and zero failed cases.
 
 clear all
 set more off
@@ -15,6 +15,8 @@ input str8 case_id FCSCat21 rCSI Max_coping_behaviourFS FES Foodexp_4pt expected
 "FES-08" 3 0 1 . . .
 "FES-09" 3 0 . . . .
 "FES-10" . . . . . .
+"FES-11" 3 0 1 . 1 .
+"FES-12" 3 0 1 .8 . .
 end
 
 * Candidate calculation section.
@@ -30,7 +32,7 @@ label values FCS_4pt FCS_4pt_lbl
 egen Mean_coping_capacity_FES = rowmean(Max_coping_behaviourFS Foodexp_4pt)
 egen CARI_unrounded_FES = rowmean(FCS_4pt Mean_coping_capacity_FES)
 gen CARI_FES = round(CARI_unrounded_FES)
-replace CARI_FES = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, Foodexp_4pt)
+replace CARI_FES = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, FES, Foodexp_4pt)
 
 * Test assertion: missing matches missing, or calculated value matches expected value.
 gen byte TEST_PASS = (missing(expected_CARI_FES) & missing(CARI_FES)) | ///
@@ -39,7 +41,7 @@ label define TEST_PASS_lbl 0 "Failed" 1 "Passed"
 label values TEST_PASS TEST_PASS_lbl
 
 noi display "CARI-FES complete-case validation: all cases"
-list case_id FCSCat21 rCSI Max_coping_behaviourFS Foodexp_4pt expected_CARI_FES CARI_FES TEST_PASS, noobs abbreviate(24)
+list case_id FCSCat21 rCSI Max_coping_behaviourFS FES Foodexp_4pt expected_CARI_FES CARI_FES TEST_PASS, noobs abbreviate(24)
 tabulate TEST_PASS, missing
 
 count if TEST_PASS == 0
