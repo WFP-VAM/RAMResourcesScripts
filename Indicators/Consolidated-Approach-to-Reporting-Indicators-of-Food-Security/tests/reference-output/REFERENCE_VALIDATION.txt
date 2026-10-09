@@ -1,0 +1,9 @@
+CARI-ECMEN deterministic reference validation
+Date: 2026-10-09
+Cases executed: 11
+Cases passed: 11
+Cases failed: 0
+Result: ALL REFERENCE VALIDATION CASES PASSED
+
+This output verifies the calculation and complete-case logic against the synthetic expected results.
+It is not a substitute for rerunning the expanded cases in licensed SPSS and Stata.

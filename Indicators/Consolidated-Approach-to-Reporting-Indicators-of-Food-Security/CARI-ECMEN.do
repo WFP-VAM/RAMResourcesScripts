@@ -61,6 +61,9 @@ label values ECMEN_class_4pt ECMEN_class_4pt_lbl
 egen Mean_coping_capacity_ECMEN = rowmean(Max_coping_behaviourFS ECMEN_class_4pt)
 egen CARI_unrounded_ECMEN = rowmean(FCS_4pt Mean_coping_capacity_ECMEN)
 gen CARI_ECMEN = round(CARI_unrounded_ECMEN)
+
+* Apply the complete-case rule: CARI-ECMEN requires FCS, rCSI, LCS-FS and both ECMEN threshold results.
+replace CARI_ECMEN = . if missing(FCS_4pt, rCSI, Max_coping_behaviourFS, ECMEN_exclAsst, ECMEN_exclAsst_SMEB, ECMEN_class_4pt)
 label variable CARI_ECMEN "CARI classification (using ECMEN)"
 label define CARI_ECMEN_lbl 1 "Food secure" 2 "Marginally food secure" 3 "Moderately food insecure" 4 "Severely food insecure"
 label values CARI_ECMEN CARI_ECMEN_lbl
