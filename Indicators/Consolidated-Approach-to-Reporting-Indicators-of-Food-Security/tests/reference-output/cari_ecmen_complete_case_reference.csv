@@ -1,0 +1,12 @@
+case_id,original_result,expected_original,candidate_result,expected_candidate,test_pass,case_description
+ECMEN-01,1,1,1,1,TRUE,Complete: meets MEB
+ECMEN-02,2,2,2,2,TRUE,Complete: meets SMEB only
+ECMEN-03,3,3,3,3,TRUE,Complete: meets neither MEB nor SMEB
+ECMEN-04,4,4,4,4,TRUE,Complete: severely food insecure
+ECMEN-05,1,1,,,TRUE,Missing FCS classification
+ECMEN-06,1,1,,,TRUE,Missing rCSI
+ECMEN-07,2,2,,,TRUE,Missing LCS-FS
+ECMEN-08,1,1,,,TRUE,ECMEN cannot be classified: MEB result missing
+ECMEN-09,1,1,,,TRUE,ECMEN cannot be classified: SMEB result missing
+ECMEN-10,,,,,TRUE,All required components missing
+ECMEN-11,1,1,,,TRUE,Meets MEB but SMEB result is missing
